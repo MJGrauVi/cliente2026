@@ -1,0 +1,20 @@
+"use strict";
+
+// Función para calcular la potencia usando while
+export const calcularPotencia = (base, exponente) => {
+  // Comprobación de parámetros
+  if (!Number.isInteger(base) || !Number.isInteger(exponente)) {
+    console.log("⚠️ Introduce un valor correcto (números enteros).");
+    return;
+  }
+
+  let resultado = 1;
+  let contador = 0;
+
+  while (contador < exponente) {
+    resultado *= base;
+    contador++;
+  }
+
+  return resultado;
+};
