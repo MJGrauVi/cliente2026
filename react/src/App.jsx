@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Contenedor from "./components/Contenedor.jsx";
+import Pelicula from "./components/Pelicula.jsx";
+import Interprete from "./components/Interprete.jsx/";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <Contenedor>
+        <Pelicula
+          titulo="Sisu"
+          director="Jalmari Helander"
+          cartel="https://tse3.mm.bing.net/th/id/OIP.zG3sRXu9Aia77F8VIuYKNwHaFj?rs=1&pid=ImgDetMain&o=7&rm=3"
+        >
+          En los últimos días de la Segunda Guerra Mundial, un minero encuentra
+          oro y lucha contra un grupo de nazis para conservarlo.
+        </Pelicula>
 
-export default App
+        <Interprete
+          nombre="Jorma Tommila"
+          foto="https://healthyceleb.com/wp-content/uploads/2023/05/Jorma-Tommila-as-seen-in-an-Instagram-Post-in-March-2019-2.jpg"
+        >
+          Actor principal de la película, conocido por su intensidad
+          interpretativa.
+        </Interprete>
+        <Interprete
+          nombre="Jorma Tommila"
+          foto="https://healthyceleb.com/wp-content/uploads/2023/05/Jorma-Tommila-as-seen-in-an-Instagram-Post-in-March-2019-2.jpg"
+        >
+          Actor principal de la película, conocido por su intensidad
+          interpretativa.
+        </Interprete>
+        <Interprete
+          nombre="Jorma Tommila"
+          foto="https://healthyceleb.com/wp-content/uploads/2023/05/Jorma-Tommila-as-seen-in-an-Instagram-Post-in-March-2019-2.jpg"
+        >
+          Actor principal de la película, conocido por su intensidad
+          interpretativa.
+        </Interprete>
+      </Contenedor>
+    </div>
+  );
+};
+
+export default App;
