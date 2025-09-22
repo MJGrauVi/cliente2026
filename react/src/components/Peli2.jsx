@@ -2,7 +2,7 @@ import React from "react";
 import Interprete from "./Interprete.jsx";
 import "./Pelicula.css";
 
-const Pelicula = (props) => {
+const Peli2 = (props) => {
   return (
     <div className="pelicula-pelicula">
       <h1 className="pelicula-h1-titulo">{props.titulo}</h1>
@@ -14,4 +14,4 @@ const Pelicula = (props) => {
   );
 };
 
-export default Pelicula;
+export default Peli2;
