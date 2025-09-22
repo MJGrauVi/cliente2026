@@ -3,6 +3,7 @@ import Contenedor from "./components/Contenedor.jsx";
 import Pelicula from "./components/Pelicula.jsx";
 import Interprete from "./components/Interprete.jsx/";
 
+
 const App = () => {
   return (
     <div>
@@ -38,6 +39,7 @@ const App = () => {
           Actriz, desarrolla el papel de Aino en esta película, conocido por su
           intensidad interpretativa.
         </Interprete>
+      
       </Contenedor>
     </div>
   );

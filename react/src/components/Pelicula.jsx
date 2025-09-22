@@ -1,5 +1,4 @@
 import React from "react";
-import Interprete from "./Interprete.jsx";
 import "./Pelicula.css";
 
 const Pelicula = (props) => {
