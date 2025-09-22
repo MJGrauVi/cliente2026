@@ -20,22 +20,23 @@ const App = () => {
           nombre="Jorma Tommila"
           foto="https://healthyceleb.com/wp-content/uploads/2023/05/Jorma-Tommila-as-seen-in-an-Instagram-Post-in-March-2019-2.jpg"
         >
-          Actor principal de la película, conocido por su intensidad
-          interpretativa.
+          Actor principal de la película desarrolla el papel de Aatami, conocido
+          por su intensidad interpretativa.
         </Interprete>
         <Interprete
-          nombre="Jorma Tommila"
-          foto="https://healthyceleb.com/wp-content/uploads/2023/05/Jorma-Tommila-as-seen-in-an-Instagram-Post-in-March-2019-2.jpg"
+          nombre="Aksel Hennie"
+          foto="https://es.web.img3.acsta.net/r_1024_576/pictures/14/08/21/16/35/073768.jpg"
         >
-          Actor principal de la película, conocido por su intensidad
-          interpretativa.
+          Actor secundario es esta película. Es más conocido a nivel
+          internacional por su rol en la película de Ridley Scott de 2015 The
+          Martian.
         </Interprete>
         <Interprete
-          nombre="Jorma Tommila"
-          foto="https://healthyceleb.com/wp-content/uploads/2023/05/Jorma-Tommila-as-seen-in-an-Instagram-Post-in-March-2019-2.jpg"
+          nombre="Mimosa Willamo"
+          foto="https://es.web.img3.acsta.net/r_1024_576/pictures/17/06/15/14/34/086685.jpg"
         >
-          Actor principal de la película, conocido por su intensidad
-          interpretativa.
+          Actriz, desarrolla el papel de Aino en esta película, conocido por su
+          intensidad interpretativa.
         </Interprete>
       </Contenedor>
     </div>
