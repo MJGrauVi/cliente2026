@@ -154,11 +154,11 @@ function calcularMedia() {
 }
 
 //Ejercicio 6 (calculadora).
-
+/*
 function sumar(x, y) {
   return x + y;
 }
-
+*/
 function restar(x, y) {
   return x - y;
 }
@@ -209,6 +209,7 @@ const calculadora = (x, y, operador) => {
     console.log(`El resultado de ${x} ${operador} ${y} es: ${resultado}`);
   }
 };
+
 
 //Cada export corresponde a la/las funciones utilizadas en cada ejercicio.
 export { calcularIMC };
