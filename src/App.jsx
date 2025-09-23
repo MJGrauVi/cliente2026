@@ -2,11 +2,7 @@ import "./App.css";
 import Contenedor from "./components/Contenedor.jsx";
 import Pelicula from "./components/Pelicula.jsx";
 import Interprete from "./components/Interprete.jsx/";
-<<<<<<< HEAD
-import Peli2 from "./components/Peli2.jsx";
-=======
 
->>>>>>> 896d9c9416e91d2a8a0317413e79e589092012d7
 
 const App = () => {
   return (
@@ -43,13 +39,7 @@ const App = () => {
           Actriz, desarrolla el papel de Aino en esta película, conocido por su
           intensidad interpretativa.
         </Interprete>
-<<<<<<< HEAD
-        <Peli2 titulo="Matrix" director="Andre Hernández" cartel="https://tiermaker.com/images/templates/tier-list-filmes--234-15185706/151857061668528241.jpg">
-        Matrix" es una película de ciencia ficción y acción de 1999 que sigue a Neo, un hacker que descubre que vive en una simulación controlada por máquinas y se une a la resistencia para liberarse.
-        </Peli2>
-=======
       
->>>>>>> 896d9c9416e91d2a8a0317413e79e589092012d7
       </Contenedor>
     </div>
   );

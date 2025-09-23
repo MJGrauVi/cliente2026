@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import "./Contenedor.css";
-
-const Contenedor = (props) => {
-  return (
-    <div className="contenedor-contenedor">
-      {props.children}
-    </div>
-  );
-};
-
-export default Contenedor;
-=======
 import React from "react";
 import "./Contenedor.css";
 
@@ -23,4 +9,3 @@ const Contenedor = (props) => {
 };
 
 export default Contenedor;
->>>>>>> 896d9c9416e91d2a8a0317413e79e589092012d7

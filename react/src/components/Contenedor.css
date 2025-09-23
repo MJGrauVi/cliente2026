@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .contenedor-contenedor {
   border: 2px solid #d5d5d5;
   padding: 20px;
@@ -9,3 +10,16 @@
   font-size: larger;
   color: rgb(105, 0, 128);
 }
+=======
+.contenedor-contenedor {
+  border: 2px solid #d5d5d5;
+  padding: 20px;
+  margin: 10px auto;
+  width: 800px;
+  height: auto;
+  background-color: rgb(252, 244, 245);
+  border-radius: 10px;
+  font-size: larger;
+  color: rgb(105, 0, 128);
+}
+>>>>>>> 896d9c9416e91d2a8a0317413e79e589092012d7
