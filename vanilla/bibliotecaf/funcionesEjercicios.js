@@ -1,8 +1,42 @@
 "use strict";
 // Funciones para los ejercicios de la práctica 2-01
 //Ejercicio1
+
+//Solo entra si el dato no es un número.
+const calcularIMCC = (peso, altura) => {
+  let condiciones =
+    typeof peso !== "number" ||
+    typeof altura !== "number" ||
+    isNaN(peso) ||
+    isNaN(altura) ||
+    peso <= 0 ||
+    altura <= 0;
+    console.log(condiciones); 
+    console.log(typeof null); //object
+    console.log(null === "object")//false
+    console.log(typeof NaN);//number
+    console.log(NaN === "number");//false
+    console.log(isNaN(123));   // false, porque sí es número
+    console.log(isNaN("123"));   //false, ¿¿ se puede
+    console.log(isNaN("abc"));    //true, no es un número
+    console.log(isNaN(undefined));//true, se convierte en NaN.
+    console.log(isNaN(NaN));    // true, es NaN-
+    console.log(isNaN(null));   //false, se convierte en 0 que sí es número.
+    console.log(true);          //false, devuelve 1 que sí es número.
+    console.log(false);         //false, devuelve 0 que sí es número.
+    console.log(isNaN([]));  //false, []convierte en string "" y " " en 0
+    console.log(isNaN({}));  //true, porque{} se convierte en NaN.
+    console.log(typeof {});  //object
+    console.log(Number({})); //NaN
+    console.log(Number([])); //0
+   
+  return condiciones
+    ? "Porfavor, introduce un dato numérico positivo"
+    : peso / (altura * altura);
+    
+};
+
 function calcularIMC(peso, altura) {
-  //Solo entra si el dato no es un número.
   if (
     typeof peso !== "number" ||
     typeof altura !== "number" ||
@@ -11,11 +45,10 @@ function calcularIMC(peso, altura) {
     peso <= 0 ||
     altura <= 0
   ) {
-    console.log("Porfavor, introduce un dato numérico positivo");
-    return null; //Para que no devuelva el else.
-  } else {
-    return peso / (altura * altura);
+    //console.log();
+    return "Porfavor, introduce un dato numérico positivo"; //Para que no devuelva el else.
   }
+  return peso / (altura * altura);
 }
 
 //Funciones para la práctica 2-02.
@@ -210,9 +243,37 @@ const calculadora = (x, y, operador) => {
   }
 };
 
+//Práctica 2.03
+"use strict";
+function suma() {
+  //utilizo funcion declaración la función flecha no tiene arguments.
+  //Comprobar numero de parametros que entran.ç
+  if (arguments.length < 2) {
+    console.log(`Necesita introducir 2 numeros para realizar la operación.`);
+    //Si no introduce los datos se para la ejecucion.
+    return;
+  }
+  let total = 0;
+
+  for (let i = 0; i < arguments.length; i++) {
+    let valor = arguments[i];
+
+    if (typeof valor !== "number" || isNaN(valor)) {
+      console.log(`El dato introducido no es un número.`);
+      return;
+    }
+    total += valor;
+  }
+  console.log(
+    `La suma de [${Array.from(arguments).join(" + ")}] es = ${total}`
+  );
+  return total;
+}
+
+export { suma };
 
 //Cada export corresponde a la/las funciones utilizadas en cada ejercicio.
-export { calcularIMC };
+export { calcularIMCC, calcularIMC };
 export { obtenerMes };
 export { esNumero, esPar, esPositivo, esPrimo, analisisNumerico };
 export { multiploTres };

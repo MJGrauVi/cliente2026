@@ -1,31 +1,38 @@
-import {sumar, restar, multiplicar, dividir} from "./bibliotecaf/funciones.js";
-import {sumaArrayFor} from "./bibliotecaf/funcionesPrueba.js";
+import {
+  sumar,
+  restar,
+  multiplicar,
+  dividir,
+} from "./bibliotecaf/funciones.js";
+import { sumaArrayFor } from "./bibliotecaf/funcionesPrueba.js";
+import { suma } from "../vanilla/bibliotecaf/funcionesP3.js";
 
 const resultadoSuma = sumar(5, 3);
 const resultadoResta = restar(5, 3);
 const resultadoMultiplicacion = multiplicar(5, 3);
 const resultadoDivision = dividir(5, 3);
-
+console.log(typeof resultadoSuma);
 const resultadoSumaArrayFor = sumaArrayFor([1, 2, 3, 4, 5]);
-
+const sumando = suma(5, 9);
+console.log(sumando);
 /* console.log(`Suma: ${resultadoSuma}`);
+
 console.log(`Resta: ${resultadoResta}`);
 console.log(`Multiplicación: ${resultadoMultiplicacion}`);
 console.log(`División: ${resultadoDivision}`); 
 console.log(`La suma del array es: ${resultadoSumaArrayFor}`);*/
- 
+
 const numeros = [1, 2, 3, 4, 5];
- const resultado = numeros.reduce(
+const resultado = numeros.reduce(
   (acumulador, elementoActual, indice, arrayOriginal) => {
     console.log("Acumulador:", acumulador);
     console.log("Elemento actual:", elementoActual);
-   
 
     return acumulador + elementoActual; // lógica
   },
   0 // valor inicial del acumulador
-);               
-console.log("Resultado final:", resultado); 
+);
+console.log("Resultado final:", resultado);
 /* 
 const palabras = ["js", "html", "js", "css", "html", "js"];
 
