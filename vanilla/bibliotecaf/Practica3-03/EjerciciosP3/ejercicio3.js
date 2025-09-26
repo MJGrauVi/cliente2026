@@ -24,7 +24,7 @@ const discente = {
   imprimirAficiones: function () {
     console.log(`----- Aficiones ------------------`);
     this.aficiones.map((aficion, index) => {
-      console.log(`${index + 1}. ${aficion}`);
+      return `${index + 1}. ${aficion}`;
     });
     console.log(`----------------------------------`);
   },
@@ -49,6 +49,4 @@ const discente = {
   },
 };
 
-export {discente};
-
-
+export { discente };

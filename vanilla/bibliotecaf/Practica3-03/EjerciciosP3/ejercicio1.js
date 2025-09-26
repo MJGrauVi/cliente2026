@@ -3,16 +3,16 @@
 //Ejercicio1.
 function constCurso(nomCurso, anioCurso, descripcionCurso) {
   return {
-    Nombre: nomCurso,
-    Año: anioCurso,
-    Descripción: descripcionCurso,
-    Alumnado: [],
+    nombre: nomCurso,
+    año: anioCurso,
+    descripción: descripcionCurso,
+    alumnado: [],
   };
 }
 
 function incluirEnArray(curso, alumnos){
   if(Array.isArray(alumnos)){
-    curso.Alumnado=[...curso.Alumnado,alumnos];
+    curso.alumnado=[...curso.alumnado,alumnos];
   }else{
     console.log(`Debes pasar un array con los datos.`)
   }

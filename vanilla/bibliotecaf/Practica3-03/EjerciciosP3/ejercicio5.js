@@ -1,32 +1,34 @@
 "use strict";
-
-function imprimirObjeto(obj) {
-  console.log("=========== OBJETO ===========");
+const inicialMayuscula = (texto) =>{
+  return texto.charAt(0).toUpperCase() + texto.slice(1);
+}
+function imprimirObjeto(obj, nombre = "OBJETO") {
+  console.log(`============== ${nombre} ==============`);
 
   // Recorremos las claves con Object.entries → devuelve [clave, valor]
   Object.entries(obj).map(([clave, valor]) => {
     const tipo = Array.isArray(valor) ? "array" : typeof valor;
-
+    //console.log(typeof tipo);
     switch (tipo) {
       case "number":
-        console.log(`${clave} (${tipo}) : ${valor}`);
+        console.log(`El ${clave} es de tipo (${tipo}) y su valor es : ${valor}`);
         break;
 
       case "string":
-        console.log(`${clave} (${tipo}) : "${valor}"`);
+        console.log(`${inicialMayuscula(clave)} (${tipo}) : "${valor}"`);
         break;
 
       case "array":
-        console.log(`${clave} (${tipo}) : [`);
-        valor.map((el, i) =>
-          console.log(`   ${i + 1}. ${el} (${typeof el})`)
+        console.log(`Las ${inicialMayuscula(clave)} están en un (${tipo}) y se detallan a continuación: [`);
+        valor.map((v, i) =>
+          console.log(`   ${i + 1}. ${v} (${typeof v})`)
         );
         console.log("]");
         break;
 
       case "object":
-        console.log(`${clave} (${tipo}) : {`);
-        imprimirObjeto(valor); // recursividad para objetos anidados
+        console.log(`${inicialMayuscula(clave)} es de tipo (${tipo}) : {`);
+        imprimirObjeto(valor, clave.toLocaleUpperCase()); // recursividad para objetos anidados
         console.log("}");
         break;
 
@@ -42,6 +44,6 @@ function imprimirObjeto(obj) {
   console.log("==============================");
 }
 
-export {imprimirObjeto};
+export {imprimirObjeto, inicialMayuscula};
 // Ejemplo con tu objeto
-imprimirObjeto(discente);
+//imprimirObjeto(discente);

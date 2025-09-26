@@ -1,7 +1,7 @@
 "use strict";
 //Funciones para la Práctica3.03.
 //Ejercicio4.
-function constCurso(nomCurso, anioCurso, descripcionCurso) {
+function constCurso2(nomCurso, anioCurso, descripcionCurso) {
   return {
     Nombre: nomCurso,
     Año: anioCurso,
@@ -12,8 +12,9 @@ function constCurso(nomCurso, anioCurso, descripcionCurso) {
     matricular: function (discente) {
       this.Alumnado = [...this.Alumnado, discente];
       console.log(
-        `${discente.nombre} ${discente.apellidos} ha sido matriculado en ${this.Nombre}.`
+        `${discente.nombre} ${discente.apellidos} ha sido matriculado/a en ${this.Nombre}.`
       );
     },
   };
 }
+export {constCurso2};
