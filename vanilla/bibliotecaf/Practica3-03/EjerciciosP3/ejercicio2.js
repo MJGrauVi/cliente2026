@@ -7,6 +7,7 @@ function imprimirInforme(curso) {
     console.log(`---------------------- Informe------------------------`);
    for (let propiedad in curso) {
         console.log(`${propiedad} : ${curso[propiedad]}`);
+        
     }
     console.log(`------------------------------------------------------`);
    

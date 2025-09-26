@@ -9,9 +9,10 @@ function constCurso(nomCurso, anioCurso, descripcionCurso) {
     Alumnado: [],
   };
 }
+
 function incluirEnArray(curso, alumnos){
   if(Array.isArray(alumnos)){
-    curso.Alumnado.push(...alumnos);
+    curso.Alumnado=[...curso.Alumnado,alumnos];
   }else{
     console.log(`Debes pasar un array con los datos.`)
   }

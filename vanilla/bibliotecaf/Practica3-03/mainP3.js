@@ -1,9 +1,14 @@
 "use strict";
-import { constCurso } from "../Practica3-03/EjerciciosP3/ejercicio1.js";
+import {
+  constCurso,
+  incluirEnArray,
+} from "../Practica3-03/EjerciciosP3/ejercicio1.js";
 import { imprimirInforme } from "../Practica3-03/EjerciciosP3/ejercicio2.js";
+import { discente } from "../Practica3-03/EjerciciosP3/ejercicio3.js";
 
 //Casos de uso.
 //Ejercicio1.
+console.log(`*********** Ejercicio 1 ************`);
 const daw1 = constCurso(
   "DAW",
   2025,
@@ -15,24 +20,46 @@ const dam1 = constCurso(
   "Desarrollo aplicaciones multiplataforma con tecnologías para android."
 );
 const alumnos1daw = ["María", "Juana", "Cristina", "Juan Carlos", "Felipe"];
-console.log(daw1, dam1);
-let alumnos1Daw = daw1.Alumnado.push(...alumnos1daw);
-console.log(alumnos1Daw);
+incluirEnArray(daw1, alumnos1daw);
 
 console.log(daw1, dam1);
-console.log(daw1.Alumnado);
+const daw1Texto = JSON.stringify(daw1);
+console.log(daw1Texto);
+let objeto = JSON.parse(daw1Texto);
+console.log(objeto);
 
 //Ejercicio2.
-
-imprimirInforme(daw1);
+console.log(`*********** Ejercicio 2 ************`);
+imprimirInforme(daw1.Alumnado.slice());
+console.log(daw1);
 
 //Ejercicio3.
+console.log(`*********** Ejercicio 3 ************`);
 
 discente.imprimirAficiones();
-
 discente.imprimirInforme();
 
-console.log("Media calculada:", discente.calcularMedia());
+//Ejercicio4.
+console.log(`*********** Ejercicio 4 ************`);
+
+// Creamos un curso.
+const cursoJS = constCurso("JavaScript Básico", 2025, "Curso inicial de JS");
+
+// Creamos los objetos discente con datos asociados
+const alumno1 = { nombre: "Laura", apellidos: "Martínez Pérez" };
+const alumno2 = { nombre: "Carlos", apellidos: "Ruiz Gómez" };
+
+// Matriculamos a los alumnos.
+cursoJS.matricular(alumno1);
+cursoJS.matricular(alumno2);
+
+// Revisamos el alumnado del curso.
+console.log(cursoJS.Alumnado);
+
+//Ejercicio5.
+console.log(`*********** Ejercicio 5 ************`);
+
+//imprimirObjeto(discente);
 
 //Pruebas
 
@@ -44,3 +71,17 @@ const curso = {
 };
 let alumnado = curso.alumnado.join(" del curso LOE, ");
 console.log(alumnado);
+//-----------------sumar valores de un JSON
+let numeros = [1, 8, 3];
+let numerosJson = {
+  1: 1,
+  2: 2,
+  3: 3,
+};
+const sumaNumeros = (a, b, c) => {
+  console.log(a + b + c);
+};
+sumaNumeros(`Los valores de JSON suman:`, ...Object.values(numerosJson));
+sumaNumeros(`Los valores del array suman: `, ...numeros);
+const total = Object.values(numerosJson).reduce((acc, num) => acc + num, 0);
+console.log(total); // 6

@@ -8,10 +8,12 @@ function constCurso(nomCurso, anioCurso, descripcionCurso) {
     Descripción: descripcionCurso,
     Alumnado: [],
 
-    // Nuevo método: matricular
-    matricular: function(discente) {
-      this.Alumnado.push(discente);
-      console.log(`${discente.nombre} ${discente.apellidos} ha sido matriculado en ${this.Nombre}.`);
-    }
+    // Método matricular.
+    matricular: function (discente) {
+      this.Alumnado = [...this.Alumnado, discente];
+      console.log(
+        `${discente.nombre} ${discente.apellidos} ha sido matriculado en ${this.Nombre}.`
+      );
+    },
   };
 }

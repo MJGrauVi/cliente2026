@@ -11,29 +11,11 @@ const calcularIMCC = (peso, altura) => {
     isNaN(altura) ||
     peso <= 0 ||
     altura <= 0;
-    console.log(condiciones); 
-    console.log(typeof null); //object
-    console.log(null === "object")//false
-    console.log(typeof NaN);//number
-    console.log(NaN === "number");//false
-    console.log(isNaN(123));   // false, porque sí es número
-    console.log(isNaN("123"));   //false, ¿¿ se puede
-    console.log(isNaN("abc"));    //true, no es un número
-    console.log(isNaN(undefined));//true, se convierte en NaN.
-    console.log(isNaN(NaN));    // true, es NaN-
-    console.log(isNaN(null));   //false, se convierte en 0 que sí es número.
-    console.log(true);          //false, devuelve 1 que sí es número.
-    console.log(false);         //false, devuelve 0 que sí es número.
-    console.log(isNaN([]));  //false, []convierte en string "" y " " en 0
-    console.log(isNaN({}));  //true, porque{} se convierte en NaN.
-    console.log(typeof {});  //object
-    console.log(Number({})); //NaN
-    console.log(Number([])); //0
-   
+  console.log(condiciones);
+
   return condiciones
     ? "Porfavor, introduce un dato numérico positivo"
     : peso / (altura * altura);
-    
 };
 
 function calcularIMC(peso, altura) {
@@ -92,6 +74,7 @@ const esNumero = (numero) => {
     return numero;
   }
 };
+//Funciones para la práctica 2-02.
 //Ejercicio 2.
 
 //Números solo divisibles por 1 o por sí mismos.
@@ -131,6 +114,7 @@ const analisisNumerico = (numero) => {
     }.`;
   }
 };
+//Funciones para la práctica 2-02.
 //Ejercicio 3 (multiplos de 3).
 
 const multiploTres = (valor) => {
@@ -141,12 +125,36 @@ const multiploTres = (valor) => {
   let valoresMultiplos = [];
   for (let i = 1; i <= valor; i++) {
     if (i % 3 === 0) {
-      valoresMultiplos.push(i);
+      //valoresMultiplos.push(i);
+      valoresMultiplos = [...valoresMultiplos, i];
     }
   }
-  return `Los múltiplos de tres son: ${valoresMultiplos}`;
+  return `Los múltiplos de tres son: ${valoresMultiplos.join(", ")}`;
 };
 
+const valoresMultiplos = (valor, dividendo) => {
+  let condiciones =
+    typeof valor !== "number" ||
+    typeof dividendo !== "number" ||
+    isNaN(valor) ||
+    isNaN(dividendo) ||
+    valor <= 0 ||
+    dividendo <= 0;
+
+  if (condiciones) return "Error: introduce números válidos mayores que 0.";
+
+  let valoresDivisores = [];
+  let indice = 0;
+  for (let i = 0; i < valor; i++) {
+    if (i % dividendo === 0) {
+      valoresDivisores[indice] = i;
+      indice++;
+    }
+  }
+  return `Los números multiplos de ${dividendo} hasta ${valor} son: ${valoresDivisores.join(", ")}`;
+};
+
+//Funciones para la práctica 2-02.
 //Ejercicio 4 (potencia).
 
 const calcularPotencia = (base, exponente) => {
@@ -244,7 +252,7 @@ const calculadora = (x, y, operador) => {
 };
 
 //Práctica 2.03
-"use strict";
+("use strict");
 function suma() {
   //utilizo funcion declaración la función flecha no tiene arguments.
   //Comprobar numero de parametros que entran.ç
@@ -276,7 +284,7 @@ export { suma };
 export { calcularIMCC, calcularIMC };
 export { obtenerMes };
 export { esNumero, esPar, esPositivo, esPrimo, analisisNumerico };
-export { multiploTres };
+export { multiploTres, valoresMultiplos };
 export { calcularPotencia };
 export { calcularMedia };
 export { calculadora };

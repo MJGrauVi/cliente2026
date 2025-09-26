@@ -3,12 +3,11 @@
 /*Funciones de prueba*/
 //Pasa sumar un array con for.
 function sumaArrayFor(array) {
-    let acumulado = 0;
-    for(let i = 0; i < array.length; i++){
-        acumulado += array[i];
-      
-    }
-    return acumulado;
+  let acumulado = 0;
+  for (let i = 0; i < array.length; i++) {
+    acumulado += array[i];
+  }
+  return acumulado;
 }
 
 const entraEnteroDelRango = (numero, min, max) => {
@@ -33,4 +32,22 @@ const imcMayor = (imc1, imc2) => {
     return imc2;
   }
 };
-export {sumaArrayFor, entraEnteroDelRango, imcMayor, };
+
+console.log(typeof null); //object
+console.log(null === "object"); //false
+console.log(typeof NaN); //number
+console.log(NaN === "number"); //false
+console.log(isNaN(123)); // false, porque sí es número
+console.log(isNaN("123")); //false, ¿¿ se puede
+console.log(isNaN("abc")); //true, no es un número
+console.log(isNaN(undefined)); //true, se convierte en NaN.
+console.log(isNaN(NaN)); // true, es NaN-
+console.log(isNaN(null)); //false, se convierte en 0 que sí es número.
+console.log(true); //false, devuelve 1 que sí es número.
+console.log(false); //false, devuelve 0 que sí es número.
+console.log(isNaN([])); //false, []convierte en string "" y " " en 0
+console.log(isNaN({})); //true, porque{} se convierte en NaN.
+console.log(typeof {}); //object
+console.log(Number({})); //NaN
+console.log(Number([])); //0
+export { sumaArrayFor, entraEnteroDelRango, imcMayor };
