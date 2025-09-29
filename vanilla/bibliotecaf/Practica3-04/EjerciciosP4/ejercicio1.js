@@ -1,13 +1,17 @@
 "use strict";
 //Funciones para la Práctica3.04.
 
-//Ejercicio1.
-/* He creado una nueva variable para almacenar el nuevo array generado por map, 
-aunque en este caso no sería necesario porque solo hay que mostrarlo por consola. */
+/* Ejercicio 1 - Mezclando objetos
+Crea una array con cinco cadenas de texto que sean nombres propios (los que estimes
+oportunos). Con ese array:
+• muestra por consola todos los nombres en mayúscula, */
 
-const stringAmayusculas = (valoresArray) => {
-  let nuevosValores = [...valoresArray];
-  return nuevosValores.map((valor) => valor.toUpperCase());
+/* Podría crear una variable para almacenar el nuevo array generado por map, 
+aunque en este caso no es necesario porque solo hay que mostrarlo por consola. */
+
+const stringAmayusculas = (valores) => {
+  //let nuevosValores = [...valoresArray];
+  return valores.map((valor) => valor.toUpperCase());
 };
 
 //Esto es un objeto.
@@ -16,41 +20,37 @@ const stringMayus = nombres.map((valor) => {
   return valor.toUpperCase();
 });
 
-//Nombres ordenados alfabéticamente al revés.
+//• crea un nuevo array con los nombres ordenados alfabeticamente al revés y múes￾tralo por consola,
+
 //Compruebo que efectivamente entra un array y guardo en un nuevo array los valores transformados.
 const ordenaAlReves = (valoresArray) => {
   if (Array.isArray(valoresArray)) {
     let valoresTransformados = [...valoresArray].sort().reverse();
     return valoresTransformados;
   }
- return `No entra un array`;
+  return `No, no entra un array.`; //He incluido este return porque necesito entender en este caso si no entra un array
+  // y no esta el return da undefined y entonces ???
 };
 
-//Punto3
-/* const convertirAJson = (valoresArray) => {
+/* • crea un nuevo array que contenga un objeto JSON por cada nombre del array. Ese
+objeto tendrá dos propiedades: id con el índice de cada posición y nombre con el
+valor de cada posición. Múestralo por consola.*/
+
+/*   const convertirAJson = (valoresArray) => {
   let valoresJson = [...valoresArray];
   return valoresJson.map((v, i) => ({ id: i, nombre: v }));
-}; */
-const convertirAJson = (valoresArray) => {
-  let valoresJson = [...valoresArray];
-  return valoresJson.map(
-    (v, i) => (`Los valores del array son: `, { id: i, nombre: v })
-  );
-};
+};  
+console.log(typeof valoresJson); */
 
-function mostrarJson(valoresJson) {
-  console.log("============================================");
-  console.log(`ID:     ${valoresJson.id}`);
-  console.log(`Nombre: ${valoresJson.nombre}`);
-  console.log("============================================");
-}
+const convertirAJson = (valoresArray) => {
+  if (Array.isArray(valoresArray)) {
+    let valoresJson = valoresArray.map((v, i) => {
+      return { id: i, nombre: v };
+    });
+    return JSON.stringify(valoresJson, null, 2); // devuelve string JSON formateado
+  }
+};
 
 //Ejercicio2
 
-export {
-  stringAmayusculas,
-  stringMayus,
-  ordenaAlReves,
-  convertirAJson,
-  mostrarJson,
-};
+export { stringAmayusculas, stringMayus, ordenaAlReves, convertirAJson };
