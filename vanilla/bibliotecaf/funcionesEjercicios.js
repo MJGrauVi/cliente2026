@@ -38,6 +38,7 @@ function calcularIMC(peso, altura) {
 
 //Función para obtener el nombre del mes usando el objeto "meses"."
 function obtenerMes(valor) {
+  //let resultado="";
   const meses = {
     1: "Enero",
     2: "Febrero",
@@ -58,12 +59,16 @@ function obtenerMes(valor) {
     valor <= 0 ||
     valor >= 13 ||
     !Number.isInteger(valor)
-  ) {
-    console.log("Porfavor, introduce un dato numérico positivo entre 1 y 12");
-    return null; //Para que no devuelva el else.
+  ) { 
+
+    console.log(`Porfavor, introduce un dato numérico positivo entre 1 y 12.`);
+    
+    //return console.log("Porfavor, introduce un dato numérico positivo entre 1 y 12");
+    
   } else {
-    console.log(`El número corresponde con el mes de ${meses[valor]}.`);
-    return meses[valor];
+    //console.log(`El número corresponde con el mes de ${meses[valor]}.`);
+    //return meses[valor];
+    return console.log(`El número corresponde con el mes de ${meses[valor]}.`); 
   }
 }
 const esNumero = (numero) => {
@@ -151,7 +156,9 @@ const valoresMultiplos = (valor, dividendo) => {
       indice++;
     }
   }
-  return `Los números multiplos de ${dividendo} hasta ${valor} son: ${valoresDivisores.join(", ")}`;
+  return `Los números multiplos de ${dividendo} hasta ${valor} son: ${valoresDivisores.join(
+    ", "
+  )}`;
 };
 
 //Funciones para la práctica 2-02.

@@ -5,7 +5,9 @@
 function sumar(x, y) {
   return x + y;
 }
-
+function suma(x, y) {
+  return x + y;
+}
 function restar(x, y) {
   return x - y;
 }
@@ -32,7 +34,7 @@ export function dividir(x, y) {
  *   Exporta los elementos situados entre las llaves.
  * */
 
-export { sumar, restar, multiplicar };
+export { sumar, restar, multiplicar, suma };
 
 /**
  * Exporta el elemento con un seudónimo.

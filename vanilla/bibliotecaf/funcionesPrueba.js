@@ -32,6 +32,11 @@ const imcMayor = (imc1, imc2) => {
     return imc2;
   }
 };
+//Prueba objeto
+let nombres = ["Manolo", "Juan", "Paco", "Carmina", "Pilar"];
+const stringMayus = nombres.map((valor) => {
+  return valor.toUpperCase();
+});
 
 console.log(typeof null); //object
 console.log(null === "object"); //false
@@ -50,4 +55,5 @@ console.log(isNaN({})); //true, porque{} se convierte en NaN.
 console.log(typeof {}); //object
 console.log(Number({})); //NaN
 console.log(Number([])); //0
-export { sumaArrayFor, entraEnteroDelRango, imcMayor };
+console.log(Array.isArray([]));
+export { sumaArrayFor, entraEnteroDelRango, imcMayor, stringMayus };

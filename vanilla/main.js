@@ -2,10 +2,10 @@ import {
   sumar,
   restar,
   multiplicar,
-  dividir,
+  dividir
 } from "./bibliotecaf/funciones.js";
-import { sumaArrayFor } from "./bibliotecaf/funcionesPrueba.js";
-import { suma } from "../vanilla/bibliotecaf/funcionesP3.js";
+import { sumaArrayFor, stringMayus } from "./bibliotecaf/funcionesPrueba.js";
+import { suma } from "./bibliotecaf/funciones.js";
 
 const resultadoSuma = sumar(5, 3);
 const resultadoResta = restar(5, 3);
@@ -15,12 +15,12 @@ console.log(typeof resultadoSuma);
 const resultadoSumaArrayFor = sumaArrayFor([1, 2, 3, 4, 5]);
 const sumando = suma(5, 9);
 console.log(sumando);
-/* console.log(`Suma: ${resultadoSuma}`);
+console.log(`Suma: ${resultadoSuma}`);
 
 console.log(`Resta: ${resultadoResta}`);
 console.log(`Multiplicación: ${resultadoMultiplicacion}`);
 console.log(`División: ${resultadoDivision}`); 
-console.log(`La suma del array es: ${resultadoSumaArrayFor}`);*/
+console.log(`La suma del array es: ${resultadoSumaArrayFor}`);
 
 const numeros = [1, 2, 3, 4, 5];
 const resultado = numeros.reduce(
@@ -44,3 +44,6 @@ const conteo = palabras.reduce((acc, palabra, i) => {
 
 console.log(conteo); */
 // { js: 3, html: 2, css: 1 }
+
+//Ejemplo object
+console.log(stringMayus);
