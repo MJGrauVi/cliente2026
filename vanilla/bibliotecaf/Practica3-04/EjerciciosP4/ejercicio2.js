@@ -8,7 +8,7 @@ sean mayor a cinco y múestralo por consola debidamente formateado. */
 
 
 const generarArray = (longitud, min, max) => {
-  return Array.from({ length: longitud }, () => {
+  return Array.from({ length: longitud }, (v) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   });
 };
