@@ -1,0 +1,43 @@
+[
+  {
+    "titulo": "Sisu",
+    "director": "Jalmari Helander",
+    "cartel": "https://tse3.mm.bing.net/th/id/OIP.zG3sRXu9Aia77F8VIuYKNwHaFj?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "resumen": "En los últimos días de la Segunda Guerra Mundial, un minero encuentra oro y lucha contra un grupo de nazis para conservarlo.",
+    "interpretes": [
+      {
+        "nombre": "Jorma Tommila",
+        "foto": "https://healthyceleb.com/wp-content/uploads/2023/05/Jorma-Tommila-as-seen-in-an-Instagram-Post-in-March-2019-2.jpg",
+        "bio": "Actor principal de la película desarrolla el papel de Aatami, conocido por su intensidad interpretativa."
+      },
+      {
+        "nombre": "Aksel Hennie",
+        "foto": "https://es.web.img3.acsta.net/r_1024_576/pictures/14/08/21/16/35/073768.jpg",
+        "bio": "Actor secundario en esta película. Es más conocido por su rol en The Martian (2015)."
+      },
+      {
+        "nombre": "Mimosa Willamo",
+        "foto": "https://es.web.img3.acsta.net/r_1024_576/pictures/17/06/15/14/34/086685.jpg",
+        "bio": "Actriz que interpreta a Aino en esta película."
+      }
+    ]
+  },
+  {
+    "titulo": "Titanic",
+    "director": "James Cameron",
+    "cartel": "https://m.media-amazon.com/images/I/71gFpN6L5sL._AC_UF894,1000_QL80_.jpg",
+    "resumen": "Una historia de amor en el trágico hundimiento del Titanic.",
+    "interpretes": [
+      {
+        "nombre": "Leonardo DiCaprio",
+        "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Leonardo_DiCaprio_66ème_Festival_de_Venise_%28Mostra%29.jpg/330px-Leonardo_DiCaprio_66ème_Festival_de_Venise_%28Mostra%29.jpg",
+        "bio": "Actor que interpreta a Jack Dawson."
+      },
+      {
+        "nombre": "Kate Winslet",
+        "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Kate_Winslet_March_18%2C_2014_%28headshot%29.jpg/330px-Kate_Winslet_March_18%2C_2014_%28headshot%29.jpg",
+        "bio": "Actriz que interpreta a Rose DeWitt Bukater."
+      }
+    ]
+  }
+]

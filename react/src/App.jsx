@@ -1,56 +1,11 @@
 import "./App.css";
-import Contenedor from "./components/Contenedor.jsx";
-import Pelicula from "./components/Pelicula.jsx";
-import Interprete from "./components/Interprete.jsx/";
-<<<<<<< HEAD
-import Peli2 from "./components/Peli2.jsx";
-=======
-
->>>>>>> 896d9c9416e91d2a8a0317413e79e589092012d7
+import React from "react";
+import Listado from "./components/Listado.jsx";
 
 const App = () => {
   return (
     <div>
-      <Contenedor>
-        <Pelicula
-          titulo="Sisu"
-          director="Jalmari Helander"
-          cartel="https://tse3.mm.bing.net/th/id/OIP.zG3sRXu9Aia77F8VIuYKNwHaFj?rs=1&pid=ImgDetMain&o=7&rm=3"
-        >
-          En los últimos días de la Segunda Guerra Mundial, un minero encuentra
-          oro y lucha contra un grupo de nazis para conservarlo.
-        </Pelicula>
-
-        <Interprete
-          nombre="Jorma Tommila"
-          foto="https://healthyceleb.com/wp-content/uploads/2023/05/Jorma-Tommila-as-seen-in-an-Instagram-Post-in-March-2019-2.jpg"
-        >
-          Actor principal de la película desarrolla el papel de Aatami, conocido
-          por su intensidad interpretativa.
-        </Interprete>
-        <Interprete
-          nombre="Aksel Hennie"
-          foto="https://es.web.img3.acsta.net/r_1024_576/pictures/14/08/21/16/35/073768.jpg"
-        >
-          Actor secundario es esta película. Es más conocido a nivel
-          internacional por su rol en la película de Ridley Scott de 2015 The
-          Martian.
-        </Interprete>
-        <Interprete
-          nombre="Mimosa Willamo"
-          foto="https://es.web.img3.acsta.net/r_1024_576/pictures/17/06/15/14/34/086685.jpg"
-        >
-          Actriz, desarrolla el papel de Aino en esta película, conocido por su
-          intensidad interpretativa.
-        </Interprete>
-<<<<<<< HEAD
-        <Peli2 titulo="Matrix" director="Andre Hernández" cartel="https://tiermaker.com/images/templates/tier-list-filmes--234-15185706/151857061668528241.jpg">
-        Matrix" es una película de ciencia ficción y acción de 1999 que sigue a Neo, un hacker que descubre que vive en una simulación controlada por máquinas y se une a la resistencia para liberarse.
-        </Peli2>
-=======
-      
->>>>>>> 896d9c9416e91d2a8a0317413e79e589092012d7
-      </Contenedor>
+      <Listado />
     </div>
   );
 };

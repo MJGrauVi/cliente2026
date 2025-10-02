@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .interprete-interprete {
   display: flex;
   align-items: flex-start;
@@ -33,39 +33,3 @@
   text-align: justify;
   
 }
-=======
-.interprete-interprete {
-  display: flex;
-  align-items: flex-start;
-  border: 2px solid #d5d5d5;
-  padding: 10px;
-  gap: 15px;
-  margin: 10px auto;
-  max-width: 800px;
-  background-color: #f6f6f6;
-  border-radius: 10px;
-}
-.interprete-img {
-  width: 80px;
-  height: 100px;
-  object-fit: cover;
-  margin-right: 15px;
-  border-radius: 10px;
-}
-.interprete-info{
-  display: flex;
-  flex-direction: column;
-}
-.interprete-info h3 {
-  color: rgb(110, 35, 128);
-  margin-top: 20px;
-  text-align: justify;
-
-}
-.interprete-info p {
-  color: green;
-  margin: "5px 0";
-  text-align: justify;
-  
-}
->>>>>>> 896d9c9416e91d2a8a0317413e79e589092012d7
