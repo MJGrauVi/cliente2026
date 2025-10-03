@@ -1,28 +1,31 @@
-
 .pelicula-pelicula {
   border-radius: 12px;
   padding: 20px;
   margin: 20px auto;
   max-width: 700px;
 }
-.pelicula-img{
+.pelicula-img {
   margin-bottom: 30px;
+  width: 500px;
+  height: 700px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 10px;
 }
 .pelicula-h1-titulo {
   margin-bottom: 5px;
 }
-.pelicula-h3-elenco{
+.pelicula-h3-elenco {
   text-align: left;
   color: red;
-  font-size:x-large;
+  font-size: x-large;
   padding-left: 30px;
-
 }
 .pelicula-h4 {
   font-weight: "normal";
   color: #555;
 }
-.pelicula-children{
-    margin-bottom: 15px;
-    text-align: justify;
+.pelicula-children {
+  margin-bottom: 15px;
+  text-align: justify;
 }

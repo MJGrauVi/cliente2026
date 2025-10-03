@@ -5,7 +5,6 @@ import Peliculas from "./components/Peliculas.jsx";
 const App = () => {
   return (
     <div>
-      <h2 className="app-h2-peliculas">Listado de peliculas</h2>
       <Peliculas />
     </div>
   );
