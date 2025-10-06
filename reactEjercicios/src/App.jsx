@@ -1,11 +1,11 @@
 import "./App.css";
 import React from "react";
-import Peliculas from "./components/Peliculas.jsx";
+import {Listado} from "./components/Listado,jsx"
 
 const App = () => {
   return (
     <div>
-      <Peliculas />
+      <Listado />
     </div>
   );
 };

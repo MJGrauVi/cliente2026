@@ -25,7 +25,8 @@
   font-weight: "normal";
   color: #555;
 }
-.pelicula-children {
+.pelicula-children, .pelicula-recaudacion{
   margin-bottom: 15px;
-  text-align: justify;
+  text-align:left;
+  
 }

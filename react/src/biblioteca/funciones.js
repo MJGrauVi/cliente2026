@@ -93,11 +93,23 @@ const generarUuidAleatorio = () => {
 const generarNumeroAleatorio = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
+
+const generarNumeroNoRepetido = (lista) => {
+  if (lista.length >= 100) return null;
+  let nuevoNumero;
+  do {
+    nuevoNumero = Math.floor(Math.random() * 100) + 1;
+  } while (lista.includes(nuevoNumero));
+  return nuevoNumero;
+};
+
 export {
   generarNombreAleatorio,
   generarApellidosAleatorio,
   generarVerduraAleatorio,
   generarUuidAleatorio,
   generarNumeroAleatorio,
+  generarNumeroNoRepetido,
   generarFrutaAleatorio,
+  
 };
