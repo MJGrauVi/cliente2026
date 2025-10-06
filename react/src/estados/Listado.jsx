@@ -1,7 +1,7 @@
 import React from "react";
 import { generarNumeroNoRepetido } from "../biblioteca/funciones.js";
 import { useState } from "react";
-import "../estados/Listado.css";
+import "./Listado.css";
 
 const Listado = () => {
   const [numeros, setNumeros] = useState([]);
