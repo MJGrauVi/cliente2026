@@ -1,0 +1,6 @@
+.discente-container ul {
+  list-style-position: inside; /* viñetas dentro del bloque */
+  padding-left: 2rem; /* elimina sangría */
+  margin-left: 0; /* elimina margen */
+  text-align: left; /* alinea el texto a la izquierda */
+}

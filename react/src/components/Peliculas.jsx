@@ -7,15 +7,13 @@ const Peliculas = () => {
   //Inicializo el estado con un array vacio para usar useState y luego lo cargo con setPeliculas.
   //Se puede cargar directamente y no es necesario es estado.
   const [peliculas, setPeliculas] = useState([]);
+  
   if (peliculas.length === 0) {
-    console.log(typeof archivoPelis);
     setPeliculas(archivoPelis.peliculas);
-    console.log(typeof archivoPelis.peliculas);
   }
   return (
     <Contenedor>
-      {archivoPelis.peliculas.length !== 0 ? (
-        archivoPelis.peliculas.map((peli, index) => (
+      {archivoPelis.peliculas.length !== 0 ? (archivoPelis.peliculas.map((peli, index) => (
           <Pelicula key={index} datos={peli}>
             {peli.resumen}
           </Pelicula>
