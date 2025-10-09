@@ -6,7 +6,7 @@ const Discente = (props) => {
       <ul>
         <li>
           <strong>Nombre completo: </strong>
-          {nombre} {apellidos}
+          {apellidos} {nombre}
         </li>
         <li>
           <strong>Curso: </strong>
