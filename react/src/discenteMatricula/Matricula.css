@@ -1,12 +1,4 @@
-.matricula-container{
-    align-items:start;
-}
-ul{
-   /*  list-style: none; */
-}
-ul li{
-    list-style:none;
-}
+
 .matricula-botones {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));

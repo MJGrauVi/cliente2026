@@ -4,14 +4,14 @@ import archivoDiscentes from "../assets/matriculados.json";
 import "./Matricula.css";
 
 const Matricula = () => {
-  //Inicializo el estado con un array vacio
+  //Inicializo el estado con un array vacio.
   const [discentes, setDiscentes] = useState([]);
   const [mostrar, setMostrar] = useState(false);
   //Para incorporar un título al resultado de cada "onClick".
   const [titulo, setTitulo] = useState("");
   const [ordenAscendente, setOrdenAscendente] = useState(true);
 
-  //Cargo el componente y muestro el listado
+  //Cargo el componente y muestro el listado.
   const mostrarTodos = () => {
     setDiscentes(archivoDiscentes.discentes);
     setMostrar(true);
@@ -48,7 +48,7 @@ const Matricula = () => {
   };
 
   const ordenAlfabeto = () => {
-    const ordenados = archivoDiscentes.discentes.toSorted((a, b) => {
+    const ordenados = [...archivoDiscentes.discentes].toSorted((a, b) => {
       //toSorted() devuelve una copia ordenada del original, a diferencia de .sorted(debemos realizar la copia nosotros).
       const apellidosA = a.apellidos;
       const apellidosB = b.apellidos;
@@ -56,11 +56,19 @@ const Matricula = () => {
       if (apellidosA > apellidosB) return ordenAscendente ? 1 : -1;
       return 0;
     });
+
     setDiscentes(ordenados);
     setTitulo("Listado de alumnos por orden alfabetico");
     setOrdenAscendente(!ordenAscendente);
   };
 
+  const desmatricular = (nombreCompleto) => {
+    const matriculadosActuales = archivoDiscentes.discentes.filter(
+      (v) => `${v.apellidos} ${v.nombre}` !== nombreCompleto
+    );
+    setDiscentes(matriculadosActuales);
+    console.log(`Matriculados sin ${nombreCompleto}`, matriculadosActuales);
+  };
   const resetear = () => {
     setDiscentes([]);
     setMostrar(false);
@@ -97,7 +105,7 @@ const Matricula = () => {
       {mostrar ? (
         discentes.length !== 0 ? (
           discentes.map((valor, index) => (
-            <Discente key={index} datos={valor} />
+            <Discente key={index} datos={valor} desmatricular={desmatricular} />
           ))
         ) : (
           <h2>¡El archivo está vacío!</h2>
