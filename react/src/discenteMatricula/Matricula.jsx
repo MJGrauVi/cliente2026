@@ -7,6 +7,7 @@ const Matricula = () => {
   //Inicializo el estado con un array vacio.
   const [discentes, setDiscentes] = useState([]);
   const [mostrar, setMostrar] = useState(false);
+
   //Para incorporar un título al resultado de cada "onClick".
   const [titulo, setTitulo] = useState("");
   const [ordenAscendente, setOrdenAscendente] = useState(true);
@@ -17,6 +18,8 @@ const Matricula = () => {
     setMostrar(true);
     setTitulo("Alumnos matriculados");
   };
+
+  //Filtro para mostrar discentes con la cadena indicada.
   const segundoDaw = () => {
     const filtro2Daw = archivoDiscentes.discentes.filter(
       (v) => v.curso == "2DAW"
@@ -25,6 +28,8 @@ const Matricula = () => {
     setMostrar(true);
     setTitulo("Alumnos de 2º de DAW.");
   };
+
+  //Filtro discentes que incluyan 1 en su string.
   const alumnos1 = () => {
     const filtroAlumnos1 = archivoDiscentes.discentes.filter((v) =>
       v.curso.includes(1)
@@ -50,6 +55,7 @@ const Matricula = () => {
   const ordenAlfabeto = () => {
     const ordenados = [...archivoDiscentes.discentes].toSorted((a, b) => {
       //toSorted() devuelve una copia ordenada del original, a diferencia de .sorted(debemos realizar la copia nosotros).
+
       const apellidosA = a.apellidos;
       const apellidosB = b.apellidos;
       if (apellidosA < apellidosB) return ordenAscendente ? -1 : 1;
