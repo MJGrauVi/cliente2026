@@ -10,8 +10,8 @@ const Discente = ({ datos, desmatricular }) => {
   return (
     <div
       className="discente-container"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      onMouseEnter={() => setHover(true)} //evento-react para mostrar el botón cuando pasas por encima
+      onMouseLeave={() => setHover(false)}//se oculta al salir
     >
       {/* Botón flotante (encima del texto, no lo desplaza) */}
       {hover && (

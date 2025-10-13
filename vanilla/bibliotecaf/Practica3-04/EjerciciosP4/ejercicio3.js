@@ -110,7 +110,7 @@ const insertarUsuario = (usuarios, usuario) => {
 //• una función que devuelva un array de objetos con los usuarios mayores de edad,
 
 const usuariosMayores = (usuarios) => {
-  return usuarios.filter((v) => v.preferencias.edad > 18);
+  return usuarios.filter((v) => v.preferencias.edad >= 18);
 };
 
 /*• un función que devuelva otro array de objetos con los usuarios que tengan correo
@@ -186,5 +186,5 @@ export {
   usuariosIncompletos,
   incluirApellidos,
   usuariosTemaClaroEsp,
-  incluirCodigo,
+  incluirCodigo, 
 };

@@ -20,7 +20,7 @@ let nombrePropio = ["Manolo", "Juan", "Paco", "Carmina", "Pilar"];
 
 //Ejercicio 1.
 console.log(`Array original: `, nombrePropio);
-console.log(`Tranformado con toUpperCase: `, stringAmayusculas(nombrePropio));
+console.log(`Transformado con toUpperCase: `, stringAmayusculas(nombrePropio));
 console.log(`Transformo utilizando un objeto "stringMayus" `, stringMayus);
 
 //Ordena al reves el array.
@@ -28,13 +28,13 @@ console.log(`Ordenado al revés: `, ordenaAlReves(nombrePropio));
 console.log(`No modifico el original`, nombrePropio);
 let noEsArray = "hola";
 console.log(`¿Entra un array?`, ordenaAlReves(noEsArray));
+console.log(typeof ordenaAlReves(nombrePropio));
 
 //Punto3
-//const resultado = convertirAJson(nombrePropio);
+
 console.log(`Los valores del objeto son:\n`, convertirAJson(nombrePropio));
 
 //Ejercicio2
-
 const numeros1 = generarArray(10, 1, 10);
 const numeros2 = generarArray(10, 1, 20);
 const numeros3 = generarArray(10, 1, 30);
@@ -68,8 +68,7 @@ listaUsuarios.map((v, i) => {
   console.log(
     `Usuario ${i + 1}: ${v.nombre}, ${v.preferencias.edad} años, vive en ${
       v.contacto.direccion.localidad
-    }
-  y para programar prefiere el tema ${v.preferencias.tema}, su email es: ${
+    }, y para programar prefiere el tema ${v.preferencias.tema}, su email es: ${
       v.contacto.correoelectronico
     }`
   );
@@ -89,7 +88,6 @@ usuariosYahoo.map((v) => {
 });
  
  //Usuarios tema claro, mayores de edad españoles.
-
 
 const usuariosTemaClaro = usuariosTemaClaroEsp(usuarios);
 console.log(`Los usuarios mayores de edad, españoles y que prefieren el tema claro en su monitor son: `);

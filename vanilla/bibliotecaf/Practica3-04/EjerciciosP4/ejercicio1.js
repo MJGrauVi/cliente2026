@@ -25,30 +25,31 @@ const stringMayus = nombres.map((valor) => {
 //Compruebo que efectivamente entra un array y guardo en un nuevo array los valores transformados.
 const ordenaAlReves = (valoresArray) => {
   if (Array.isArray(valoresArray)) {
-    let valoresTransformados = [...valoresArray].sort().reverse();
-    return valoresTransformados;
+    let ordenados = [...valoresArray].sort().reverse();
+    return ordenados;
   }
-  return `No, no entra un array.`; //He incluido este return porque necesito entender en este caso si no entra un array
-  // y no esta el return da undefined y entonces ???
+  return []; //Siempre devuelve un array, auque sea vacio.
 };
 
 /* • crea un nuevo array que contenga un objeto JSON por cada nombre del array. Ese
 objeto tendrá dos propiedades: id con el índice de cada posición y nombre con el
 valor de cada posición. Múestralo por consola.*/
 
-/*   const convertirAJson = (valoresArray) => {
-  let valoresJson = [...valoresArray];
-  return valoresJson.map((v, i) => ({ id: i, nombre: v }));
-};  
-console.log(typeof valoresJson); */
-
-const convertirAJson = (valoresArray) => {
+/* const convertirAJson = (valoresArray) => {
   if (Array.isArray(valoresArray)) {
     let valoresJson = valoresArray.map((v, i) => {
       return { id: i, nombre: v };
     });
     return JSON.stringify(valoresJson, null, 2); // devuelve string JSON formateado
   }
+}; */
+//Arreglado error, ya devuelve el array.**************************
+
+const convertirAJson = (valoresArray) => {
+  if (Array.isArray(valoresArray)) {
+    return valoresArray.map((v, i) => ({ id: i, nombre: v }));
+  }
+  return "Debe ser un array.";
 };
 
 //Ejercicio2

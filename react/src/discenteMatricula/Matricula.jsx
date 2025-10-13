@@ -36,6 +36,7 @@ const Matricula = () => {
     );
     setDiscentes(filtroAlumnos1);
     setTitulo("Alumnos matriculado en 1º.");
+    setMostrar(true);
   };
   const alumnosDaw = () => {
     const filtroAlumnosDaw = archivoDiscentes.discentes.filter((v) =>
@@ -43,6 +44,7 @@ const Matricula = () => {
     );
     setDiscentes(filtroAlumnosDaw);
     setTitulo("Alumnos matriculados en DAW");
+    setMostrar(true);
   };
   const aficionLector = () => {
     const filtroLector = archivoDiscentes.discentes.filter((v) =>
@@ -50,10 +52,11 @@ const Matricula = () => {
     );
     setDiscentes(filtroLector);
     setTitulo("Alumnos aficionados a la lectura.");
+    setMostrar(true);
   };
 
   const ordenAlfabeto = () => {
-    const ordenados = [...archivoDiscentes.discentes].toSorted((a, b) => {
+    const ordenados = [...archivoDiscentes.discentes].sort((a, b) => {
       //toSorted() devuelve una copia ordenada del original, a diferencia de .sorted(debemos realizar la copia nosotros).
 
       const apellidosA = a.apellidos;
@@ -66,6 +69,7 @@ const Matricula = () => {
     setDiscentes(ordenados);
     setTitulo("Listado de alumnos por orden alfabetico");
     setOrdenAscendente(!ordenAscendente);
+    setMostrar(true);
   };
 
   const desmatricular = (nombreCompleto) => {
