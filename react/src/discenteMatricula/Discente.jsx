@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const Discente = ({ datos, desmatricular }) => {
   const { nombre, apellidos, curso, aficiones, comida } = datos;
   const [hover, setHover] = useState(false);
-
+  
   const nombreCompleto = `${apellidos} ${nombre}`;
 
   return (

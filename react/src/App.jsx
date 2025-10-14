@@ -10,8 +10,8 @@ const App = () => {
   return (
     <div>
       {/*  <Peliculas /> */}
-      {/* <h3>Práctica 3.08 Estados en React. </h3>
-      <Listado />
+      {/* <h3>Práctica 3.08 Estados en React. </h3>*/}
+      {/* <Listado />
       <ContadorLimite />
       <ContadorLikes /> */}
       <Matricula />

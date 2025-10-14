@@ -30,7 +30,7 @@ const Listado = () => {
           </ul>
         ) : (
           <p className="listado-p">
-            No hay valores en el array. <br /> Haz clic en{" "}
+            No hay valores en el array. <br /> Haz clic en
             <strong> Generar </strong> para incluir un valor.
           </p>
         )}

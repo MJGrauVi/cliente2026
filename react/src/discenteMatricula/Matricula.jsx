@@ -12,6 +12,9 @@ const Matricula = () => {
   const [titulo, setTitulo] = useState("");
   const [ordenAscendente, setOrdenAscendente] = useState(true);
 
+  //Para mostrar el nombre de la persona desmatriculada.
+  const [mensajeDesmatriculacion, setMensajeDesmatriculacion] = useState("");
+
   //Cargo el componente y muestro el listado.
   const mostrarTodos = () => {
     setDiscentes(archivoDiscentes.discentes);
@@ -77,11 +80,15 @@ const Matricula = () => {
       (v) => `${v.apellidos} ${v.nombre}` !== nombreCompleto
     );
     setDiscentes(matriculadosActuales);
-    console.log(`Matriculados sin ${nombreCompleto}`, matriculadosActuales);
+    //console.log(`Matriculados sin ${nombreCompleto}`, matriculadosActuales);
+    setMensajeDesmatriculacion(`Se ha desmatriculado a: ${nombreCompleto}`);
+    setMostrar(true);
   };
+
   const resetear = () => {
     setDiscentes([]);
     setMostrar(false);
+    setMensajeDesmatriculacion("");
   };
 
   return (
@@ -112,6 +119,9 @@ const Matricula = () => {
       </div>
       {/*Comprobamos que hay título y si hay se muestra. */}
       {mostrar && <h2>{titulo}</h2>}
+      {mensajeDesmatriculacion && (
+        <p className="mensajeDesmatriculacion">{mensajeDesmatriculacion}</p>
+      )}
       {mostrar ? (
         discentes.length !== 0 ? (
           discentes.map((valor, index) => (
