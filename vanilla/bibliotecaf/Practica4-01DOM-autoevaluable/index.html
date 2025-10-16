@@ -3,8 +3,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
     <title>Ejercicio 01 Contando elementos del DOM</title>
   </head>
+
   <body>
     <p>
       <b>JavaScript</b> (abreviado comúnmente <b>JS</b>) es un
@@ -169,7 +171,31 @@
         ></sup
       >​
     </p>
-    <div id="info"></div>
+    <div id="info">
+      <div></div>
+    </div>
     <script src="./mainP4-01.js" type="module"></script>
+<!--     <script>
+      const nodes = document.body.childNodes;
+      console.log(nodes.length); //nodeList
+      /*    nodes.forEach((v, i) => {
+      console.log(`Elemento ${i}: ${v}`);
+    }); */
+      const array = Array.from(nodes);
+
+  
+ /*      const allNodes = document.querySelectorAll("*");
+      console.log(typeof allNodes);
+      allNodes.forEach((node, index) => {
+        console.log(`Nodo ${index}:`, node);
+      }); */
+      const nodeList = document.querySelectorAll("div");
+      nodeList.forEach((v, i) => console.log(`El ${i} es : ${v}`));
+      const cantidad = nodeList.length;
+      console.log(`Cuandos ${cantidad}`);
+      const array1 = [...nodeList];
+
+      console.log(nodeList.keys);
+    </script> -->
   </body>
 </html>

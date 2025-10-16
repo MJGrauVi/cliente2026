@@ -1,5 +1,5 @@
 "use strict";
-import contarParrafos from "./funcionesEjercicio4-01/ejercicio1.js";
+import {contarParrafos, numeroParrafos, textoSegundoP} from "./funcionesEjercicio4-01/ejercicio1.js";
 /* Ejercicio 1 - Contando elementos del DOM
 Se dispone de una página web en Ejercicio01.html. Añade el código necesario en un
 fichero js aparte para mostrar la siguiente información:
@@ -11,6 +11,9 @@ fichero js aparte para mostrar la siguiente información:
 El texto con la información será añadido al <div> con id=info y debe estar debidamente
 formateado. */
 
-setTimeout(() => {
-  console.log(`El número de párrafos es:`, contarParrafos());
-}, 1000);
+
+console.log(`El número de párrafos es: ${contarParrafos()}`);
+console.log(`El número de párrafos es: ${numeroParrafos()}`);
+console.log(`Texto del segundo párrafo: ${textoSegundoP()}`);
+
+
