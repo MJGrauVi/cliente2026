@@ -7,25 +7,40 @@ import {
   crearTabla,
   aplicarEstiloPrimos,
 } from "./funcionesEjercicio4-02/ejercicio2.js";
-import {crearWeb, generarColorAleatorio, indiceAleatorio, colorParrafoAleatorio} from "./funcionesEjercicio4-02/ejercicio3.js";
-
+import {
+  crearWeb,
+  generarColorAleatorio,
+  indiceAleatorio,
+  colorParrafoAleatorio,
+} from "./funcionesEjercicio4-02/ejercicio3.js";
+import {
+  crearCarrusel,
+  /* obtenerImagenActual, */ 
+  cambiarImagen
+} from "./funcionesEjercicio4-02/ejercicio4.js";
 // Ejercicio 1 - El censor DOM
 //sustituirString();
 
 //Ejercicio 2.
 crearTabla(10, 10); //Crar tabla 10x10.
 //Ejercicio 3.
- crearWeb();
-
+crearWeb();
+/* 
 setTimeout(() => {
   aplicarEstiloPrimos();
   sustituirString();
 }, 1000);
 
-const intervalo = setInterval(()=>{
-colorParrafoAleatorio();
-},1000);
-setTimeout(()=>{
+const intervalo = setInterval(() => {
+  colorParrafoAleatorio();
+}, 1000);
+setTimeout(() => {
   clearInterval(intervalo);
 }, 10000);
 
+//Ejercicio 4.
+ */
+crearCarrusel();
+
+// Cambiar la imagen cada 4 segundos.
+setInterval(cambiarImagen(), 4000);
