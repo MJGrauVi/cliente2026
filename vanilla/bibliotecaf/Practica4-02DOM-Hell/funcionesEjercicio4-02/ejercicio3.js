@@ -8,16 +8,17 @@ Dota de algún estilo CSS para que los párrafos sean distinguibles (altura, lon
 borde). */
 
 const crearWeb = () => {
-  const divContainer = document.createElement("div");
-  divContainer.setAttribute("id", "contenerdorWeb");
+  const divContainer = document.createElement("div"); //Creo un elemento html div.
+  divContainer.setAttribute("id", "contenerdorWeb"); //Le añado el atributo id.
   let numeroParrafos = 5;
   for (let i = 0; i < numeroParrafos; i++) {
+    //Creo los párrafos, le añado la clase y contenido, y lo añado al contenedor.
     let parrafo = document.createElement("p");
     parrafo.className = `parrafo`;
     parrafo.textContent = `Párrafo creado con un for`;
     divContainer.appendChild(parrafo);
   }
-  document.body.appendChild(divContainer);
+  document.body.appendChild(divContainer); //Añado todo a body.
 };
 // Función para generar un color hexadecimal.
 const generarColorAleatorio = () => {
@@ -30,19 +31,17 @@ const generarColorAleatorio = () => {
 };
 const indiceAleatorio = (valor) => {
   let numero = Math.floor(Math.random() * valor);
-  console.log(valor);
   return numero;
 };
 
- const colorParrafoAleatorio = () => {
-    const parrafos = document.querySelectorAll(".parrafo"); // Selecciona todos los párrafos
-    parrafos.forEach((p) => (p.style.backgroundColor = ""));
-    const indiceGenerado = indiceAleatorio(parrafos.length); // Pasa número de párrafos
-    const parrafoSeleccionado = parrafos[indiceGenerado]; // Obtiene el párrafo correspondiente
-    const nuevoColor = generarColorAleatorio(); // Genera un nuevo color aleatorio
-    parrafoSeleccionado.style.backgroundColor = nuevoColor; // Cambia el color de fondo del párrafo
-}; 
-
+const colorParrafoAleatorio = () => {
+  const parrafos = document.querySelectorAll(".parrafo"); // Selecciona todos los párrafos.
+  parrafos.forEach((p) => (p.style.backgroundColor = ""));
+  const indiceGenerado = indiceAleatorio(parrafos.length); // Pasa número de párrafos.
+  const parrafoSeleccionado = parrafos[indiceGenerado]; // Obtiene el párrafo correspondiente.
+  const nuevoColor = generarColorAleatorio(); // Genera un nuevo color aleatorio.
+  parrafoSeleccionado.style.backgroundColor = nuevoColor; // Cambia el color de fondo del párrafo.
+};
 
 export {
   crearWeb,

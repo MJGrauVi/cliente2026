@@ -5,7 +5,7 @@ y si encuentra la palabra "sexo" elimine el texto y la sustituya por "Contenido 
 poniendo el texto en rojo, negrita y cursiva (utiliza clases para el estilo). */
 
 function sustituirString() {
-  //Añado el contenido del body
+  //Añado el contenido del body.
   const contenidoBody = document.body.innerHTML;
   //Reemplazo el texto y creo una clase "bloqueado" para darle los estilos solicitados.
   const nuevoContenido = contenidoBody.replace(

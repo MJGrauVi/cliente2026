@@ -6,8 +6,7 @@ Además, trancurridos dos segundos desde la carga inicial, todas las celdas de l
 tengan números primos se pongan con un fondo rojo y el texto en negrita (utiliza clases para el
 estilo).*/
 
-//Números solo divisibles por 1 o por sí mismos.
-//El bucle termina la iteración en valor-1 porque un número siempre es divisible por sí mismo.
+//Reutilizo funciones de archivo.
 const esPrimo = (numero) => {
   if (numero < 2) return false;
   if (numero === 2) return true;
@@ -19,6 +18,7 @@ const esPrimo = (numero) => {
   }
   return true;
 };
+//Con esta función puedo crear una tabla del tamaño indicado a filas y columnas.
 const crearTabla = (filas, columnas) => {
   const tabla = document.createElement("table");
   let contador = 1; //Empieza a rellenar cada celda en 1.
@@ -36,12 +36,11 @@ const crearTabla = (filas, columnas) => {
   document.body.appendChild(tabla);
 };
 function aplicarEstiloPrimos() {
-  let celdas = document.querySelectorAll("td"); // Selecciona todas las celdas
+  let celdas = document.querySelectorAll("td"); // Selecciona todas las celdas.
   celdas = [...celdas]; //Transformo NodeList en array para usar .map().
   celdas.map((celda) => {
-    if (esPrimo(parseInt(celda.textContent, 10))) {
-      // Verifica si el número en la celda es primo
-      celda.classList.add("primo"); // Añade la clase 'primo' para cambiar el estilo
+    if (esPrimo(parseInt(celda.textContent, 10))) {// Verifica si el número en la celda es primo.
+      celda.classList.add("primo"); // Añade la clase 'primo' para cambiar el estilo.
     }
   });
 }
