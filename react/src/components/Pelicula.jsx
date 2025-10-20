@@ -41,7 +41,10 @@ const Pelicula = (props) => {
         <button className="botonTaquilla" onClick={ocultarTaquilla}>
           Taquilla
         </button>
-        <Taquilla taquiRef={taquillaRef} recaudacion={recaudacion}></Taquilla>
+        {/* {<Taquilla taquiRef={taquillaRef} recaudacion={recaudacion}></Taquilla>} */}
+      </div>
+      <div className="contenedor-taquilla hidden" taquiRef={taquillaRef}>
+        <Taquilla recaudacion={recaudacion} />
       </div>
 
       <div className="pelicula-elenco hidden" ref={elencoRef}>

@@ -17,7 +17,7 @@
 }
 .pelicula-btnyTaquilla {
   display: flex;
-  flex-direction:row;
+  flex-direction: start;
 }
 .botonElenco,
 .botonTaquilla {
