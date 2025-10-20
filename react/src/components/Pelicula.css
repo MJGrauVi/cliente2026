@@ -15,18 +15,32 @@
 .pelicula-h1-titulo {
   margin-bottom: 5px;
 }
-.pelicula-h3-elenco {
+.pelicula-btnyTaquilla {
+  display: flex;
+  flex-direction:row;
+}
+.botonElenco,
+.botonTaquilla {
   text-align: left;
   color: red;
   font-size: x-large;
   padding-left: 30px;
+  margin: 30px;
 }
+
 .pelicula-h4 {
   font-weight: "normal";
   color: #555;
 }
-.pelicula-children, .pelicula-recaudacion{
+.pelicula-children {
   margin-bottom: 15px;
-  text-align:left;
-  
+  text-align: left;
+}
+/* .pelicula-recaudacion {
+  margin-bottom: 15px;
+  text-align: left;
+  color: rgb(0, 255, 195);
+} */
+.hidden {
+  display: none;
 }
