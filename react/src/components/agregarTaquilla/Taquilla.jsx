@@ -1,11 +1,11 @@
 import React from "react";
-import "./Taquilla.css";
+/* import "./Taquilla.css"; */
 
 const Taquilla = (props) => {
-  const {recaudacion, taquillaRef} = props;
+  const { recaudacion, taquillaRef } = props;
   return (
     <div className="contenedor-taquilla" ref={taquillaRef}>
-      Recaudacion: {recaudacion}
+      <strong>Recaudación:</strong> {recaudacion}.
     </div>
   );
 };

@@ -34,19 +34,17 @@ const Pelicula = (props) => {
       {/*    <div className="pelicula-recaudacion">
         <strong>Recaudacion:</strong> {recaudacion}
       </div> */}
-      <div className="pelicula-btnYTaquilla">
+      <div className="pelicula-btnyTaquilla">
         <button className="botonElenco" onClick={ocultarElenco}>
           Elenco
         </button>
         <button className="botonTaquilla" onClick={ocultarTaquilla}>
           Taquilla
         </button>
-        {/* {<Taquilla taquiRef={taquillaRef} recaudacion={recaudacion}></Taquilla>} */}
+        <div className="contenedor-taquilla hidden" ref={taquillaRef}>
+          <Taquilla recaudacion={recaudacion} />
+        </div>
       </div>
-      <div className="contenedor-taquilla hidden" taquiRef={taquillaRef}>
-        <Taquilla recaudacion={recaudacion} />
-      </div>
-
       <div className="pelicula-elenco hidden" ref={elencoRef}>
         {actores &&
           actores.map((act, index) => (
@@ -54,6 +52,10 @@ const Pelicula = (props) => {
               {act.bio}
             </Interprete>
           ))}
+          
+      </div>
+      <div className="separador">
+        -----------------------------------------------------------------
       </div>
     </div>
   );

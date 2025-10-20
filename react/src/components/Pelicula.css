@@ -17,17 +17,42 @@
 }
 .pelicula-btnyTaquilla {
   display: flex;
-  flex-direction: start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 20px;
 }
+/* Cada botón ocupa 1/3 del espacio */
 .botonElenco,
 .botonTaquilla {
-  text-align: left;
+  width: 25%;
+  text-align: center;
   color: red;
-  font-size: x-large;
-  padding-left: 30px;
-  margin: 30px;
+  font-size: 1.2rem;
+  padding: 10px;
+  margin: 0;
+  border: 2px solid red;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-
+/* Efecto hover */
+.botonElenco:hover,
+.botonTaquilla:hover {
+  background-color: red;
+  color: white;
+}
+.contenedor-taquilla {
+  /*  top: 100%; /* justo debajo de los botones */
+  margin-left: 30px;
+  width: auto;
+  text-align: right;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 .pelicula-h4 {
   font-weight: "normal";
   color: #555;
@@ -43,4 +68,11 @@
 } */
 .hidden {
   display: none;
+}
+.separador {
+  color: #ada2a2;
+  width: 100%;
+  font-weight: 600;
+  padding-top: 30px;
+  color: rgb(9, 114, 149);
 }
