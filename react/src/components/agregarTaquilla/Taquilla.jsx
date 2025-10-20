@@ -5,7 +5,7 @@ const Taquilla = (props) => {
   const {recaudacion, taquillaRef} = props;
   return (
     <div className="contenedor-taquilla" ref={taquillaRef}>
-      {recaudacion}
+      Recaudacion: {recaudacion}
     </div>
   );
 };
