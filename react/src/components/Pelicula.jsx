@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef } from "react";
 import Interprete from "./Interprete.jsx";
-import Taquilla from "./agregarTaquilla/Taquilla.jsx";
+import Taquilla from "./Taquilla.jsx";
 import "./Pelicula.css";
 
 const Pelicula = (props) => {
