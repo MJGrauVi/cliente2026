@@ -80,7 +80,6 @@ const Matricula = () => {
       (v) => `${v.apellidos} ${v.nombre}` !== nombreCompleto
     );
     setDiscentes(matriculadosActuales);
-    //console.log(`Matriculados sin ${nombreCompleto}`, matriculadosActuales);
     setMensajeDesmatriculacion(`Se ha desmatriculado a: ${nombreCompleto}`);
     setMostrar(true);
   };

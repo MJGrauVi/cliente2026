@@ -1,5 +1,5 @@
 import React from "react";
-/* import "./Taquilla.css"; */
+
 
 const Taquilla = (props) => {
   const { recaudacion, taquillaRef } = props;

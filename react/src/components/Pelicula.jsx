@@ -13,7 +13,7 @@ const Pelicula = (props) => {
   const elencoRef = useRef(null);
   const taquillaRef = useRef(null);
 
-  //Función para cambiar la referencia, quita o pone la clase.
+  //Función para cambiar la referencia, quita o pone la clase css.
   const ocultarElenco = () => {
     elencoRef.current.classList.toggle("hidden");
   };
@@ -31,20 +31,20 @@ const Pelicula = (props) => {
         <strong>Resumen: </strong>
         {children}
       </div>
-      {/*    <div className="pelicula-recaudacion">
-        <strong>Recaudacion:</strong> {recaudacion}
-      </div> */}
       <div className="pelicula-btnyTaquilla">
-        <button className="botonElenco" onClick={ocultarElenco}>
+        <button className="botonElenco" onClick={() => ocultarElenco()}>
+          {/* Oculta el contenido al cual apunta la referencia, en este caso el div ref=elencoRef */}
           Elenco
         </button>
-        <button className="botonTaquilla" onClick={ocultarTaquilla}>
+        <button className="botonTaquilla" onClick={() => ocultarTaquilla()}>
+          {/* Oculta el contenido al cual apunta la referencia, en este caso el div ref=taquillaRef */}
           Taquilla
         </button>
         <div className="contenedor-taquilla hidden" ref={taquillaRef}>
           <Taquilla recaudacion={recaudacion} />
         </div>
       </div>
+
       <div className="pelicula-elenco hidden" ref={elencoRef}>
         {actores &&
           actores.map((act, index) => (
@@ -52,8 +52,8 @@ const Pelicula = (props) => {
               {act.bio}
             </Interprete>
           ))}
-          
       </div>
+
       <div className="separador">
         -----------------------------------------------------------------
       </div>

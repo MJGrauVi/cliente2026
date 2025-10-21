@@ -85,7 +85,7 @@ const generarFrutaAleatorio = () => {
   // Devolver una fruta aleatoria
   return frutas[Math.floor(Math.random() * frutas.length)];
 };
-
+//Devuelve un UUID aleatorio para identificar elementos.
 const generarUuidAleatorio = () => {
   return crypto.randomUUID();
 };
@@ -111,5 +111,4 @@ export {
   generarNumeroAleatorio,
   generarNumeroNoRepetido,
   generarFrutaAleatorio,
-  
 };
