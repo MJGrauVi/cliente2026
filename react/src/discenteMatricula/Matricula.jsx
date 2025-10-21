@@ -13,18 +13,21 @@ const Matricula = () => {
   const [ordenAscendente, setOrdenAscendente] = useState(true);
 
   //Para mostrar el nombre de la persona desmatriculada.
+  const [matriculados, setMatriculados] = useState(archivoDiscentes.discentes);
   const [mensajeDesmatriculacion, setMensajeDesmatriculacion] = useState("");
+
+  //
 
   //Cargo el componente y muestro el listado.
   const mostrarTodos = () => {
-    setDiscentes(archivoDiscentes.discentes);
+    setDiscentes(matriculados);
     setMostrar(true);
     setTitulo("Alumnos matriculados");
   };
 
   //Filtro para mostrar discentes con la cadena indicada.
   const segundoDaw = () => {
-    const filtro2Daw = archivoDiscentes.discentes.filter(
+    const filtro2Daw = matriculados.filter(
       (v) => v.curso == "2DAW"
     );
     setDiscentes(filtro2Daw);
@@ -34,7 +37,7 @@ const Matricula = () => {
 
   //Filtro discentes que incluyan 1 en su string.
   const alumnos1 = () => {
-    const filtroAlumnos1 = archivoDiscentes.discentes.filter((v) =>
+    const filtroAlumnos1 = matriculados.filter((v) =>
       v.curso.includes(1)
     );
     setDiscentes(filtroAlumnos1);
@@ -42,7 +45,7 @@ const Matricula = () => {
     setMostrar(true);
   };
   const alumnosDaw = () => {
-    const filtroAlumnosDaw = archivoDiscentes.discentes.filter((v) =>
+    const filtroAlumnosDaw = matriculados.filter((v) =>
       v.curso.includes("DAW")
     );
     setDiscentes(filtroAlumnosDaw);
@@ -50,7 +53,7 @@ const Matricula = () => {
     setMostrar(true);
   };
   const aficionLector = () => {
-    const filtroLector = archivoDiscentes.discentes.filter((v) =>
+    const filtroLector = matriculados.filter((v) =>
       v.aficiones.includes("lectura")
     );
     setDiscentes(filtroLector);
@@ -59,7 +62,7 @@ const Matricula = () => {
   };
 
   const ordenAlfabeto = () => {
-    const ordenados = [...archivoDiscentes.discentes].sort((a, b) => {
+    const ordenados = [...matriculados].sort((a, b) => {
       //toSorted() devuelve una copia ordenada del original, a diferencia de .sorted(debemos realizar la copia nosotros).
 
       const apellidosA = a.apellidos;
@@ -76,11 +79,26 @@ const Matricula = () => {
   };
 
   const desmatricular = (nombreCompleto) => {
-    const matriculadosActuales = archivoDiscentes.discentes.filter(
-      (v) => `${v.apellidos} ${v.nombre}` !== nombreCompleto
+    // Busco el alumno por nombre completo y me guardo el identificador.
+    const alumnoDesmatricular = matriculados.find(
+      (v) => `${v.apellidos} ${v.nombre}` === nombreCompleto
     );
-    setDiscentes(matriculadosActuales);
-    setMensajeDesmatriculacion(`Se ha desmatriculado a: ${nombreCompleto}`);
+
+    if (!alumnoDesmatricular) {
+      setMensajeDesmatriculacion(`No se encontró a: ${nombreCompleto}`);
+      return;
+    }
+    const id = alumnoDesmatricular.id;
+    // Filtrar por id
+    const alumnosActuales = matriculados.filter(
+      (v) => v.id !== id
+    );
+
+    setMatriculados(alumnosActuales);
+    setDiscentes(alumnosActuales);
+    setMensajeDesmatriculacion(
+      `Se ha desmatriculado a: ${nombreCompleto} con id: ${id} `
+    );
     setMostrar(true);
   };
 
