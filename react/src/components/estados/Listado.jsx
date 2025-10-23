@@ -1,5 +1,5 @@
 import React from "react";
-import { generarNumeroNoRepetido } from "../biblioteca/funciones.js";
+import { generarNumeroNoRepetido } from "../../biblioteca/funciones.js";
 import { useState } from "react";
 import "./Listado.css";
 

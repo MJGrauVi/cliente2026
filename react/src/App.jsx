@@ -1,13 +1,27 @@
 import "./App.css";
-import Matricula from "./discenteMatricula/Matricula.jsx";
-import Discente from "./discenteMatricula/Discente.jsx";
-
+import { Routes, Route } from "react-router-dom";
+import Menu from "./menu/Menu.jsx";
+import Rutas from "./routes/Rutas.jsx";
+import Contenedor from "./estructura/Contenedor.jsx";
+import Header from "./estructura/Header.jsx";
+import Footer from "./estructura/Footer.jsx";
 
 
 const App = () => {
   return (
-    <div>
-      <Matricula />
+    <div className="contenedor-app">
+      <Header>
+        <h2>Interfaz con rutas en React</h2>
+        <Menu />
+      </Header>
+
+      <Contenedor>
+        <Rutas />
+      </Contenedor>
+      <Footer>
+        <p>Pie de Página</p>
+      </Footer>
+
     </div>
   );
 };

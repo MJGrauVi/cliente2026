@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Discente from "./Discente.jsx";
-import archivoDiscentes from "../assets/matriculados.json";
+import archivoDiscentes from "../../assets/matriculados.json";
 import "./Matricula.css";
 
 const Matricula = () => {
@@ -27,9 +27,7 @@ const Matricula = () => {
 
   //Filtro para mostrar discentes con la cadena indicada.
   const segundoDaw = () => {
-    const filtro2Daw = matriculados.filter(
-      (v) => v.curso == "2DAW"
-    );
+    const filtro2Daw = matriculados.filter((v) => v.curso == "2DAW");
     setDiscentes(filtro2Daw);
     setMostrar(true);
     setTitulo("Alumnos de 2º de DAW.");
@@ -37,9 +35,7 @@ const Matricula = () => {
 
   //Filtro discentes que incluyan 1 en su string.
   const alumnos1 = () => {
-    const filtroAlumnos1 = matriculados.filter((v) =>
-      v.curso.includes(1)
-    );
+    const filtroAlumnos1 = matriculados.filter((v) => v.curso.includes(1));
     setDiscentes(filtroAlumnos1);
     setTitulo("Alumnos matriculado en 1º.");
     setMostrar(true);
@@ -90,9 +86,7 @@ const Matricula = () => {
     }
     const id = alumnoDesmatricular.id;
     // Filtrar por id
-    const alumnosActuales = matriculados.filter(
-      (v) => v.id !== id
-    );
+    const alumnosActuales = matriculados.filter((v) => v.id !== id);
 
     setMatriculados(alumnosActuales);
     setDiscentes(alumnosActuales);
@@ -141,9 +135,18 @@ const Matricula = () => {
       )}
       {mostrar ? (
         discentes.length !== 0 ? (
-          discentes.map((valor, index) => (
-            <Discente key={index} datos={valor} desmatricular={desmatricular} />
-          ))
+          discentes.map(
+            (
+              valor //key={crypto.randomUUID()}
+            ) => (
+              /*  <Discente key={index} datos={valor} desmatricular={desmatricular} /> */
+              <Discente
+                key={crypto.randomUUID()}
+                datos={valor}
+                desmatricular={desmatricular}
+              />
+            )
+          )
         ) : (
           <h2>¡El archivo está vacío!</h2>
         )
