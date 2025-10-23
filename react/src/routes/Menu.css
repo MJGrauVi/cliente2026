@@ -1,7 +1,7 @@
 /* Estilo general del contenedor del menú */
 nav {
   display: flex;
-
+  border-radius: 5px;
   justify-content: center;       /* Centra los enlaces horizontalmente */
   align-items: center;
   background-color: #1e1e2f;     /* Fondo oscuro elegante */
