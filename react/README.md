@@ -1,6 +1,18 @@
-# React + Vite
+# Proyecto DWC con React - Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Crear una interfaz con rutas para una aplicación de gestión de películas:
+ ### Pasos a seguir:
+ 1-Crear los componentes que conformarán la estructura de las web:
+    - Cabecera.
+    - Menú.
+    - Contenido.
+    - pie.
+ ### 2-Crea los componentes para las páginas que se cargarán en la aplicación y que se mostrarán en el componente Contenido:
+    -Inicio, que mostrará el contenido inicial.
+    -Peliculas, mostrará el listado de películascon la siguiente información: Título, cartelera en miniatura, y el año de exibición.
+    -Interpretes, mostrará información de actores y actrices.
+    -Galería, con las imágenes de las carteleras de la películas, que contendrá un Submenú con 3 opciones para filtrar la cartelera por título, interprete y director(sin funcionalidad solo mensaje de texto).
+    -Acercade, con la información de la aplicación, versión, creador y fecha de modificación.
 
 Currently, two official plugins are available:
 
