@@ -20,8 +20,8 @@ const Peliculas = () => {
     <Contenedor>
       {/* Ternaria para mostrar el contenido si lo hay, sino, muestra un mensaje informando al usuario. */}
       {archivoPelis.length !== 0 ? (
-        archivoPelis.map((peli) => (
-          <Pelicula key={uuidV4()} datos={peli}>
+        archivoPelis.map((peli, index) => (
+          <Pelicula key={index} datos={peli}>
             {peli.resumen}
           </Pelicula>
         ))

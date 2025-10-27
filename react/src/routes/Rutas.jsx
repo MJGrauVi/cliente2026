@@ -20,9 +20,14 @@ const todosLosActores = todasLasPeliculas.flatMap((peli) => peli.actores || []);
     <div className="contenedor-rutas">
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="peliculas" element={<Productos />} />
+        <Route path="/peliculas" element={<Productos />} />
         <Route path="interpretes" element={<Elenco actores={todosLosActores} />} />
-        <Route path="galeria" element={<Galeria />} />
+        <Route path="/galeria" element={<Galeria />} />
+            <Route>
+                <Route path="/galeria/titulo" elemento={CartelTitulo} />
+                <Route path="/galeria/interprete" elemento={CartelInterprete} />
+                <Route path="/galera/director" elemento={CartelDirector} />
+            </Route>
         <Route path="acercade" element={<AcercaDe />} />
         <Route path="*" element={<Error />} />
       </Routes>
