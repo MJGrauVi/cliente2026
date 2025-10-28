@@ -14,7 +14,6 @@ const App = () => {
       <Header>
         <h2>Gestión películas</h2>
         <p>Rutas en React con react-router-dom.</p>
-
       </Header>
       <MenuNavegacion>
         <Menu />

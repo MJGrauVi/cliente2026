@@ -1,4 +1,6 @@
 .contenedor-pages {
+    display:block;
+    width:600px;
     border-radius: 12px;
     padding: 20px;
     margin: 20px auto;

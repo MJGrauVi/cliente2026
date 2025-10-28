@@ -4,7 +4,6 @@ import "./Contenedor.css";
 import { Link, useNavigate, Outlet } from "react-router-dom";
 import Contenedor from "../components/Contenedor.jsx";
 
-
 const Galeria = () => {
   const navegar = useNavigate();
   return (

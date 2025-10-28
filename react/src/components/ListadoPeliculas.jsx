@@ -1,13 +1,15 @@
 import React from "react";
 import "./ListadoPeliculas.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ListadoPeliculas = ({ peliculas }) => {
+
+    const navegar = useNavigate();
     if (!Array.isArray(peliculas) || peliculas.length === 0) {
         return <h3>No hay películas disponibles.</h3>;
     }
     return (
-        <div>
+        <div className="listadoPeliculas-contenedor">
             <h2>Listado Películas</h2>
             <ul className="listadoPelis-miniatura">{/*Cargar el componente de la pelicula */}
                 {peliculas.map((peli) => (
@@ -29,6 +31,7 @@ const ListadoPeliculas = ({ peliculas }) => {
                     </li>
                 ))}
             </ul>
+            <button onClick={()=> navegar("/")}>Volver a Inicio</button>
         </div>
     );
 };
