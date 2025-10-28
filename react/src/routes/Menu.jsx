@@ -5,7 +5,7 @@ import "./Menu.css";
 const Menu = () => {
   return (
     <>
-      <nav>
+      <nav>{/* Con Link vinculamos el path de la ruta con el menú de navegación. */}     
         <Link className="menu-elemento" to="/">
           Inicio
         </Link>

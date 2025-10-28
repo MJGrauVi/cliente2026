@@ -1,0 +1,82 @@
+.listadoPelis-miniatura {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* separa las películas entre sí */
+}
+
+.listadoPelis-miniatura li {
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.listadoPelis-miniatura li:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen miniatura */
+.listadoPelis-miniatura img {
+    width: 80px;      /* miniatura */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Contenedor de texto */
+.listadoPelis-miniatura li h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #333;
+}
+
+.listadoPelis-miniatura li p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.listadoPelis-miniatura li strong {
+    color: #222;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #222;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Texto cuando no hay películas */
+h3 {
+    color: #777;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .listadoPelis-miniatura li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .listadoPelis-miniatura img {
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+        align-self: center;
+    }
+}
