@@ -1,3 +1,10 @@
+.galeria-contenedor{
+  display:block;
+  width: 700px;
+  align-items: center;
+  justify-content: center;
+
+}
 .galeria-navegacion{
     
   display: flex;

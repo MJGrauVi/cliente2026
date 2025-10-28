@@ -1,6 +1,65 @@
-.elenco-contenedor{
-
+.elenco-contenedor {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 1.8rem;
+  color: #333;
 }
-elenco-contenedor ul{
-    list-style: none;
+
+.elenco-contenedor ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.elenco-contenedor li {
+  list-style: none;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.elenco-contenedor li:hover {
+  transform: scale(1.03);
+}
+
+.elenco-contenedor img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.elenco-contenedor h3 {
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+  color: #222;
+}
+
+.elenco-contenedor p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+button {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
 }

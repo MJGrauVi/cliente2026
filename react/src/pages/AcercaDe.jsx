@@ -7,11 +7,9 @@ const AcercaDe = () => {
     <div className="contenedor-acercade">
       <h2>Acerca de:</h2>
       <p>Estamos realizando un práctica de DWC con react.</p>
-      <div>
-        <p><strong>Organización del proyecto</strong></p>
-        <p>He creado un directorio estructura para ir incorporando los componentes que van a estructurar la web, y pages para incluir los componentes referentes a la página.</p>
-        <p>Además de esto en el directorio routes en incluido los componentes Routes y Menu por si funcionalidad.</p>
-      </div>
+      <p><strong>Versión:</strong> 1.1</p>
+      <p><strong>Creador:</strong> María José Grau</p>
+      <p><strong>Fecha modificación:</strong>Octubre 2025</p>
       <button
         onClick={() => {
           navegar("/");

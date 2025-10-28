@@ -32,7 +32,14 @@
     border-radius: 6px;
     border: 1px solid #ccc;
 }
-
+.pelicula-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none; /* quita el subrayado */
+  color: inherit;         /* usa el color del padre */
+  width: 100%;            /* ocupa todo el espacio del <li> */
+}
 /* Contenedor de texto */
 .listadoPelis-miniatura li h3 {
     font-size: 1.1rem;

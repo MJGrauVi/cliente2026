@@ -2,6 +2,7 @@ import React from "react";
 import { v4 as uuidV4 } from "uuid";
 import Interprete from "./Interprete.jsx";
 import {useNavigate} from "react-router-dom";
+import "./Elenco.css";
 
 const Elenco = ({ actores }) => {
 

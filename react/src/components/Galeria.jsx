@@ -8,7 +8,7 @@ import Contenedor from "../components/Contenedor.jsx";
 const Galeria = () => {
   const navegar = useNavigate();
   return (
-    <>
+    <div className="galeria-contenedor">
       <h2>Galeria Carteleras.</h2>
 
       <nav className="galeria-navegacion">
@@ -26,8 +26,8 @@ const Galeria = () => {
       <Contenedor>
         <Outlet />
       </Contenedor>
-      <button onClick={()=>navegar("/")}>Volver a Inicio</button>
-    </>
+      <button onClick={() => navegar("/")}>Volver a Inicio</button>
+    </div>
   );
 };
 

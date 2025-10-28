@@ -11,6 +11,7 @@ import GaleriaTitulo from "../pages/subMenu/GaleriaTitulo.jsx";
 import AcercaDe from "../pages/AcercaDe.jsx";
 import Error from "../pages/Error.jsx";
 import ListadoPeliculas from "../components/ListadoPeliculas.jsx";
+import "./Rutas.css";
 
 const Rutas = () => {
   const todasLasPeliculas = archivoPeliculas.peliculas;
