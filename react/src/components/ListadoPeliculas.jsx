@@ -8,7 +8,7 @@ const ListadoPeliculas = ({ peliculas }) => {
     return (
         <div>
             <h2>Listado Películas</h2>
-            <ul className="listadoPelis-miniatura" onClick={()=>()}>{/*Cargar el componente de la pelicula */}
+            <ul className="listadoPelis-miniatura" onClick={()=>{}}>{/*Cargar el componente de la pelicula */}
                 {peliculas.map((peli) => (
                     <li key={peli.id}>
                             {peli.cartelera ? (
