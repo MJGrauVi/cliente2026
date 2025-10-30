@@ -1,5 +1,5 @@
 import "./Error.css";
-import { useNavigate } from "react-router-dom";
+import BotonNavegar from "../estructura/BotonNavegar.jsx";
 
 const Error = () => {
 
@@ -10,13 +10,14 @@ const Error = () => {
     <div className="contenedor-error">
       <h2>Página de Error.</h2>
       <div>¡Si estás aquí es porque algo no ha salido bien!</div>
-      <button
+      {/* <button
         onClick={() => {
           navegar("/");
         }}
       >
         Volver a inicio
-      </button>
+      </button> */}
+      <BotonNavegar ruta="/" texto="Volver Inicio" />
     </div>
   );
 };

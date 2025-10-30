@@ -1,6 +1,7 @@
 import React from "react";
 import "./ListadoPeliculas.css";
 import { Link, useNavigate } from "react-router-dom";
+import BotonNavegar from "../estructura/BotonNavegar.jsx";
 
 const ListadoPeliculas = ({ peliculas }) => {
 
@@ -31,7 +32,8 @@ const ListadoPeliculas = ({ peliculas }) => {
                     </li>
                 ))}
             </ul>
-            <button onClick={()=> navegar("/")}>Volver a Inicio</button>
+            {/* <button onClick={()=> navegar("/")}>Volver a Inicio</button> */}
+            <BotonNavegar ruta="/" texto="Volve Inicio" />
         </div>
     );
 };
