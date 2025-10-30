@@ -6,6 +6,7 @@ import Contenedor from "./estructura/Contenedor.jsx";
 import Header from "./estructura/Header.jsx";
 import Footer from "./estructura/Footer.jsx";
 
+
 const App = () => {
   return (
     <div className="contenedor-app">
@@ -20,6 +21,7 @@ const App = () => {
       <Footer>
         <p>Pie de Página</p>
       </Footer>
+
     </div>
   );
 };

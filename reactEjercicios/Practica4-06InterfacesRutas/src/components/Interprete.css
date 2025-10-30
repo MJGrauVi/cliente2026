@@ -1,0 +1,37 @@
+
+.interprete-interprete {
+  display: flex;
+  align-items: flex-start;
+  border: 2px solid #d5d5d5;
+  padding: 10px;
+  gap: 15px;
+  margin: 10px auto;
+  max-width: 800px;
+  border-radius: 10px;
+  background-color:rgba(246, 243, 248, 0.531);
+}
+.interprete-img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+.interprete-info{
+  display: flex;
+  flex-direction: column;
+  
+}
+.interprete-info h3 {
+  
+  color: #555;
+  margin-top: 20px;
+  text-align: justify;
+
+}
+.interprete-info p {
+  margin: "5px 0";
+  text-align: justify;
+  max-width: 520px;
+  
+}
