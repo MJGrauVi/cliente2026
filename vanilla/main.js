@@ -2,12 +2,12 @@ import {
   sumar,
   restar,
   multiplicar,
-  dividir
+  dividir, reemplazarPalabraEnTodaLaWeb
 } from "./bibliotecaf/funciones.js";
 import { sumaArrayFor, stringMayus } from "./bibliotecaf/funcionesPrueba.js";
 import { suma } from "./bibliotecaf/funciones.js";
 
-const resultadoSuma = sumar(5, 3);
+/* const resultadoSuma = sumar(5, 3);
 const resultadoResta = restar(5, 3);
 const resultadoMultiplicacion = multiplicar(5, 3);
 const resultadoDivision = dividir(5, 3);
@@ -32,7 +32,7 @@ const resultado = numeros.reduce(
   },
   0 // valor inicial del acumulador
 );
-console.log("Resultado final:", resultado);
+console.log("Resultado final:", resultado); */
 /* 
 const palabras = ["js", "html", "js", "css", "html", "js"];
 
@@ -46,4 +46,18 @@ console.log(conteo); */
 // { js: 3, html: 2, css: 1 }
 
 //Ejemplo object
-console.log(stringMayus);
+//console.log(stringMayus);
+
+// Función a asignar como respuesta-temario.
+var cambioClase = function(){
+var clase = this.innerHTML.toLowerCase();
+document.body.className = clase;
+}
+// Asignando eventos.
+<input type="button" id="Feo" value="Red" onClick="cambioClase();" />
+var elemento = document.getElementById("feo");
+elemento.onClick = cambioClase;
+var botones = document.getElementsByTagName("button");
+for (var i=0, i<botones.length; i++) {
+botones[i].addEventListener("click", cambioClase, false);
+}

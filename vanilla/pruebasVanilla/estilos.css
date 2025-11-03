@@ -1,0 +1,13 @@
+#contenedor {
+  padding: 20px;
+  background: #f0f0f0;
+}
+#interior {
+  padding: 20px;
+  background: #d0e0ff;
+  margin-top: 10px;
+}
+input, textarea, select, button {
+  display: block;
+  margin: 10px 0;
+}

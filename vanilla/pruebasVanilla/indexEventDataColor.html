@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Delegación de eventos con data-color</title>
+    <style>
+      body.red { background-color: red; color: white; }
+      body.green { background-color: green; color: white; }
+      body.blue { background-color: blue; color: white; }
+      body.pink { background-color: pink; color: white; }
+    </style>
+  </head>
+
+  <body>
+    <h1>Pulsa un botón</h1>
+
+    <!-- Botones con data-color -->
+    <button data-color="red">Red</button>
+    <button data-color="green">Green</button>
+    <button data-color="blue">Blue</button>
+    <input type="button" data-color="red" value="Red" />
+    <input type="button" data-color="green" value="Green" />
+    <input type="button" data-color="pink" value="Pink" />
+
+    <script>
+      // Listener único en el body
+      document.body.addEventListener("click", (event) => {
+        const target = event.target;
+
+        // Solo si es BUTTON o INPUT
+        if (target.tagName === "BUTTON" || target.tagName === "INPUT") {
+          // Tomamos el valor del data-atributo
+          const clase = target.dataset.color; // dataset.color → data-color
+
+          if (clase) {
+            document.body.className = clase;
+            console.log("Clase aplicada desde delegación:", clase);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

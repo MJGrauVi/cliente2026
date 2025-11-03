@@ -1,0 +1,44 @@
+div {
+    max-width: 600px;
+    margin: 30px auto;
+
+}
+
+.par {
+    display: none;
+   
+}
+
+.par.visible {
+    display: block;
+    /* se muestra cuando tiene la clase visible */
+}
+
+.impar {
+    cursor: pointer;
+    background-color: #eee;
+    padding: 8px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/*Ejercicio 2*/
+
+.tab {
+  padding: 10px;
+  margin-right: 5px;
+  background-color: #eee;
+  border: none;
+  cursor: pointer;
+}
+.tab.active {
+  background-color: #ccc;
+}
+.contenido {
+  display: none;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+.contenido.visible {
+  display: block;
+}

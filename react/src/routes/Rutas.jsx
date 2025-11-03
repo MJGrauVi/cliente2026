@@ -8,7 +8,7 @@ import Galeria from "../components/Galeria.jsx";
 import GaleriaDirector from "../pages/subMenu/GaleriaDirector.jsx";
 import GaleriaInterprete from "../pages/subMenu/GaleriaInterprete.jsx";
 import GaleriaTitulo from "../pages/subMenu/GaleriaTitulo.jsx";
-import AcercaDe from "../pages/Acerca.jsx";
+import AcercaDe from "../pages/AcercaDe.jsx";
 import Error from "../pages/Error.jsx";
 import ListadoPeliculas from "../components/ListadoPeliculas.jsx";
 import "./Rutas.css";
@@ -17,6 +17,7 @@ const Rutas = () => {
   const todasLasPeliculas = archivoPeliculas.peliculas;
   //Si quiero mostrar todos los actores independientemente de en que película actuaron, con flapmap().
   //flapMap allana y devuelve un array con todos los actores de todas la paliculas.
+
   const todosLosActores = todasLasPeliculas.flatMap(
     (peli) => peli.actores || []
   );

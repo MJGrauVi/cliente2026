@@ -1,3 +1,13 @@
 .contenedor-acercade{
-    width: 500px;
+  min-height: 300px; /* Ajusta según lo que necesites */
+  padding: 20px;
+
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 15px 0;
 }

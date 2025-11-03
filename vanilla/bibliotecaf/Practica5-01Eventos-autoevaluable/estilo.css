@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:end;
+    height: 80vh;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    
+}
+
+/* Estilo para los botones */
+button {
+    padding: 10px 15px;
+    margin: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #778a78; /* Color verde */
+    color: rgb(253, 251, 251);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9ca39c; /* Color al pasar el mouse */
+}
+
+/* Estilo para el saludo (h1) */
+h1 {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin: 10px;
+    
+}

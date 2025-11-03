@@ -1,5 +1,6 @@
 import React from "react";
 import BotonNavegar from "../estructura/BotonNavegar.jsx";
+import "./AcercaDe.css";
 
 const AcercaDe = () => {
   return (

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Delegación de eventos</title>
+    <style>
+      body.red {
+        background-color: red;
+        color: white;
+      }
+      body.green {
+        background-color: green;
+        color: white;
+      }
+      body.blue {
+        background-color: blue;
+        color: white;
+      }
+      body.pink {
+        background-color: pink;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Pulsa un botón</h1>
+
+    <button>Red</button>
+    <button>Green</button>
+    <button>Blue</button>
+    <input type="button" value="Red" />
+    <input type="button" value="Green" />
+    <input type="button" value="Pink" />
+
+    <script>
+      // Listener único en el body
+      document.body.addEventListener(
+        "click",
+        (event) => {
+          const target = event.target;
+
+          // Solo actúa si el clic es en un button o input
+          if (target.tagName === "BUTTON") {
+            const clase = target.innerHTML.toLowerCase();
+          } else if (target.tagName === "INPUT") {
+            clase = target.value.toLowerCase();
+            document.body.className = clase;
+            console.log("Clase aplicada desde delegación:", clase);
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

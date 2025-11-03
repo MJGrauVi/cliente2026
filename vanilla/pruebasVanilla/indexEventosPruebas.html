@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos en JavaScript</title>
+  <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+
+  <div id="contenedor">
+    <h2>Contenedor</h2>
+
+    <div id="interior" tabindex="0">
+      <h3>Interior</h3>
+
+      <input type="text" id="campoTexto" placeholder="Escribe algo">
+      <textarea id="areaTexto" placeholder="Texto largo..."></textarea>
+      <select id="selector">
+        <option>Opción 1</option>
+        <option>Opción 2</option>
+      </select>
+
+      <button id="boton">Haz clic</button>
+
+      <form id="formulario">
+        <input type="text" name="nombre" placeholder="Tu nombre">
+        <button type="submit">Enviar</button>
+        <button type="reset">Reiniciar</button>
+      </form>
+
+      <div id="teclado" tabindex="0">Pulsa teclas aquí</div>
+      <div id="raton">Interacción con el ratón</div>
+    </div>
+  </div>
+
+  <script>
+  function logEvento(nombre) {
+  console.log("Evento activado:", nombre);
+  //alert("Evento: " + nombre);
+}
+
+// Eventos de foco y cambio
+document.getElementById("campoTexto").addEventListener("focus", () => logEvento("onFocus"));
+document.getElementById("campoTexto").addEventListener("blur", () => logEvento("onBlur"));
+document.getElementById("campoTexto").addEventListener("change", () => logEvento("onChange"));
+document.getElementById("campoTexto").addEventListener("select", () => logEvento("onSelect"));
+
+document.getElementById("areaTexto").addEventListener("focus", () => logEvento("onFocus"));
+document.getElementById("areaTexto").addEventListener("blur", () => logEvento("onBlur"));
+document.getElementById("areaTexto").addEventListener("change", () => logEvento("onChange"));
+document.getElementById("areaTexto").addEventListener("select", () => logEvento("onSelect"));
+
+document.getElementById("selector").addEventListener("change", () => logEvento("onChange"));
+
+// Eventos de clic
+document.getElementById("boton").addEventListener("click", () => logEvento("onClick"));
+document.getElementById("boton").addEventListener("dblclick", () => logEvento("onDblClick"));
+
+// Eventos de teclado
+const teclado = document.getElementById("teclado");
+teclado.addEventListener("keydown", () => logEvento("onKeyDown"));
+teclado.addEventListener("keyup", () => logEvento("onKeyUp"));
+teclado.addEventListener("keypress", () => logEvento("onKeyPress"));
+
+// Eventos de ratón
+const raton = document.getElementById("raton");
+raton.addEventListener("mousedown", () => logEvento("onMouseDown"));
+raton.addEventListener("mouseup", () => logEvento("onMouseUp"));
+raton.addEventListener("mouseover", () => logEvento("onMouseOver"));
+raton.addEventListener("mouseout", () => logEvento("onMouseOut"));
+
+// Eventos de formulario
+const formulario = document.getElementById("formulario");
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+  logEvento("onSubmit");
+});
+formulario.addEventListener("reset", () => logEvento("onReset"));
+
+// Eventos de carga y descarga
+window.addEventListener("load", () => logEvento("onLoad"));
+setTimeout()
+window.addEventListener("beforeunload", () => logEvento("onUnload"));
+
+// Evento de redimensionar
+window.addEventListener("resize", () => logEvento("onResize"));
+
+// Propagación
+document.getElementById("contenedor").addEventListener("click", () => logEvento("onClick contenedor"));
+document.getElementById("interior").addEventListener("click", (e) => {
+  logEvento("onClick interior");
+  e.stopPropagation(); // Detiene la propagación
+});
+  </script>
+
+</body>
+</html>

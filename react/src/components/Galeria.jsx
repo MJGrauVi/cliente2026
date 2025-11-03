@@ -1,11 +1,11 @@
 import React from "react";
 import "./Galeria.css";
 import "./Contenedor.css";
-import { Link, useNavigate, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Contenedor from "../components/Contenedor.jsx";
+import BotonNavegar from "../estructura/BotonNavegar.jsx";
 
 const Galeria = () => {
-  const navegar = useNavigate();
   return (
     <div className="galeria-contenedor">
       <h2>Galeria Carteleras.</h2>
@@ -25,7 +25,8 @@ const Galeria = () => {
       <Contenedor>
         <Outlet />
       </Contenedor>
-      <button onClick={() => navegar("/")}>Volver a Inicio</button>
+
+      <BotonNavegar ruta="/" texto="Volver a Inicio" />
     </div>
   );
 };

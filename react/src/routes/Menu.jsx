@@ -18,8 +18,8 @@ const Menu = () => {
         <Link className="menu-elemento" to="/galeria">
           Galeria
         </Link>
-        <Link clasName="menu-elumento" to="/acercade">
-          Acercade
+        <Link className="menu-elumento" to="/acercade">
+          Acerca de
         </Link>
 
       </nav>

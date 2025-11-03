@@ -37,6 +37,23 @@ let nombres = ["Manolo", "Juan", "Paco", "Carmina", "Pilar"];
 const stringMayus = nombres.map((valor) => {
   return valor.toUpperCase();
 });
+//cambiar una palabra por otra en la web.
+function reemplazarPalabraEnTodaLaWeb(palabraOriginal, palabraNueva) {
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    null,
+    false
+  );
+
+  let nodoTexto;
+
+  while ((nodoTexto = walker.nextNode())) {
+    if (nodoTexto.nodeValue.includes(palabraOriginal)) {
+      nodoTexto.nodeValue = nodoTexto.nodeValue.replaceAll(palabraOriginal, palabraNueva);
+    }
+  }
+}
 
 console.log(typeof null); //object
 console.log(null === "object"); //false
@@ -56,4 +73,4 @@ console.log(typeof {}); //object
 console.log(Number({})); //NaN
 console.log(Number([])); //0
 console.log(Array.isArray([]));
-export { sumaArrayFor, entraEnteroDelRango, imcMayor, stringMayus };
+export { sumaArrayFor, entraEnteroDelRango, imcMayor, stringMayus, reemplazarPalabraEnTodaLaWeb };

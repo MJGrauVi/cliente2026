@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejemplo cambio de clase  evitando la propagación</title>
+    <style>
+      body.red {
+        background-color: red;
+        color: white;
+      }
+      body.green {
+        background-color: green;
+        color: white;
+      }
+      body.blue {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Pulsa un botón</h1>
+
+    <!-- Botones e inputs.-->
+    <button id="red">Red</button>
+    <button id="green">Green</button>
+    <button id="blue">Blue</button>
+    <input type="button" id="Feo" value="Red" />
+    <input type="button" id="Feo" value="green" />
+    <input type="button" id="Feo" value="Blue" />
+
+    <script>
+      // Función que cambia la clase del body
+      let cambioClase = function (event) {
+        
+        if(event.target !== this) return;
+
+        var clase = (this.innerHTML || this.value).toLowerCase(); // toma el texto del "botón" o nodo texto mejor dicho, y del value en los inputs y pone en minusculas.
+        document.body.className = clase; // aplica la referencia tomada y la aplica al elemento body.
+      };
+
+      // Asignar eventos con addEventListener
+      var botones = document.getElementsByTagName("button");
+
+      for (var i = 0; i < botones.length; i++) {
+        botones[i].addEventListener("click", cambioClase, false);
+      }
+      //Asigno eventos
+      var elementosInput = document.getElementsByTagName("input");
+      console.log(elementosInput);
+      console.log(typeof elementosInput);
+      for (let i = 0; i < elementosInput.length; i++) {
+        elementosInput[i].addEventListener("click", cambioClase, false);
+      }
+    </script>
+  </body>
+</html>

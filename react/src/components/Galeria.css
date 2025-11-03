@@ -1,18 +1,17 @@
-.galeria-contenedor{
-  display:block;
+.galeria-contenedor {
+  display: block;
   width: 600px;
   align-items: center;
   justify-content: center;
-
 }
-.galeria-navegacion{
-    
+
+.galeria-navegacion {
   display: flex;
   border-radius: 5px;
-  justify-content: center;       /* Centra los enlaces horizontalmente */
+  justify-content: center; /* Centra los enlaces horizontalmente */
   align-items: center;
-  background-color: #1e1e2f;     /* Fondo oscuro elegante */
+  background-color: #1e1e2f; /* Fondo oscuro elegante */
   padding: 1rem;
-  gap: 2rem;                     /* Espaciado entre enlaces */
+  gap: 2rem; /* Espaciado entre enlaces */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
