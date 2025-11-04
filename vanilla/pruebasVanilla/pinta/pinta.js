@@ -1,7 +1,7 @@
 "use strict";
 export let colorSeleccionado = 'color-negro';
 
-export function crearSelectorColores() {
+const crearSelectorColor = () =>{
   const colores = ['color-rojo', 'color-azul', 'color-verde', 'color-amarillo', 'color-negro', 'color-blanco'];
   const contenedor = document.getElementById('colores');
   const etiquetaColor = document.getElementById('colorActual');
@@ -25,13 +25,10 @@ export function crearSelectorColores() {
   });
 }
 
-export function crearLienzo(filas, columnas) {
+const crearLienzo = (filas, columnas) => {
   const lienzo = document.getElementById('lienzo');
   lienzo.innerHTML = ''; // limpiar antes
   const total = filas * columnas;
-  // Ajustar grid dinámicamente (por si cambias filas/columnas)
-  lienzo.style.gridTemplateColumns = `repeat(${columnas}, 10px)`;
-  lienzo.style.gridTemplateRows = `repeat(${filas}, 10px)`;
 
   for (let i = 0; i < total; i++) {
     const celda = document.createElement('div');
@@ -87,7 +84,7 @@ export function activarPintura() {
   });
 }
 
-export function configurarBotonReset() {
+const configurarBotonReset =() =>{
   const boton = document.getElementById('resetear');
   boton.addEventListener('click', () => {
     document.querySelectorAll('.celda').forEach(celda => {
@@ -98,3 +95,5 @@ export function configurarBotonReset() {
     etiqueta.textContent = `Color seleccionado: ${colorSeleccionado.replace('color-', '')}`;
   });
 }
+
+export {crearSelectorColores, configurarBotonReset}
