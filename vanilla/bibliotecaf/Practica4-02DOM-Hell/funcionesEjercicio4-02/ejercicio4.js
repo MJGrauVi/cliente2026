@@ -36,6 +36,7 @@ const crearCarrusel = () => {
   elementoImg = document.createElement("img");
   //Añado atributo. La carga inicial la hago en cambiar imagen por funcionalidad.
   elementoImg.alt = "Imagen del carrusel";
+  elementoImg.classList.add("fade"); // clase base con transición*******Practica corregida
   //Añado la etiqueta al contenedor.
   carrusel.appendChild(elementoImg);
   //Añado el contenedor al body.
@@ -51,15 +52,19 @@ const obtenerImagenActual = () => {
 const cambiarImagen = () => {
   //Cargo imagen indice 0.
   elementoImg.src = imagenes[indiceActual];
+  elementoImg.classList.add("fade-out"); // Aplico clase para iniciar el efecto de desvanecimiento****Práctica corregida.
 
-  elementoImg.style.opacity = 0;
-  elementoImg.style.transition = "opacity 1s ease-in-out";
+  /*  elementoImg.style.opacity = 0; *******Elimino código inclorrecto****
+  elementoImg.style.transition = "opacity 1s ease-in-out"; *******Elimino código inclorrecto****/
+
   setTimeout(() => {
     //Con el modulo se reinicia el carrusel al llegar al último indice del array.
     indiceActual = (indiceActual + 1) % imagenes.length;
     elementoImg.src = obtenerImagenActual();
+
+    elementoImg.classList.remove("fade-out"); // Quito la clase fade-out para mostrar con fade-in*****Práctica corregida
     //Volvemos a mostrar.
-    elementoImg.style.opacity = 1;
+    /* elementoImg.style.opacity = 1;   ******elimino código incorrecto ********* */
   }, 1000);
 };
 

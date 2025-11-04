@@ -1,0 +1,45 @@
+#colores {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #eae5e5;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 10px 10px 10px rgb(180, 176, 176);
+}
+
+.color-rojo    { background-color: red; }
+.color-azul    { background-color: blue; }
+.color-verde   { background-color: green; }
+.color-amarillo{ background-color: yellow; }
+.color-negro   { background-color: black; }
+.color-blanco  { background-color: white; }
+
+#lienzo {
+  display: grid;
+  grid-template-columns: repeat(60, 10px);
+  grid-template-rows: repeat(60, 10px);
+  gap: 1px;
+}
+
+.celda {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+#resetear {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+}
+#color-actual {
+  font-weight: bold;
+  margin-bottom: 20px;
+}

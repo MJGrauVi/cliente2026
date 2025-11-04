@@ -49,8 +49,10 @@ setTimeout(() => {
 crearCarrusel();
 
 // Aparecera al minuto.
-/* setTimeout(() => {
+/* 
+ setTimeout(() => {
   setInterval(() => {
     cambiarImagen();
   }, 2000);
-}, 1000); */
+}, 1000); 
+ */

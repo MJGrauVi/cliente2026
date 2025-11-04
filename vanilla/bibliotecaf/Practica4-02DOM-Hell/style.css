@@ -70,3 +70,11 @@ td {
   object-fit: cover;
   object-position: center; /*Centra la imagen al recortar*/
 }
+.fade {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+}

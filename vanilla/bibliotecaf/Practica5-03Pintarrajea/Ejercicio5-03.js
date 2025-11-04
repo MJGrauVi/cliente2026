@@ -1,7 +1,13 @@
 "use strict";
-document.addEventListener("DOMContentLoaded", ()=>{
 
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    const crearLienzo = () => {
+      const contenedorLienzo = document.getElementById("lienzo");
+    };
+  },
+  false
+); //fin.
 
-    
-
-},false);//fin.
+export default { crearLienzo };
