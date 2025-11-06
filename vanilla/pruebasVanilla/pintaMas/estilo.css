@@ -1,0 +1,74 @@
+/* ----- General ----- */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: #fdfcf8;
+  margin-top: 20px;
+}
+
+/* ----- Selector de colores ----- */
+#selectorColores {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.rojo { background: red; }
+.amarillo { background: yellow; }
+.verde { background: green; }
+.azul { background: blue; }
+.negro { background: black; }
+.blanco { background: white; }
+
+#colorActual {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+/* ----- Lienzo ----- */
+#lienzo {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+/* Celdas cuadradas, estilo "cuadernillo de Rubio" */
+td {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----- Botón ----- */
+#reset {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+#reset:hover {
+  background-color: #eee;
+}

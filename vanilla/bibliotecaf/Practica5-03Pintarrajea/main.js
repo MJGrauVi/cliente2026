@@ -1,6 +1,9 @@
 "use strict";
-import crearLienzo from "./Ejercicio5-03.js";
 
+import {crearLienzo, seleccionarColor} from "./Ejercicio5-03.js";
+document.addEventListener("DOMContentLoaded", ()=>{
 crearLienzo(60,60);
+seleccionarColor();
+},false);
 
 

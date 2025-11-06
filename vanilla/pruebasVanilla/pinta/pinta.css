@@ -1,46 +1,68 @@
-#colores {
+/* ---------- LAYOUT GENERAL ---------- */
+/* Evita height fija que provoca problemas de centrado */
+body {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;     /* centra horizontalmente el contenido */
+  max-width: 800px;
+  margin: auto;
+  border: solid 10px gray;
+  /* height: 800px;  <-- QUITAR o comentar */
+  box-sizing: border-box;
 }
 
-.color {
+/* ---------- PALETA DE COLORES ---------- */
+/* Aplica sólo a los circulitos dentro del contenedor de colores.
+   NOTAR: dejamos el p.colorActual sin verse afectado */
+#contenedorColores > div {
   width: 30px;
   height: 30px;
-  border: 2px solid #eae5e5;
   border-radius: 50%;
+  margin: 10px;
   cursor: pointer;
-  box-shadow: 10px 10px 10px rgb(180, 176, 176);
+  border: solid 0.5px rgb(231, 228, 228);
+  box-shadow: 2px 2px 5px gray;
+  flex: 0 0 auto;
 }
 
-.color-rojo    { background-color: red; }
-.color-azul    { background-color: blue; }
-.color-verde   { background-color: green; }
-.color-amarillo{ background-color: yellow; }
-.color-negro   { background-color: black; }
-.color-blanco  { background-color: white; }
-
-#lienzo {
-  display: grid;
-  grid-template-columns: repeat(60, 10px);
-  grid-template-rows: repeat(60, 10px);
-  gap: 1px;
+/* El texto que muestra el color seleccionado */
+.colorActual {
+  margin-left: 10px;
+  align-self: center;
+  font-weight: bold;
 }
 
-.celda {
-  width: 10px;
-  height: 10px;
-  background-color: white;
+/* ---------- LIENZO (TABLA) ---------- */
+/* Contenedor del lienzo: centrales la tabla dentro*/
+#contenedorLienzo {
+  width: 650px;           /* opcional: si quieres un ancho fijo */
+  margin: 20px auto;      /* centro horizontal y separación */
+  display: block;
+  text-align: center;
+}
+
+/* Tabla dentro del contenedor lienzo */
+#contenedorLienzo table {
+  border-collapse: collapse;
+  margin: 0 auto;         /* centra la tabla exactamente */
+  table-layout: fixed;    /* clave: hace que cada celda tenga un ancho fijo */
+}
+
+/* Celdas: ancho = alto; padding 0 para que no se deformen */
+#contenedorLienzo td {
+  width: 10px;            /* ancho deseado de la celda */
+  height: 10px;           /* altura deseada de la celda -> igual que width */
+  padding: 0;             /* imprescindible para mantener proporciones */
   border: 1px solid #ccc;
+  background-color: white;
+  box-sizing: border-box; /* incluye border en el tamaño */
 }
 
-#resetear {
-  margin-top: 20px;
+/* Botón reset centrado debajo del lienzo */
+.reset {
   padding: 10px;
   font-size: 16px;
-}
-
-#colorActual {
-  font-weight: bold;
-  margin-bottom: 20px;
+  cursor: pointer;
+  width: max-content;
+  margin: 12px auto;
 }

@@ -1,19 +1,97 @@
-#contenedorLienzo {
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  align-items: center;
+  margin: 0 auto;
+  border: solid 10px gray;
+  box-sizing: border-box;
+}
 
-    display: grid;
-    grid-template-columns: repeat (6 1fr);
-    grid-template-rows: repeat (6 1fr);
-    background-color: rgb(190, 171, 207);
+#contenedorColores {
+  display: flex;
+  justify-content: center
+}
 
-    padding: 20px;
-    margin: 20px;
+.contenedorLienzo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 10px;
+}
+
+table {
+  border-collapse: collapse;
 
 }
 
-div {
-    width: 10px;
-    height: 10px;
-    border: gray;
-    background-color: white;
+.contenedorReset {
+  display: flex;
+  justify-content: space-between; /* separa los elementos */
+  align-items: center;             /* los alinea verticalmente */
+  width: 600px;                    /* mismo ancho que el lienzo, por ejemplo */
+  margin-top: 15px;
+  font-family: sans-serif;
 
+}
+
+.reset {
+  background-color: #eee;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  padding: 5px 16px;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 10px
+
+
+}
+.reset:hover {
+  background-color: #ddd;
+}
+#colorActual {
+  font-weight: bold;
+}
+
+.celda {
+  width: 10px;
+  height: 10px;
+  border: solid 0.5px #ccc;
+  background-color: white;
+}
+
+#contenedorColores div {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 10px;
+  cursor: pointer;
+  border: solid 0.5px rgb(231, 228, 228);
+  cursor: pointer;
+  box-shadow: 2px 2px 5px gray;
+}
+
+.color-rojo {
+  background: red;
+}
+
+.color-amarillo {
+  background: yellow;
+}
+
+.color-verde {
+  background: green;
+}
+
+.color-azul {
+  background: blue;
+}
+
+.color-negro {
+  background: black;
+}
+
+.color-blanco {
+  background: white;
 }

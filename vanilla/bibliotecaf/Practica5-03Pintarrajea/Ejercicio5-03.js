@@ -1,43 +1,45 @@
 "use strict";
-
-document.addEventListener = () =>  { 
-  
-const crearSelectorColores = () => {
-  const colores = ['color-rojo', 'color-azul', 'color-verde', 'color-amarillo', 'color-negro', 'color-blanco'];
-  const contenedor = document.getElementById('colores');
-  const etiquetaColor = document.getElementById('colorActual');
-
-  // Limpiar por si ya tiene contenido
-  contenedor.innerHTML = '';
-
-  colores.forEach(claseColor => {
-    console.log(colores);
-    const div = document.createElement('div');
-    div.classList.add('color', claseColor);
-    div.dataset.color = claseColor;
-    div.title = claseColor.replace('color-', '');
-    contenedor.appendChild(div);
-  });
-
-  contenedor.addEventListener('click', evento => {
-    if (evento.target.classList.contains('color')) {
-      colorSeleccionado = evento.target.dataset.color;
-      etiquetaColor.textContent = `Color seleccionado: ${colorSeleccionado.replace('color-', '')}`;
-    }
-  });
-}
+let colorSeleccionado = "negro";
 
 
 const crearLienzo = (filas, columnas) => {
   const lienzo = document.getElementById("contenedorLienzo");
-  for (let i = 0; i < filas * columnas; i++) {
-    const celda = document.createElement('div');
-    celda.classList.add('celda');
-    lienzo.appendChild(celda);
+
+  // Limpiamos por si ya había algo
+  lienzo.innerHTML = "";
+
+  const tabla = document.createElement("table");
+  /*   tabla.setAttribute("cellspacing", "0"); // por si acaso
+  tabla.setAttribute("cellpadding", "0"); */
+
+  for (let i = 0; i < filas; i++) {
+    const fila = document.createElement("tr");
+    for (let j = 0; j < columnas; j++) {
+      const celda = document.createElement("td");
+      celda.classList.add("celda"); // si quieres detectar por clase en eventos
+      // opcional: dataset con coordenadas
+      celda.dataset.fila = i;
+      celda.dataset.col = j;
+      fila.appendChild(celda);
+    }
+    tabla.appendChild(fila);
   }
+
+  lienzo.appendChild(tabla);
 };
 
-}; //fin evento
 
+const seleccionarColor = () => {
+  const contenedorColores = document.getElementById("contenedorColores");
+  const colorActual = document.getElementById("colorActual"); // Guardamos el color actual para poder reemplazarlo
 
-export {crearSelectorColores, crearLienzo};
+  contenedorColores.addEventListener("click", (evento) => {
+    if (evento.target.classList.contains("color")) {
+      colorSeleccionado = evento.target.dataset.color;
+      console.log(colorSeleccionado);
+      colorActual.textContet = `Color seleccionado: ${colorSeleccionado.replace("color-"," ")}`;
+    }
+  });
+};
+
+export { crearLienzo, seleccionarColor };
