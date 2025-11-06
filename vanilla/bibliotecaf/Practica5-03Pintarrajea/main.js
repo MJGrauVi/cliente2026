@@ -1,9 +1,11 @@
 "use strict";
-
-import {crearLienzo, seleccionarColor} from "./Ejercicio5-03.js";
-document.addEventListener("DOMContentLoaded", ()=>{
-crearLienzo(60,60);
-seleccionarColor();
-},false);
+import { crearSelectorColores, crearLienzo, pintarCelda, activarPintura, configurarBotonReset } from './principal.js';
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  crearSelectorColores();
+  crearLienzo(60, 60);
+  pintarCelda,
+  activarPintura();
+  configurarBotonReset();
+});

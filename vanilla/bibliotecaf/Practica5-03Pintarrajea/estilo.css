@@ -1,14 +1,15 @@
 /* ----- General ----- */
 body {
   background-color: #fdfcf8;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   max-width: 800px;
   align-items: center;
   margin: 0 auto;
+  margin-top: 30px;
   border: solid 10px gray;
   box-sizing: border-box;
+  padding: 20px;
 }
 .contenedorReset {
   display: flex;

@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pintarrajea</title>
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo5-03.css">
-    <title>Práctica 5.03 Pintarrajea</title>
-</head>
-<body>
-    <div id="contenedorColores">
-        <div class="color-rojo"></div>
-        <div class="color-amarillo"></div>
-        <div class="color-verde"></div>
-        <div class="color-azul"></div>
-        <div class="color-blanco"></div>
-        <div class="color-negro"></div>
+  <body>
+    <div id="selectorColores">
+      <div class="color rojo" data-color="rojo"></div>
+      <div class="color amarillo" data-color="amarillo"></div>
+      <div class="color verde" data-color="verde"></div>
+      <div class="color azul" data-color="azul"></div>
+      <div class="color negro" data-color="negro"></div>
+      <div class="color blanco" data-color="blanco"></div>
     </div>
     <div class="contenedorReset">
-        <div id="colorActual">Color seleccionado: </div>
-        <div class="reset">Resetear</div>
+      <div id="colorActual"> Color seleccionado: <span> Ninguno</span></div>
+      <button id="reset">Reiniciar</button>
     </div>
-    <div id="contenedorLienzo">
-    </div>
-    <script src="main.js" type="module"></script>
-</body>
 
+    <div id="lienzo"></div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
