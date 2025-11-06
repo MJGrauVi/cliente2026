@@ -21,16 +21,57 @@ body {
   height: 30px;
   border-radius: 50%;
   border: 1px solid #aaa;
-  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
-.rojo { background: red; }
-.amarillo { background: yellow; }
-.verde { background: green; }
-.azul { background: blue; }
-.negro { background: black; }
-.blanco { background: white; }
+.rojo {
+  background: red;
+}
+
+.amarillo {
+  background: yellow;
+}
+
+.verde {
+  background: green;
+}
+
+.azul {
+  background: blue;
+}
+
+.negro {
+  background: black;
+}
+
+.blanco {
+  background: white;
+}
+
+.celda-rojo {
+  background-color: red;
+}
+
+.celda-amarillo {
+  background-color: yellow;
+}
+
+.celda-verde {
+  background-color: green;
+}
+
+.celda-azul {
+  background-color: blue;
+}
+
+.celda-negro {
+  background-color: black;
+}
+
+.celda-blanco {
+  background-color: white;
+}
 
 #colorActual {
   margin-left: 10px;
@@ -47,7 +88,7 @@ body {
 table {
   border-collapse: collapse;
   border: 1px solid #ccc;
-  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Celdas cuadradas, estilo "cuadernillo de Rubio" */
@@ -69,6 +110,7 @@ td {
   border-radius: 6px;
   background-color: #fafafa;
 }
+
 #reset:hover {
   background-color: #eee;
 }

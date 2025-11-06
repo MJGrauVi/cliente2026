@@ -11,7 +11,6 @@ function crearSelectorColores() {
   selector.addEventListener("click", (e) => {
     if (e.target.classList.contains("color")) {
       colorSeleccionado = e.target.dataset.color; //Guarda el color donde clicas.
-      console.log(colorSeleccionado);
       etiqueta.textContent = colorSeleccionado;
       console.log(`color: ${etiqueta.textContent}`);
     }
@@ -36,9 +35,17 @@ function crearLienzo(filas, columnas) {
   contenedor.appendChild(tabla);
 }
 
+function pintarCelda(celda) {
+  // Quita cualquier color previo
+  celda.className = "";
+  // Añade la nueva clase
+  celda.classList.add(`celda-${colorSeleccionado}`);
+}
+
+
 // ----- Activar pintura -----
 function activarPintura() {
-  const lienzo = document.querySelector("table");
+  const lienzo = document.getElementsByTagName("table")[0];//Devuelve un HTMLCollection y hay que indicar la posición.
 
   // Detectar si el ratón está presionado
   lienzo.addEventListener(
@@ -56,14 +63,14 @@ function activarPintura() {
   // Pintar mientras se arrastra el ratón
   lienzo.addEventListener("mouseover", (evento) => {
     if (pintando && evento.target.tagName === "TD" && colorSeleccionado) {
-      evento.target.style.backgroundColor = colorSeleccionado;
+      pintarCelda(evento.target);
     }
   });
 
   // Pintar con clic individual
   lienzo.addEventListener("click", (evento) => {
     if (evento.target.tagName === "TD" && colorSeleccionado) {
-      evento.target.style.backgroundColor = colorSeleccionado;
+      pintarCelda(evento.target);
     }
   });
 }
@@ -73,13 +80,14 @@ function configurarBotonReset() {
   const boton = document.getElementById("reset");
   boton.addEventListener("click", () => {
     document.querySelectorAll("td").forEach((td) => {
-      td.style.backgroundColor = "white";
+      td.classList = "";
     });
   });
 }
 export {
   crearSelectorColores,
   crearLienzo,
+  pintarCelda,
   activarPintura,
   configurarBotonReset,
 };

@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pinta Más</title>
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pinta Más</title>
-  <link rel="stylesheet" href="estilo.css">
-</head>
+  <body>
+    <div id="selectorColores">
+      <div class="color rojo" data-color="rojo"></div>
+      <div class="color amarillo" data-color="amarillo"></div>
+      <div class="color verde" data-color="verde"></div>
+      <div class="color azul" data-color="azul"></div>
+      <div class="color negro" data-color="negro"></div>
+      <div class="color blanco" data-color="blanco"></div>
+      <p id="colorActual">Color seleccionado: <span>ninguno</span></p>
+    </div>
 
-<body>
-  <div id="selectorColores">
-    <div class="color rojo" data-color="red"></div>
-    <div class="color amarillo" data-color="yellow"></div>
-    <div class="color verde" data-color="green"></div>
-    <div class="color azul" data-color="blue"></div>
-    <div class="color negro" data-color="black"></div>
-    <div class="color blanco" data-color="white"></div>
-    <p id="colorActual">Color seleccionado: <span>ninguno</span></p>
-  </div>
+    <div id="lienzo"></div>
 
-  <div id="lienzo"></div>
+    <button id="reset">Reiniciar</button>
 
-  <button id="reset">Reiniciar</button>
-
-  <script type="module" src="./main.js"></script>
-</body>
-
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
