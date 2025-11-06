@@ -8,10 +8,10 @@ function crearSelectorColores() {
   const selector = document.getElementById("selectorColores");
   const etiqueta = document.querySelector("#colorActual span");
 
-  selector.addEventListener("click", (e) => {
-    if (e.target.classList.contains("color")) {
-      colorSeleccionado = e.target.dataset.color; //Guarda el color donde clicas.
-      etiqueta.textContent = colorSeleccionado;
+  selector.addEventListener("click", (evento) => {
+    if (evento.target.classList.contains("color")) {
+      colorSeleccionado = evento.target.dataset.color; //Guarda el color donde clicas.
+      etiqueta.textContent = `${colorSeleccionado.charAt(0).toUpperCase()}${colorSeleccionado.slice(1)}`;
       console.log(`color: ${etiqueta.textContent}`);
     }
   });
@@ -36,22 +36,21 @@ function crearLienzo(filas, columnas) {
 }
 
 function pintarCelda(celda) {
-  // Quita cualquier color previo
-  celda.className = "";
-  // Añade la nueva clase
-  celda.classList.add(`celda-${colorSeleccionado}`);
+  // Quita cualquier color previo y evita que se bloquee a aplicarlo denuevo.
+  celda.classList = "";
+  // Añade la nueva clase con el color seleccionado.
+  celda.classList.add(colorSeleccionado);
 }
-
 
 // ----- Activar pintura -----
 function activarPintura() {
-  const lienzo = document.getElementsByTagName("table")[0];//Devuelve un HTMLCollection y hay que indicar la posición.
+  const lienzo = document.getElementsByTagName("table")[0]; //Devuelve un HTMLCollection y hay que indicar la posición.
 
   // Detectar si el ratón está presionado
   lienzo.addEventListener(
     "mousedown",
     (evento) => {
-      evento.preventDefault();
+      evento.preventDefault(); //
       pintando = true;
     },
     false
@@ -78,11 +77,15 @@ function activarPintura() {
 // ----- Botón Reset -----
 function configurarBotonReset() {
   const boton = document.getElementById("reset");
-  boton.addEventListener("click", () => {
-    document.querySelectorAll("td").forEach((td) => {
-      td.classList = "";
-    });
-  });
+  boton.addEventListener(
+    "click",
+    () => {
+      document.querySelectorAll("td").forEach((td) => {
+        td.classList = "";
+      });
+    },
+    false
+  );
 }
 export {
   crearSelectorColores,

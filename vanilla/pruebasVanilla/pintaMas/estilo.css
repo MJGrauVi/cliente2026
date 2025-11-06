@@ -49,29 +49,6 @@ body {
   background: white;
 }
 
-.celda-rojo {
-  background-color: red;
-}
-
-.celda-amarillo {
-  background-color: yellow;
-}
-
-.celda-verde {
-  background-color: green;
-}
-
-.celda-azul {
-  background-color: blue;
-}
-
-.celda-negro {
-  background-color: black;
-}
-
-.celda-blanco {
-  background-color: white;
-}
 
 #colorActual {
   margin-left: 10px;
@@ -91,7 +68,7 @@ table {
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Celdas cuadradas, estilo "cuadernillo de Rubio" */
+/* Celdas cuadradas */
 td {
   width: 10px;
   height: 10px;
