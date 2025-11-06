@@ -5,7 +5,7 @@ let colorSeleccionado = null;
 // ----- Crear selector de colores -----
 function crearSelectorColores() {
   let selector = document.getElementById("selectorColores");
-  let etiqueta = document.querySelector("#colorActual span");
+  let etiqueta = document.querySelector("#colorActual span"); //Devuelve El 1er elemento con la clase css especificada.
 
   selector.addEventListener("click", (evento) => {
     if (evento.target.classList.contains("color")) {
@@ -70,7 +70,7 @@ function activarPintura() {
   // Pintar con clic individual
   lienzo.addEventListener("click", (evento) => {
     if (evento.target.tagName === "TD" && colorSeleccionado) {
-      pintarCelda(evento.target);
+      pintarCelda(evento.target); //Pinta donde haces clic.
     }
   });
 }
@@ -83,7 +83,7 @@ function configurarBotonReset() {
     "click",
     () => {
       document.querySelectorAll("td").forEach((td) => {
-        td.classList = "";
+        td.classList.remove(colorSeleccionado);
       });
     },
     false
