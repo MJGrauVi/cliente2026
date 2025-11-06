@@ -1,0 +1,106 @@
+/* ----- General ----- */
+body {
+  background-color: #fdfcf8;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  align-items: center;
+  margin: 0 auto;
+  border: solid 10px gray;
+  box-sizing: border-box;
+}
+.contenedorReset {
+  display: flex;
+  justify-content: space-between; /* separa los elementos */
+  align-items: center; /* los alinea verticalmente */
+  width: 600px; /* mismo ancho que el lienzo, por ejemplo */
+  margin-top: 15px;
+  font-family: sans-serif;
+}
+
+/* ----- Selector de colores ----- */
+#selectorColores {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px;
+  justify-content: center;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.rojo {
+  background: red;
+}
+
+.amarillo {
+  background: yellow;
+}
+
+.verde {
+  background: green;
+}
+
+.azul {
+  background: blue;
+}
+
+.negro {
+  background: black;
+}
+
+.blanco {
+  background: white;
+}
+
+#colorActual {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+/* ----- Lienzo ----- */
+#lienzo {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Celdas cuadradas */
+td {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----- Botón ----- */
+
+#reset {
+  background-color: #f4f3f3;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 5px 16px;
+  cursor: pointer;
+  /*  user-select: none; */
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+#reset:hover {
+  background-color: #ddd;
+}
