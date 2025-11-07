@@ -1,5 +1,11 @@
 "use strict";
-import {cargarTodasLasImagenes} from "./funciones5-04.js";
+import {cargarImagenes} from "./funciones.js";
+
+
 window.addEventListener("DOMContentLoaded", () => {
-  cargarTodasLasImagenes();
+
+  cargarImagenes();
+
+   
+
 });//fin.

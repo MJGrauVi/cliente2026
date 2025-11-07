@@ -1,14 +1,71 @@
-#contenedorImg {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*Ajusta al centro los 3 contenedores */
+body {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+h1 {
+  margin:30px auto;
+}
+#contenedorImg {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 columnas iguales */
+  grid-template-rows: repeat(3, auto);
+  /* 3 filas automáticas */
   gap: 10px;
-  justify-content: center;
+  width:min-content;
+  margin: 0 auto;
   padding: 20px;
 }
-
-.imagen-rompecabezas {
-  width: 100px;
+.imagen, .celda{
+  width: 160px;
   height: 100px;
-  object-fit: cover;
+  border: 1px solid #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*---------contenedorPuzle-----------------------*/
+/* #contenedorPuzle {
+
+
+} */
+.rejilla{
+  display: grid;
+  grid-template-columns: repeat(3, 160px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  border: 2px solid #ccc;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.celda {
+  display:flex;
+  align-items:center;
+  justify-content:center;
   border: 1px solid #ccc;
+  height: 100px;
+  width: 160px;
+  padding: 2px;
+ 
+}
+
+
+
+
+/*----------------button--------------------*/
+#contenedorReset{
+  margin: 0 auto;
+}
+button{
+  margin: 20px auto;
+  padding:20px;
 }

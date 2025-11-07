@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rompecabezas</title>
-    <link rel="stylesheet" href="./estilo.css" />
-  </head>
-  <body>
-    <h1>Juego del Rompecabezas</h1>
 
-    <div id="contenedorImg"></div>
-    <div id="contenedorPuzle"></div>
-    <div id="contenedorReset">
-      <button id="reiniciar">Reiniciar Partida</button>
-    </div>
-    <script src="./funciones5-04.js" type="module"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rompecabezas</title>
+  <link rel="stylesheet" href="./estilo.css" />
+</head>
+
+<body>
+  <h1>Juego del Rompecabezas</h1>
+
+  <div id="contenedorImg">
+    <!--carga dinamica imgs con clase imagen-->
+  </div>
+
+  <div id="contenedorPuzle" class="rejilla">
+    <div class="celda"></div>
+    <div class="celda"></div>
+    <div class="celda"></div>
+    <div class="celda"></div>
+    <div class="celda"></div>
+    <div class="celda"></div>
+    <div class="celda"></div>
+    <div class="celda"></div>
+    <div class="celda"></div>
+  </div>
+
+  <div id="contenedorReset">
+    <button id="reiniciar">Reiniciar Partida</button>
+  </div>
+  <script src="./main.js" type="module"></script>
+</body>
+
 </html>
