@@ -24,60 +24,31 @@ const cargarImagenes = () => {
   imagenesMezcladas.forEach((img) => contenedorImg.appendChild(img)); //Añado las imagenes al DOM.
 };
 
-const celdasArrastables = document.getElementsByClassName("celda");
+/* const celdasArrastables = document.getElementsByClassName("celda");
 for (let i = 0; i < celdasArrastables.length; i++) {
   celdasArrastables[i].getAttribute("draggable", true);
-}
+} */
+const completado = () => {
+  const celdas = document.querySelectorAll(".celda");
+  console.log(celdas);
+  let todoCorrecto = true;
 
-document.getElementById("contenedorImg").addEventListener(
-  "dragstart",
-  (evento) => {
-    console.log(evento);
-    //Configurar el identificador del elemento a arrastrar.
-    evento.dataTransfer.setData("identificador", evento.target.id);
-    // Se muestran los datos por consola.
-    console.log(evento.dataTransfer.getData("identificador"));
-    console.log(evento.dataTransfer.getData("nombre"));
-  },
-  false
-);
-document.getElementById("contenedorImg").addEventListener(
-  "dragover",
-  (evento) => {
-    evento.preventDefault(); //Previene el comportamiento del navegador.
-  },
-  false
-);
-document.getElementById("contenedorPuzle").addEventListener(
-  "dragstart",
-  (evento) => {
-    console.log(evento);
-    //Configurar el identificador del elemento a arrastrar.
-    evento.dataTransfer.setData("identificador", evento.target.id);
-    // Se muestran los datos por consola.
-    console.log(evento.dataTransfer.getData("identificador"));
-    console.log(evento.dataTransfer.getData("nombre"));
-  },
-  false
-);
-document.getElementById("contenedorPuzle").addEventListener(
-  "dragover",
-  (evento) => {
-    evento.preventDefault("");
-  },
-  false
-);
-document.getElementById("contenedorPuzle").addEventListener(
-  "drop",
-  (evento) => {
-    evento.preventDefault();
-    if (evento.target.classList.contains("celda")) {
-      console.log(`Suelto imagen: ${evento.target.className}`);
-      evento.target.appendChild(
-        document.getElementById(evento.dataTransfer.getData("identificador"))
-      );
+  celdas.forEach((celda) => {
+    const imagen = celda.querySelector("img");
+    if (!imagen || imagen.id !== celda.id) {
+      todoCorrecto = false;
     }
-  },
-  false
-);
-export { cargarImagenes, mezclarImagenes };
+  });
+
+
+  if (todoCorrecto) {
+    
+    console.log("¡Enhorabuena! Has completado el rompecabezas");
+  }else{
+  // console.log(`El puzle no es correcto, vuelve a intentarlo.`);
+  }
+};
+
+
+
+export { cargarImagenes, mezclarImagenes, completado };

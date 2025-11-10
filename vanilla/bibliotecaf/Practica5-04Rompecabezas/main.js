@@ -1,10 +1,11 @@
 "use strict";
-import {cargarImagenes, mezclarImagenes} from "./funciones.js";
+import {cargarImagenes, completado} from "./funciones.js";
 
 
 window.addEventListener("DOMContentLoaded", () => {
 
   cargarImagenes();
+  completado();
  
 
 document.getElementById("contenedorImg").addEventListener(
@@ -15,7 +16,7 @@ document.getElementById("contenedorImg").addEventListener(
     evento.dataTransfer.setData("identificador", evento.target.id);
     // Se muestran los datos por consola.
     console.log(evento.dataTransfer.getData("identificador"));
-    console.log(evento.dataTransfer.getData("nombre"));
+    
   },
   false
 );
@@ -32,9 +33,6 @@ document.getElementById("contenedorPuzle").addEventListener(
     console.log(evento);
     //Configurar el identificador del elemento a arrastrar.
     evento.dataTransfer.setData("identificador", evento.target.id);
-    // Se muestran los datos por consola.
-    console.log(evento.dataTransfer.getData("identificador"));
-    console.log(evento.dataTransfer.getData("nombre"));
   },
   false
 );
@@ -45,19 +43,23 @@ document.getElementById("contenedorPuzle").addEventListener(
   },
   false
 );
-document.getElementById("contenedorPuzle").addEventListener(
+
+
+ document.getElementById("contenedorPuzle").addEventListener(
   "drop",
   (evento) => {
     evento.preventDefault();
     if (evento.target.classList.contains("celda")) {
-      console.log(`Suelto imagen: ${evento.target.className}`);
-      evento.target.appendChild(
-        document.getElementById(evento.dataTransfer.getData("identificador"))
-      );
+      const idImagen = evento.dataTransfer.getData("identificador");
+      const imagen = document.getElementById(idImagen);
+      evento.target.innerHTML = ""; // Limpia la celda antes de insertar
+      evento.target.appendChild(imagen);
+      completado(); // Verifica si el puzzle está completo
     }
   },
   false
-);
+); 
+
    
 
 });//fin del addEventListener.
