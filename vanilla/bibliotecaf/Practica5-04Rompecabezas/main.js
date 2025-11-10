@@ -7,6 +7,17 @@ window.addEventListener("DOMContentLoaded", () => {
   cargarImagenes();
   crearEventosDragAndDrop();
 
+
+
+
+
+
+
+
+
+
+
+  
   document.getElementById("reiniciar").addEventListener("click", reiniciarPuzle);
 
 

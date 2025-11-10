@@ -62,10 +62,21 @@ h1 {
 
 
 /*----------------button--------------------*/
-#contenedorReset{
-  margin: 0 auto;
-}
+
 button{
   margin: 20px auto;
   padding:20px;
+}
+#contenedorReset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* separa botón y mensaje */
+}
+
+#mensaje h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: green;
 }
