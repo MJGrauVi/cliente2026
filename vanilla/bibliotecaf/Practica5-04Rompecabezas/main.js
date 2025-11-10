@@ -1,10 +1,12 @@
 "use strict";
-import {cargarImagenes} from "./funciones.js";
+import {cargarImagenes, mezclarImagenes} from "./funciones.js";
 
 
 window.addEventListener("DOMContentLoaded", () => {
 
   cargarImagenes();
+ 
+
 document.getElementById("contenedorImg").addEventListener(
   "dragstart",
   (evento) => {

@@ -7,19 +7,23 @@ function mezclarImagenes(imagenes) {
 
 const cargarImagenes = () => {
   const contenedorImg = document.getElementById("contenedorImg");
-  const arrayImagenes = [...Array(9)].map((_, i) => `${i + 1}.png`); //Creo un array vacio y agrego los nombres de las img.
-  let imagenesMezcladas = mezclarImagenes(arrayImagenes);
 
-  imagenesMezcladas.forEach((imagenArray) => {
-    const img = document.createElement("img");
-    
-    img.src = `rompecabezas_imagenes/${imagenArray}`; //Recoge la imagen del directorio.
-    img.alt = "imagen-rompecabezas";
+  const arrayImagenes = [...Array(9)].map((_, i) => {
+    //Creo un array vacio.
+    const img = document.createElement("img"); //Creo elemento img.
+    // Agrego los atributos necesarios.
+
+    img.src = `rompecabezas_imagenes/${i + 1}.png`; //Recoge la imagen del directorio.
+    img.id = `${i + 1}`; //Asignamos identificador.
+    img.alt = `imagen-rompecabezas ${i + 1}`; //Texto alternativo, criterio de buenas prácticas.
     img.classList.add("imagen");
-    img.setAttribute("draggable", true);
-    contenedorImg.appendChild(img);
+    img.setAttribute("draggable", true); //Añado la propiedad arrastable a las imagenes.
+    return img;
   });
+  const imagenesMezcladas = mezclarImagenes(arrayImagenes);
+  imagenesMezcladas.forEach((img) => contenedorImg.appendChild(img)); //Añado las imagenes al DOM.
 };
+
 const celdasArrastables = document.getElementsByClassName("celda");
 for (let i = 0; i < celdasArrastables.length; i++) {
   celdasArrastables[i].getAttribute("draggable", true);
