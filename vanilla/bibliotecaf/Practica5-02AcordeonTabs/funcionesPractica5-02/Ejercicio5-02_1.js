@@ -12,7 +12,7 @@ function crearAcordeon() {
   let numeroParrafos = 6;
   for (let i = 0; i < numeroParrafos; i++) {
     let parrafo = document.createElement("p");
-    console.log(parrafo);
+    
     if (i % 2 === 0) {
       parrafo.textContent = `Elemento ${i + 1}`;
       parrafo.classList = "impar";

@@ -26,23 +26,38 @@ const cargarImagenes = () => {
 
 const completado = () => {
   const celdas = document.querySelectorAll(".celda"); //NodeList.
-
+  //Toma todos los elementos con clase celda
   let todoCorrecto = true;
 
   celdas.forEach((celda) => {
     const imagen = celda.querySelector("img");
+
     if (!imagen || imagen.id !== celda.id) {
-      todoCorrecto = false;
+      //Comprueba todas las celdas que tiem¡nen imagen.
+      todoCorrecto = false; //No hay imagen o no coinciden los ids.
+      //return false;
     }
   });
 
   if (todoCorrecto) {
-    console.log("¡Enhorabuena! Has completado el rompecabezas");
-  } else {
-    // console.log(`El puzle no es correcto, vuelve a intentarlo.`);
+    //Coinciden los ides de la imagen arratrada con el de la celda.
+    mostrarMensaje(true);
   }
 };
 
+const mostrarMensaje = (todoCorrecto) => {
+  const zonaMensaje = document.getElementById("mensaje");
+
+  zonaMensaje.innerHTML = ""; // limpia mensajes previos
+
+  const mensaje = document.createElement("h1");
+
+  if (todoCorrecto) {
+    mensaje.textContent = "¡Enhorabuena! Has completado el rompecabezas";
+  }
+
+  zonaMensaje.appendChild(mensaje);
+};
 const crearEventosDragAndDrop = () => {
   document.getElementById("contenedorImg").addEventListener(
     "dragstart",
@@ -94,14 +109,24 @@ const crearEventosDragAndDrop = () => {
     false
   );
 };
+
 const reiniciarPuzle = () => {
-  document.getElementById("contenedorPu<le").innerHTML = "";
-  const celdas = document.querySelectorAll(".celda");
-  celdas.forEach((celda) => (celda.innerHTML = ""));
-  //Volver a cargar las imagenes.
+  const contenedorImg = document.getElementById("contenedorImg");
+
+  // Limpiar puzle.
+  document.querySelectorAll(".celda").forEach((celda) => {
+    celda.innerHTML = "";
+  });
+
+  // Limpiar imágenes iniciales.
+  contenedorImg.innerHTML = "";
+
+  // Limpiar mensaje sin borrar el botón
+  document.getElementById("mensaje").innerHTML = "";
+
+  // Recargar imágenes.
   cargarImagenes();
 };
-
 export {
   cargarImagenes,
   mezclarImagenes,
