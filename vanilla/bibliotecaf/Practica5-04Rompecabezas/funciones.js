@@ -24,13 +24,9 @@ const cargarImagenes = () => {
   imagenesMezcladas.forEach((img) => contenedorImg.appendChild(img)); //Añado las imagenes al DOM.
 };
 
-/* const celdasArrastables = document.getElementsByClassName("celda");
-for (let i = 0; i < celdasArrastables.length; i++) {
-  celdasArrastables[i].getAttribute("draggable", true);
-} */
 const completado = () => {
-  const celdas = document.querySelectorAll(".celda");
-  console.log(celdas);
+  const celdas = document.querySelectorAll(".celda"); //NodeList.
+
   let todoCorrecto = true;
 
   celdas.forEach((celda) => {
@@ -40,15 +36,76 @@ const completado = () => {
     }
   });
 
-
   if (todoCorrecto) {
-    
     console.log("¡Enhorabuena! Has completado el rompecabezas");
-  }else{
-  // console.log(`El puzle no es correcto, vuelve a intentarlo.`);
+  } else {
+    // console.log(`El puzle no es correcto, vuelve a intentarlo.`);
   }
 };
 
+const crearEventosDragAndDrop = () => {
+  document.getElementById("contenedorImg").addEventListener(
+    "dragstart",
+    (evento) => {
+      //Configurar el identificador del elemento a arrastrar.
+      evento.dataTransfer.setData("identificador", evento.target.id);
+    },
+    false
+  );
 
+  document.getElementById("contenedorImg").addEventListener(
+    "dragover",
+    (evento) => {
+      evento.preventDefault(); //Previene el comportamiento del navegador.
+    },
+    false
+  ); // Permite que el elemento arrastrado pase por encima.
 
-export { cargarImagenes, mezclarImagenes, completado };
+  //Permite arrastrar las imagenes que hemos dejado en el contenedor receptor para corregir su posición.
+  document.getElementById("contenedorPuzle").addEventListener(
+    "dragstart",
+    (evento) => {
+      console.log(evento);
+      //Configurar el identificador del elemento a arrastrar.
+      evento.dataTransfer.setData("identificador", evento.target.id);
+    },
+    false
+  );
+  document.getElementById("contenedorPuzle").addEventListener(
+    "dragover",
+    (evento) => {
+      evento.preventDefault();
+    },
+    false
+  );
+
+  document.getElementById("contenedorPuzle").addEventListener(
+    "drop",
+    (evento) => {
+      evento.preventDefault();
+      if (evento.target.classList.contains("celda")) {
+        const idImagen = evento.dataTransfer.getData("identificador");
+        const imagen = document.getElementById(idImagen);
+        evento.target.innerHTML = ""; // Limpia la celda antes de insertar
+        evento.target.appendChild(imagen);
+        completado(); // Verifica si el puzzle está completo
+      }
+    },
+    false
+  );
+};
+const reiniciarPuzle = () => {
+  document.getElementById("contenedorPu<le").innerHTML = "";
+  const celdas = document.querySelectorAll(".celda");
+  celdas.forEach((celda) => (celda.innerHTML = ""));
+  //Volver a cargar las imagenes.
+  cargarImagenes();
+};
+
+export {
+  cargarImagenes,
+  mezclarImagenes,
+  completado,
+  crearEventosDragAndDrop,
+  reiniciarPuzle,
+};
