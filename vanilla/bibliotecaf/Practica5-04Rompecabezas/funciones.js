@@ -25,7 +25,7 @@ const cargarImagenes = () => {
 };
 
 const completado = () => {
-  const celdas = document.querySelectorAll(".celda"); //NodeList.
+  const celdas = document.querySelectorAll(".celda");
   //Toma todos los elementos con clase celda
   let todoCorrecto = true;
 
@@ -35,7 +35,6 @@ const completado = () => {
     if (!imagen || imagen.id !== celda.id) {
       //Comprueba todas las celdas que tiem¡nen imagen.
       todoCorrecto = false; //No hay imagen o no coinciden los ids.
-      //return false;
     }
   });
 
@@ -58,6 +57,8 @@ const mostrarMensaje = (todoCorrecto) => {
 
   zonaMensaje.appendChild(mensaje);
 };
+
+//He creado esta función porque veo que queda mucho mas claro el código.
 const crearEventosDragAndDrop = () => {
   document.getElementById("contenedorImg").addEventListener(
     "dragstart",
@@ -80,7 +81,6 @@ const crearEventosDragAndDrop = () => {
   document.getElementById("contenedorPuzle").addEventListener(
     "dragstart",
     (evento) => {
-      console.log(evento);
       //Configurar el identificador del elemento a arrastrar.
       evento.dataTransfer.setData("identificador", evento.target.id);
     },
@@ -112,18 +112,15 @@ const crearEventosDragAndDrop = () => {
 
 const reiniciarPuzle = () => {
   const contenedorImg = document.getElementById("contenedorImg");
-
   // Limpiar puzle.
   document.querySelectorAll(".celda").forEach((celda) => {
     celda.innerHTML = "";
   });
-
   // Limpiar imágenes iniciales.
   contenedorImg.innerHTML = "";
 
   // Limpiar mensaje sin borrar el botón
   document.getElementById("mensaje").innerHTML = "";
-
   // Recargar imágenes.
   cargarImagenes();
 };

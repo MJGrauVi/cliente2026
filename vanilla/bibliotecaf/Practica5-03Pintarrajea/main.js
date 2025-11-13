@@ -5,7 +5,7 @@ import { crearSelectorColores, crearLienzo, pintarCelda, activarPintura, configu
 document.addEventListener("DOMContentLoaded", () => {
   crearSelectorColores();
   crearLienzo(60, 60);
-  pintarCelda,
+  pintarCelda, 
   activarPintura();
   configurarBotonReset();
 });
