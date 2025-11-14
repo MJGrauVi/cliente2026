@@ -1,8 +1,5 @@
 "use strict";
 
-window.onload = () => {
-
-
-
-
-}//fin del window.onload
+function validarNombre (nombre){
+    return nombre.length; 
+}

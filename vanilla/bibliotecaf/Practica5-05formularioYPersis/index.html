@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilos.css">
     <title>Práctica 5.05 Formulario y persistencia</title>
 </head>
 <body>
@@ -11,36 +12,43 @@
         <fieldset>
             <legend>Datos del disco</legend>
             <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Introduce el nombre del disco" />
+            <input type="text" name="nombre" placeholder="Introduce el nombre del disco" />
             <label for="caratula">URL caratula:</label>
-            <input type="url" name="caratula" id="caratula" placeholder="Introduce la URL de la caratula">
-            <fieldset id="grupoSolista">
+            <input type="url" name="caratula" placeholder="Introduce la URL de la caratula" />
+            <fieldset id="grupoSolista" />
                 <legend>Grupo musical o Solista</legend>
                 <label for="grupo">Grupo musical</label>
-                <input type="radio" id="grupo" name="grupoSolista" value="grupo">
+                <input type="radio" name="grupoSolista" value="grupo" />
                 <label for="solista">Solista</label>
-                <input type="radio" id="solista" name="grupoSolista" value="solista">
+                <input type="radio" name="grupoSolista" value="solista" />
             </fieldset>
-            <label for="anio">Año lanzamiento</label>
-            <input type="number" name="anio"  >
+            <div id="anio">
+                <label for="anio" class="corto">Año lanzamiento:</label>
+                <input type="text" id="anio" name="anio" maxlength="4" placeholder="Introduce el año"/>
+            </div>
             <fieldset>
                 <legend>Género musical</legend>
                 <label for="pop">Pop</label>
-                <input type="checkbox" name="generoMusical" value="pop">
+                <input type="checkbox" name="generoMusical" value="pop" />
                 <label for="rock">Rock</label>
-                <input type="checkbox" name="generoMusical" value="rock">
+                <input type="checkbox" name="generoMusical" value="rock" />
                 <label for="salsa">Salsa</label>
-                <input type="checkbox" name="generoMusical" value="salsa">
+                <input type="checkbox" name="generoMusical" value="salsa" />
                 <label for="clasica">Clásica</label>
-                <input type="checkbox" name="generoMusical" value="clasica">
+                <input type="checkbox" name="generoMusical" value="clasica" />
 
             </fieldset>
             <label for="localizacion">Localización</label>
-            <input type="text" name="codigo" >
+            <input type="text" name="codigo" placeholder="ES-001AA" />
+            <label for="prestado">Prestado</label>
+            <input type="checkbox" name="prestado" />
             
         </fieldset>
-
+        <input type="button" name="guardar" class="corto" value="Guardar" />
+        <input type="button" name="mostrar" class="corto" value="Mostrar" />
     </form>
+    <div id="errores"></div>
+    <ul id="listado"> </ul>
 
     <script type="module" src="./js/main.js"></script>
 </body>

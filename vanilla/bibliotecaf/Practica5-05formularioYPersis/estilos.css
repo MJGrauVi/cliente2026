@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  max-width: 800px;
+  margin: 10px 0;
+}
+fieldset,
+legend,
+input {
+  border: 2px solid #ccc; /* mismo color y grosor */
+  border-radius: 5px;
+}
+label {
+  padding: 20px;
+}
+label.corto{
+  width: 200px;
+}
+
+fieldset {
+  padding: 15px;
+  margin-bottom: 20px;
+}
+legend {
+  padding: 0 10px;
+  font-weight: bold;
+  background-color: #fff;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+#anio{
+  display:flex;
+  width:fit-content;
+
+}
+.corto{
+  width: 150px;
+}
