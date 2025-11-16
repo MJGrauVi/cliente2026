@@ -103,7 +103,13 @@ const crearEventosDragAndDrop = () => {
         const imagen = document.getElementById(idImagen);
         evento.target.innerHTML = ""; // Limpia la celda antes de insertar
         evento.target.appendChild(imagen);
+
+        //Ver cuantas celdas tiene el puzle.
+        const piezasColocadas = document.querySelectorAll('.celda img').length;
+       
+        if(piezasColocadas === 9){
         completado(); // Verifica si el puzzle está completo
+        }
       }
     },
     false

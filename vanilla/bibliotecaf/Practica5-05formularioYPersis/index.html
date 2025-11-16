@@ -39,9 +39,9 @@
 
             </fieldset>
             <label for="localizacion">Localización</label>
-            <input type="text" name="codigo" placeholder="ES-001AA" />
+            <input type="text" name="codigo" placeholder="ES-001AA" pattern="^ES-\d{3}[A-Z]{2}$" tittle="Debe empezar por ES- seguido de tres numeros y dos mayusculas"/>
             <label for="prestado">Prestado</label>
-            <input type="checkbox" name="prestado" />
+            <input type="checkbox" name="prestado" value="no"/>
             
         </fieldset>
         <input type="button" name="guardar" class="corto" value="Guardar" />
