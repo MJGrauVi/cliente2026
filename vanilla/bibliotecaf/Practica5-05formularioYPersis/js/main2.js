@@ -20,7 +20,7 @@ let discos = [];
 function guardarDisco() {
   limpiarErrores(form, erroresDiv);
   let errores = [];
-
+  
   const nombre = form.nombre.value;
   const caratula = form.caratula.value;
   const grupoSolista = form.grupoSolista.value;

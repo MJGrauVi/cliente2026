@@ -1,5 +1,5 @@
 "use strict";
-
+import {validarNombre, validarGrupoSolista, validarAnio, validarGeneroMusical, validarLocalizacion, marcarError} from " ./funciiiones.js";
 window.onload = () => {
 
   //Tomo referencia con el nombre del formularo.
@@ -7,113 +7,92 @@ window.onload = () => {
   const listado = document.getElementById("listado");
   const erroresDiv = document.getElementById("errores");
 
+  // Parte II.
   // Array para almacenar discos.
   let discos = [];
 
-  // Funciones de validación
-  function validarNombre(nombre) {
-    if (!nombre || nombre.trim().length < 5) return false;
-    return true;
-  }
 
-  function validarGrupoSolista(valor) {
-    if (!valor || valor.trim().length < 5) return false;
-    return true;
-  }
+// ----------------------------
+// GESTIÓN DE ERRORES
+// ----------------------------
+const marcarError = (input, mensaje, contenedorErrores) => {
+  if (input) input.classList.add("error");
+  contenedorErrores.innerHTML += `<p>${mensaje}</p>`;
+};
 
-  function validarAnio(anio) {
-    return /^\d{4}$/.test(anio);
-  }
-
-  function validarGeneroMusical() {
-    const generos = form.querySelectorAll(
-      'input[name="generoMusical"]:checked'
-    );
-    return generos.length > 0;
-  }
-
-  function validarLocalizacion(codigo) {
-    return /^ES-\d{3}[A-Z]{2}$/.test(codigo);
-  }
-
-  // Función para destacar errores
-  function marcarError(input, mensaje) {
-    input.classList.add("error");
-    return mensaje;
-  }
-
-  function limpiarErrores() {
-    erroresDiv.innerHTML = "";
-    const inputs = form.querySelectorAll("input");
-    inputs.forEach((input) => input.classList.remove("error"));
-  }
+const limpiarErrores = (form, contenedorErrores) => {
+  contenedorErrores.innerHTML = "";
+  form.querySelectorAll("input").forEach((input) =>
+    input.classList.remove("error")
+  );
+};
 
   // Función para guardar disco
-  function guardarDisco() {
-    limpiarErrores();
-    let errores = [];
+const guardarDisco = () => {
+  limpiarErrores();
+  let errores = [];
 
-    const nombre = form.nombre.value;
-    const caratula = form.caratula.value;
-    const grupoSolistaRadio = form.grupoSolista.value;
-    const anio = form.anio.value;
-    const codigo = form.codigo.value;
-    const prestado = form.prestado.checked;
+  const nombre = form.nombre.value;
+  const caratula = form.caratula.value;
+  const grupoSolistaRadio = form.grupoSolista.value;
+  const anio = form.anio.value;
+  const codigo = form.codigo.value;
+  const prestado = form.prestado.checked;
 
-    // Validaciones
-    if (!validarNombre(nombre))
-      errores.push(
-        marcarError(form.nombre, "El nombre debe tener al menos 5 caracteres.")
-      );
-    if (!validarGrupoSolista(grupoSolistaRadio)) {
-      const radios = form.querySelectorAll('input[name="grupoSolista"]');
-      radios.forEach((r) => r.classList.add("error"));
-      errores.push(
-        "Selecciona grupo musical o solista válido (mínimo 5 caracteres)."
-      );
+  // Función auxiliar para añadir errores
+  const agregarError = (condicion, campo, mensaje) => {
+    if (!condicion) {
+      if (campo) marcarError(campo, mensaje);
+      errores = [...errores, mensaje];
     }
-    if (!validarAnio(anio))
-      errores.push(
-        marcarError(form.anio, "El año debe tener 4 dígitos numéricos.")
-      );
-    if (!validarGeneroMusical()) {
-      const checks = form.querySelectorAll('input[name="generoMusical"]');
-      checks.forEach((c) => c.classList.add("error"));
-      errores.push("Debes seleccionar al menos un género musical.");
-    }
-    if (!validarLocalizacion(codigo))
-      errores.push(
-        marcarError(
-          form.codigo,
-          "La localización debe tener el formato ES-001AA."
-        )
-      );
+  };
 
-    // Mostrar errores o añadir disco
-    if (errores.length > 0) {
-      erroresDiv.innerHTML = errores.join("<br>");
-      return;
-    }
-
-    // Crear objeto disco y añadirlo al array
-    const generos = Array.from(
-      form.querySelectorAll('input[name="generoMusical"]:checked')
-    ).map((g) => g.value);
-
-    const disco = {
-      nombre,
-      caratula,
-      tipo: grupoSolistaRadio,
-      anio,
-      genero: generos,
-      codigo,
-      prestado,
-    };
-
-    discos.push(disco);
-    form.reset();
-    listadoDiscos();
+  // Validaciones usando la función auxiliar
+  agregarError(validarNombre(nombre), form.nombre, "El nombre debe tener al menos 5 caracteres.");
+  
+  if (!validarGrupoSolista(grupoSolistaRadio)) {
+    const radios = form.querySelectorAll('input[name="grupoSolista"]');
+    radios.forEach((r) => r.classList.add("error"));
+    errores = [...errores, "Selecciona grupo musical o solista válido (mínimo 5 caracteres)."];
   }
+
+  agregarError(validarAnio(anio), form.anio, "El año debe tener 4 dígitos numéricos.");
+
+  if (!validarGeneroMusical()) {
+    const checks = form.querySelectorAll('input[name="generoMusical"]');
+    checks.forEach((c) => c.classList.add("error"));
+    errores = [...errores, "Debes seleccionar al menos un género musical."];
+  }
+
+  agregarError(validarLocalizacion(codigo), form.codigo, "La localización debe tener el formato ES-001AA.");
+
+  // Mostrar errores o añadir disco
+  if (errores.length > 0) {
+    erroresDiv.innerHTML = errores.join("<br>");
+    return;
+  }
+
+  // Crear objeto disco y añadirlo al array
+  const generos = Array.from(
+    form.querySelectorAll('input[name="generoMusical"]:checked')
+  ).map((g) => g.value);
+
+  const disco = {
+    nombre,
+    caratula,
+    tipo: grupoSolistaRadio,
+    anio,
+    genero: generos,
+    codigo,
+    prestado,
+  };
+
+ 
+  discos = [...discos, disco];
+
+  form.reset();
+  listadoDiscos();
+};
 
   // Función para mostrar discos
   function listadoDiscos() {

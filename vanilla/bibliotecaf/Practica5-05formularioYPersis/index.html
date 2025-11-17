@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./estilos.css">
     <title>Práctica 5.05 Formulario y persistencia</title>
 </head>
+
 <body>
     <h1>Mi collección de discos</h1>
     <form id="adDisco" name="formDisco">
@@ -15,34 +17,41 @@
             <input type="text" name="nombre" placeholder="Introduce el nombre del disco" />
             <label for="caratula">URL caratula:</label>
             <input type="url" name="caratula" placeholder="Introduce la URL de la caratula" />
-            <fieldset id="grupoSolista" />
-                <legend>Grupo musical o Solista</legend>
-                <label for="grupo">Grupo musical</label>
-                <input type="radio" name="grupoSolista" value="grupo" />
-                <label for="solista">Solista</label>
-                <input type="radio" name="grupoSolista" value="solista" />
-            </fieldset>
-            <div id="anio">
-                <label for="anio" class="corto">Año lanzamiento:</label>
-                <input type="text" id="anio" name="anio" maxlength="4" placeholder="Introduce el año"/>
-            </div>
-            <fieldset>
-                <legend>Género musical</legend>
-                <label for="pop">Pop</label>
-                <input type="checkbox" name="generoMusical" value="pop" />
-                <label for="rock">Rock</label>
-                <input type="checkbox" name="generoMusical" value="rock" />
-                <label for="salsa">Salsa</label>
-                <input type="checkbox" name="generoMusical" value="salsa" />
-                <label for="clasica">Clásica</label>
-                <input type="checkbox" name="generoMusical" value="clasica" />
 
-            </fieldset>
-            <label for="localizacion">Localización</label>
-            <input type="text" name="codigo" placeholder="ES-001AA" pattern="^ES-\d{3}[A-Z]{2}$" tittle="Debe empezar por ES- seguido de tres numeros y dos mayusculas"/>
-            <label for="prestado">Prestado</label>
-            <input type="checkbox" name="prestado" value="no"/>
-            
+            <fieldset id="grupoSolista" />
+            <legend>Grupo musical o Solista</legend>
+            <label for="grupo">Grupo musical</label>
+            <input type="radio" name="grupoSolista" value="grupo" />
+            <label for="solista">Solista</label>
+            <input type="radio" name="grupoSolista" value="solista" />
+        </fieldset>
+        <fieldset id="anio">
+            <legend>Lanzamiento</legend>
+            <label for="anio" class="corto">Año lanzamiento:</label>
+            <input type="text" id="anio" name="anio" maxlength="4" placeholder="año (YYYY)" />
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Género musical</legend>
+            <label for="pop">Pop</label>
+            <input type="checkbox" name="generoMusical" value="pop" />
+            <label for="rock">Rock</label>
+            <input type="checkbox" name="generoMusical" value="rock" />
+            <label for="salsa">Salsa</label>
+            <input type="checkbox" name="generoMusical" value="salsa" />
+            <label for="clasica">Clásica</label>
+            <input type="checkbox" name="generoMusical" value="clasica" />
+
+        </fieldset>
+        <fieldset>
+            <legend>Localización:</legend>
+            <input type="text" name="codigo" placeholder="patron: ES-001AA" pattern="^ES-\d{3}[A-Z]{2}$"
+                tittle="Debe empezar por ES- seguido de tres numeros y dos mayusculas" />
+        </fieldset>
+
+        <label for="prestado">Prestado: </label>
+        <input type="checkbox" name="prestado" value="no" />
+
         </fieldset>
         <input type="button" name="guardar" class="corto" value="Guardar" />
         <input type="button" name="mostrar" class="corto" value="Mostrar" />
@@ -52,4 +61,5 @@
 
     <script type="module" src="./js/main.js"></script>
 </body>
+
 </html>
