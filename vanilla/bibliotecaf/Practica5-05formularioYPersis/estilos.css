@@ -15,6 +15,7 @@ form {
 fieldset,
 legend,
 input, select {
+ 
   border: 2px solid #ccc; /* mismo color y grosor */
   border-radius: 5px;
   
