@@ -101,10 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
     return {
       nombre: form.elements["nombre"].value.trim(),
       caratula: form.elements["caratula"].value.trim(),
-      grupoSolista: //Selecciona todos los inputs con el name igual seleccionados, sino {}para evitar el error .value.Devuelve null o "". 
-        (form.querySelector('input[name="grupoSolista"]:checked') || {}).value || "",
+      //Selecciona todos los inputs con el name igual seleccionados, sino {}para evitar el error .value.Devuelve null o "".
+      grupoSolista:
+        (form.querySelector('input[name="grupoSolista"]:checked') || {})
+          .value || "",
       anio: form.elements["anio"].value.trim(),
-      generos: Array.from(  //
+      generos: Array.from(
+        //
         form.querySelectorAll('input[name="generoMusical"]:checked')
       ).map((c) => c.value),
       codigo: form.elements["codigo"].value.trim(),
@@ -112,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-/*   function escapeHtml(str) {
+  /*   function escapeHtml(str) {
     if (!str) return "";
     return String(str)
       .replace(/&/g, "&amp;")
@@ -132,18 +135,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const li = document.createElement("li");
 
       // Crear imagen
-      const img = document.createElement("img");
+      /*  const img = document.createElement("img");
       if (d.caratula && /^https?:\/\//i.test(d.caratula)) {
         img.src = d.caratula;
-      }
+      } */
 
       // Ocultar imagen si no carga
-      img.onerror = () => {
+      /*     img.onerror = () => {
         img.style.display = "none";
-      };
+      }; */
 
       // Crear bloque de texto
-      const divInfo = document.createElement("div");
+      const divInfo = document.createElement("fieldset");
       const titulo = document.createElement("strong");
       titulo.textContent = d.nombre;
 
@@ -152,7 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const meta = document.createElement("div");
       meta.className = "meta";
       meta.textContent =
-        `Géneros: ${Array.isArray(d.generos) ? d.generos.join(", ") : ""}` +
+        `Género musical: ${
+          Array.isArray(d.generos) ? d.generos.join(", ") : ""
+        }` +
         ` | Código: ${d.codigo}` +
         ` | Prestado: ${d.prestado ? "Sí" : "No"}`;
 
@@ -161,14 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
       divInfo.appendChild(meta);
 
       // Botón borrar
-      const btn = document.createElement("button");
+      const btn = document.createElement("input");
       btn.className = "borrar";
       btn.dataset.index = i;
-      btn.title = "Borrar disco";
-      btn.textContent = "🗑️";
+      /*  btn.title = "Borrar disco"; */
+      btn.textContent = "Elininar";
 
       // Montar todo
-      li.appendChild(img);
+      /*  li.appendChild(img); */
       li.appendChild(divInfo);
       li.appendChild(btn);
 
