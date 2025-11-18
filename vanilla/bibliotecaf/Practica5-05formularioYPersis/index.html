@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi colección de discos</title>
   <link rel="stylesheet" href="estilos.css" />
 </head>
+
 <body>
   <h1>Mi colección de discos</h1>
 
@@ -43,14 +45,8 @@
 
       <fieldset id="localizacion">
         <legend>Localización</legend>
-        <input
-          type="text"
-          name="codigo"
-          id="codigo"
-          placeholder="patrón: ES-001AA"
-          pattern="^ES-\d{3}[A-Z]{2}$"
-          title="Debe empezar por ES- seguido de tres números y dos mayúsculas"
-        />
+        <input type="text" name="codigo" id="codigo" placeholder="patrón: ES-001AA" pattern="^ES-\d{3}[A-Z]{2}$"
+          title="Debe empezar por ES- seguido de tres números y dos mayúsculas" />
       </fieldset>
 
       <label for="prestado">Prestado: </label>
@@ -61,21 +57,23 @@
         <input type="button" name="mostrar" class="corto" value="Mostrar" />
       </div>
     </fieldset>
+
+    <fieldset id="errores">
+
+
+    </fieldset>
+    <fieldset>
+      <legend>Listado discos</legend>
+      <ul id="listado"></ul>
+    </fieldset>
+    <fieldset id="buscador">
+      <legend>Buscar discos</legend>
+      <input type="text" id="inputBuscar" placeholder="Introduce texto para buscar..." />
+      <input type="button" id="btnBuscar" class ="corto" value="Buscar" />
+      <input type="button" id="btnLimpiar" class="corto" value="Limpiar" />
+    </fieldset>
   </form>
-
-  <div id="errores">
- 
-  </div>
-
-  <ul id="listado"></ul>
-
-  <fieldset id="buscador">
-    <legend>Buscar discos</legend>
-    <input type="text" id="inputBuscar" placeholder="Introduce texto para buscar..." />
-    <button type="button" id="btnBuscar">Buscar</button>
-    <button type="button" id="btnLimpiar">Limpiar</button>
-  </fieldset>
-
   <script type="module" src="main.js"></script>
 </body>
+
 </html>

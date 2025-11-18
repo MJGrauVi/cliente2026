@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo.textContent = d.nombre;
 
       const anio = d.anio ? ` (${d.anio})` : "";
-
+   
       const meta = document.createElement("div");
       meta.className = "meta";
       meta.textContent =
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.className = "borrar";
       btn.dataset.index = i;
       btn.title = "Borrar disco";
-      btn.textContent = "🗑️";
+      //btn.textContent = "🗑️";
 
       // Montar todo
       li.appendChild(img);
