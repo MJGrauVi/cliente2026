@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ARRAY DE DISCOS
   let discos = cargarDiscos();
-
-  // ---------- VALIDACIONES ----------
+  console.log(discos);
+  /* ---------- VALIDACIONES ----------*/
   const validarNombre = (nombre) => nombre && nombre.trim().length >= 5;
   const validarGrupoSolista = (form) =>
     form.querySelector('input[name="grupoSolista"]:checked') !== null;
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.querySelectorAll('input[name="generoMusical"]:checked').length > 0;
   const validarLocalizacion = (codigo) => /^ES-\d{3}[A-Z]{2}$/.test(codigo);
 
-  // ---------- ERRORES ----------
+  /* ---------- ERRORES ----------*/
   const marcarError = (input, mensaje) => {
     if (input) input.classList.add("error");
     erroresDiv.innerHTML += `<p>${mensaje}</p>`;
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   };
 
-  // ---------- LOCALSTORAGE ----------
+  /* ---------- LOCALSTORAGE ----------*/
   function cargarDiscos() {
     try {
       const datos = localStorage.getItem("discos");
@@ -66,12 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const anioInput = form.elements["anio"];
     const codigoInput = form.elements["codigo"];
 
-    if (!validarNombre(nombreInput.value)) {
+    if (!validarNombre(nombreInput.value)) {//Si el input está vacio marca el error.
       marcarError(nombreInput, "Nombre: obligatorio y >= 5 caracteres.");
       valido = false;
     }
 
-    if (!validarGrupoSolista(form)) {
+    if (!validarGrupoSolista(form)) { //Si no se ha seleccionado nada marca el error.
       marcarError(null, "Selecciona: Grupo musical o Solista.");
       valido = false;
     }
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .value || "",
       anio: form.elements["anio"].value.trim(),
       generos: Array.from(
-        //
+        //Selecciona todos los inputs con el mismo name que estén seleccionados.
         form.querySelectorAll('input[name="generoMusical"]:checked')
       ).map((c) => c.value),
       codigo: form.elements["codigo"].value.trim(),
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  function mostrarDiscos(array) {
+  /* function mostrarDiscos(array) {
     listado.innerHTML = "";
 
     if (!array || array.length === 0) {
@@ -126,16 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     array.forEach((d, i) => {
       const li = document.createElement("li");
 
-      // Crear imagen
-      /*  const img = document.createElement("img");
-      if (d.caratula && /^https?:\/\//i.test(d.caratula)) {
-        img.src = d.caratula;
-      } */
-
-      // Ocultar imagen si no carga
-      /*     img.onerror = () => {
-        img.style.display = "none";
-      }; */
 
       // Crear bloque de texto
       const divInfo = document.createElement("fieldset");
@@ -144,37 +134,88 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const anio = d.anio ? ` (${d.anio})` : "";
 
-      const meta = document.createElement("div");
-      meta.className = "meta";
-      meta.textContent =
-        `Género musical: ${
-          Array.isArray(d.generos) ? d.generos.join(", ") : ""
-        }` +
-        ` | Código: ${d.codigo}` +
-        ` | Prestado: ${d.prestado ? "Sí" : "No"}`;
+        const formatoDisco = document.createElement("div");
+       formatoDisco.className = "formatoDisco";
+ 
+       formatoDisco.textContent = `Género musical: ${Array.isArray(d.generos) ? d.generos.join(", ") : ""}
+       | Código: ${d.codigo}
+       | Prestado: ${d.prestado ? "Sí" : "No"}`; 
 
       divInfo.appendChild(titulo);
       divInfo.append(anio);
-      divInfo.appendChild(meta);
+      divInfo.appendChild(formatoDisco);
 
       // Botón borrar
       const btn = document.createElement("input");
       btn.className = "borrar";
       btn.dataset.index = i;
-      btn.title = "Borrar disco";
-      //btn.textContent = "Elininar";
       btn.value = "Eliminar";
       btn.type = "button;";
 
       // Montar todo
-      /*  li.appendChild(img); */
+
       divInfo.appendChild(btn);
       li.appendChild(divInfo);
-      //li.appendChild(btn);
 
       listado.appendChild(li);
     });
+  } */
+
+function crearFormatoDisco(disco) {
+  const div = document.createElement("div");
+  div.className = "formato";
+  div.textContent = `Género musical: ${
+    Array.isArray(disco.generos) ? disco.generos.join(", ") : ""
+  } | Código: ${disco.codigo} | Prestado: ${disco.prestado ? "Sí" : "No"}`;
+  return div;
+}
+
+function crearBotonEliminar(index) {
+  const btn = document.createElement("input");
+  btn.className = "borrar";
+  btn.dataset.index = index;
+  btn.value = "Eliminar";
+  btn.type = "button";
+  return btn;
+}
+
+function crearItemDisco(disco, index) {
+  const li = document.createElement("li");
+  const divInfo = document.createElement("fieldset");
+
+  const titulo = document.createElement("strong");
+  titulo.textContent = disco.nombre;
+
+  const anio = disco.anio ? ` (${disco.anio})` : "";
+
+  const formatoDisco = crearFormatoDisco(disco);
+  const btn = crearBotonEliminar(index);
+
+  divInfo.appendChild(titulo);
+  divInfo.append(anio);
+  divInfo.appendChild(formatoDisco);
+  divInfo.appendChild(btn);
+
+  li.appendChild(divInfo);
+
+  return li;
+}
+
+function mostrarDiscos(array) {
+  listado.innerHTML = "";
+
+  if (!array || array.length === 0) {
+    listado.innerHTML = "<li>No hay discos.</li>";
+    return;
   }
+
+  array.forEach((disco, i) => {
+    const item = crearItemDisco(disco, i);
+    listado.appendChild(item);
+  });
+}
+
+
   function buscarDiscos(texto) {
     const titulo = texto.trim().toLowerCase();
     if (!titulo) {
@@ -232,20 +273,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /*   listado.addEventListener("click", (e) => {
-    if (e.target.classList.contains("borrar")) {
-      const idx = Number(e.target.dataset.index);
-      if (
-        Number.isFinite(idx) &&
-        idx >= 0 &&
-        confirm("¿Seguro que deseas borrar este disco?")
-      ) {
-        discos.splice(idx, 1);
-        guardarEnLocalStorage();
-        mostrarDiscos(discos);
-      }
-    }
-  }); */
 
   btnBuscar.addEventListener("click", () => buscarDiscos(inputBuscar.value));
   btnLimpiar.addEventListener("click", () => {
@@ -255,5 +282,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mostrar inicial
   mostrarDiscos(discos);
-  //localStorage.clear();
+  localStorage.clear();
 });

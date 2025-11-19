@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ARRAY DE DISCOS
   let discos = cargarDiscos();
-
-  // ---------- VALIDACIONES ----------
+ console.log(discos);
+  /* ---------- VALIDACIONES ----------*/
   const validarNombre = (nombre) => nombre && nombre.trim().length >= 5;
   const validarGrupoSolista = (form) =>
     form.querySelector('input[name="grupoSolista"]:checked') !== null;
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.querySelectorAll('input[name="generoMusical"]:checked').length > 0;
   const validarLocalizacion = (codigo) => /^ES-\d{3}[A-Z]{2}$/.test(codigo);
 
-  // ---------- ERRORES ----------
+  /* ---------- ERRORES ----------*/
   const marcarError = (input, mensaje) => {
     if (input) input.classList.add("error");
     erroresDiv.innerHTML += `<p>${mensaje}</p>`;
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   };
 
-  // ---------- LOCALSTORAGE ----------
+  /* ---------- LOCALSTORAGE ----------*/
   function cargarDiscos() {
     try {
       const datos = localStorage.getItem("discos");
@@ -66,12 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const anioInput = form.elements["anio"];
     const codigoInput = form.elements["codigo"];
 
-    if (!validarNombre(nombreInput.value)) {
+    if (!validarNombre(nombreInput.value)) {//Si el input está vacio marca el error.
       marcarError(nombreInput, "Nombre: obligatorio y >= 5 caracteres.");
       valido = false;
     }
 
-    if (!validarGrupoSolista(form)) {
+    if (!validarGrupoSolista(form)) { //Si no se ha seleccionado nada marca el error.
       marcarError(null, "Selecciona: Grupo musical o Solista.");
       valido = false;
     }
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .value || "",
       anio: form.elements["anio"].value.trim(),
       generos: Array.from(
-        //
+        //Selecciona todos los inputs con el mismo name que estén seleccionados.
         form.querySelectorAll('input[name="generoMusical"]:checked')
       ).map((c) => c.value),
       codigo: form.elements["codigo"].value.trim(),
@@ -115,14 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  /*   function escapeHtml(str) {
-    if (!str) return "";
-    return String(str)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-  }
- */
   function mostrarDiscos(array) {
     listado.innerHTML = "";
 
@@ -154,12 +146,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const meta = document.createElement("div");
       meta.className = "meta";
-      meta.textContent =
+     /*  meta.textContent =
         `Género musical: ${
           Array.isArray(d.generos) ? d.generos.join(", ") : ""
         }` +
         ` | Código: ${d.codigo}` +
-        ` | Prestado: ${d.prestado ? "Sí" : "No"}`;
+        ` | Prestado: ${d.prestado ? "Sí" : "No"}`; */
+      meta.textContent = `
+  Género musical: ${Array.isArray(d.generos) ? d.generos.join(", ") : ""}
+  | Código: ${d.codigo}
+  | Prestado: ${d.prestado ? "Sí" : "No"}
+`;
 
       divInfo.appendChild(titulo);
       divInfo.append(anio);
@@ -169,13 +166,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = document.createElement("input");
       btn.className = "borrar";
       btn.dataset.index = i;
-      /*  btn.title = "Borrar disco"; */
-      btn.textContent = "Elininar";
+      //btn.title = "Borrar disco";
+      //btn.textContent = "Elininar";
+      btn.value = "Eliminar";
+      btn.type = "button;";
 
       // Montar todo
       /*  li.appendChild(img); */
+      divInfo.appendChild(btn);
       li.appendChild(divInfo);
-      li.appendChild(btn);
+      //li.appendChild(btn);
 
       listado.appendChild(li);
     });
@@ -191,22 +191,53 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     mostrarDiscos(filtrados);
   }
+  const mostrarMensajeSegundos = (texto) => {
+    const mensajeGuardado = document.getElementById("alertas");
+    //Coloco el texto dentro del div-alertas.
+    mensajeGuardado.textContent = texto;
+    mensajeGuardado.classList.add("mensaje");
+
+    //Elimino el mensaje en  3 segundos.
+    setTimeout(() => {
+      mensajeGuardado.classList.add("hidden");
+      mensajeGuardado.classList.remove("mensaje");
+    }, 3000);
+  };
 
   // ---------- EVENTOS ----------
+
   btnGuardar.addEventListener("click", () => {
     if (!validarFormulario()) return;
-    const nuevo = construirDiscoDesdeFormulario();
 
+    const nuevo = construirDiscoDesdeFormulario();
     discos = [...discos, nuevo];
     guardarEnLocalStorage();
-    //mostrarDiscos(discos); //no necesito mostrarlo, solo verificar.
-    alert("Disco guardado correctamente.");
+
+    //Mostrar mensaje en contenedor de alertass.
+    mostrarMensajeSegundos("Disco guardado correctamente");
+
     form.reset();
   });
 
   btnMostrar.addEventListener("click", () => mostrarDiscos(discos));
 
   listado.addEventListener("click", (e) => {
+    if (e.target.classList.contains("borrar")) {
+      const idx = Number(e.target.dataset.index);
+
+      // Comprobamos que idx es un número válido
+      if (!isNaN(idx) && idx >= 0) {
+        discos.splice(idx, 1); // Borra el disco
+        guardarEnLocalStorage(); // Guarda cambios
+        mostrarDiscos(discos); // Vuelve a pintar la lista
+
+        // Muestra mensaje temporal
+        mostrarMensajeSegundos("Disco eliminado");
+      }
+    }
+  });
+
+  /*   listado.addEventListener("click", (e) => {
     if (e.target.classList.contains("borrar")) {
       const idx = Number(e.target.dataset.index);
       if (
@@ -219,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mostrarDiscos(discos);
       }
     }
-  });
+  }); */
 
   btnBuscar.addEventListener("click", () => buscarDiscos(inputBuscar.value));
   btnLimpiar.addEventListener("click", () => {
@@ -229,4 +260,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mostrar inicial
   mostrarDiscos(discos);
+  //localStorage.clear();
 });

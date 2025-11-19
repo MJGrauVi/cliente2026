@@ -1,78 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi colección de discos</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi colección de discos</title>
-  <link rel="stylesheet" href="estilos.css" />
-</head>
+  <body>
+    <h1>Mi colección de discos</h1>
 
-<body>
-  <h1>Mi colección de discos</h1>
+    <form id="adDisco" name="formDisco" novalidate>
+      <fieldset>
+        <legend>Datos del disco</legend>
 
-  <form id="adDisco" name="formDisco" novalidate>
-    <fieldset>
-      <legend>Datos del disco</legend>
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          name="nombre"
+          id="nombre"
+          placeholder="Introduce el nombre del disco"
+        />
 
-      <label for="nombre">Nombre:</label>
-      <input type="text" name="nombre" id="nombre" placeholder="Introduce el nombre del disco" />
+        <label for="caratula">URL carátula:</label>
+        <input
+          type="url"
+          name="caratula"
+          id="caratula"
+          placeholder="Introduce la URL de la carátula"
+        />
 
-      <label for="caratula">URL carátula:</label>
-      <input type="url" name="caratula" id="caratula" placeholder="Introduce la URL de la carátula" />
+        <fieldset id="grupoSolista">
+          <legend>Grupo musical o Solista</legend>
+          <label for ="grupo">Grupo musical</label>
+          <input type="radio" id="grupo" name="grupoSolista" value="grupo" />
+          <label for="solista">Solista</label>
+          <input type="radio" id="solista" name="grupoSolista" value="solista" />
+        </fieldset>
 
-      <fieldset id="grupoSolista">
-        <legend>Grupo musical o Solista</legend>
-        <label>Grupo musical</label>
-        <input type="radio" name="grupoSolista" value="grupo" />
-        <label>Solista</label>
-        <input type="radio" name="grupoSolista" value="solista" />
+        <fieldset id="anioFieldset">
+          <legend>Lanzamiento</legend>
+          <label for="anio" class="corto">Año lanzamiento:</label>
+          <input type="text" id="anio" name="anio" placeholder="YYYY" />
+          <!-- <input type="text" id="anio" name="anio" maxlength="4" placeholder="YYYY" /> -->
+        </fieldset>
+
+        <fieldset id="generos">
+          <legend>Género musical</legend>
+          <label for="pop">Pop</label
+          ><input type="checkbox" id="pop" name="generoMusical" value="pop" />
+          <label for="rock">Rock</label
+          ><input type="checkbox" id="rock" name="generoMusical" value="rock" />
+          <label for=salsa"">Salsa</label
+          ><input type="checkbox" id="salsa" name="generoMusical" value="salsa" />
+          <label for="clasica">Clásica</label
+          ><input type="checkbox" id="clasica" name="generoMusical" value="clasica" />
+        </fieldset>
+
+        <fieldset id="localizacion">
+          <legend>Localización</legend>
+          <label for="codigo">Código localización:</label>
+          <input
+            type="text"
+            name="codigo"
+            id="codigo"
+            placeholder="patrón: ES-001AA"
+          />
+          <!--    <input type="text" name="codigo" id="codigo" placeholder="patrón: ES-001AA" pattern="^ES-\d{3}[A-Z]{2}$"
+          title="Debe empezar por ES- seguido de tres números y dos mayúsculas" /> -->
+        </fieldset>
+
+        <label for="prestado">Prestado: </label>
+        <input type="checkbox" name="prestado" id="prestado" />
+
+        <div class="acciones">
+          <input type="button" name="guardar" class="corto" value="Guardar" />
+          <input type="button" name="mostrar" class="corto" value="Mostrar" />
+        </div>
       </fieldset>
 
-      <fieldset id="anioFieldset">
-        <legend>Lanzamiento</legend>
-        <label for="anio" class="corto">Año lanzamiento:</label>
-        <input type="text" id="anio" name="anio" maxlength="4" placeholder="YYYY" />
+      <div id="errores" class="hidden"></div>
+      <div id="alertas"></div>
+
+      <fieldset>
+        <legend>Listado discos</legend>
+        <ul id="listado"></ul>
       </fieldset>
-
-      <fieldset id="generos">
-        <legend>Género musical</legend>
-        <label>Pop</label><input type="checkbox" name="generoMusical" value="pop" />
-        <label>Rock</label><input type="checkbox" name="generoMusical" value="rock" />
-        <label>Salsa</label><input type="checkbox" name="generoMusical" value="salsa" />
-        <label>Clásica</label><input type="checkbox" name="generoMusical" value="clasica" />
+      <fieldset id="buscador">
+        <legend>Buscar discos</legend>
+        <input
+          type="text"
+          id="inputBuscar"
+          placeholder="Introduce texto para buscar..."
+        />
+        <input type="button" id="btnBuscar" class="corto" value="Buscar" />
+        <input type="button" id="btnLimpiar" class="corto" value="Limpiar" />
       </fieldset>
-
-      <fieldset id="localizacion">
-        <legend>Localización</legend>
-        <input type="text" name="codigo" id="codigo" placeholder="patrón: ES-001AA" pattern="^ES-\d{3}[A-Z]{2}$"
-          title="Debe empezar por ES- seguido de tres números y dos mayúsculas" />
-      </fieldset>
-
-      <label for="prestado">Prestado: </label>
-      <input type="checkbox" name="prestado" id="prestado" />
-
-      <div class="acciones">
-        <input type="button" name="guardar" class="corto" value="Guardar" />
-        <input type="button" name="mostrar" class="corto" value="Mostrar" />
-      </div>
-    </fieldset>
-
-    <div id="errores" class="hidden"></div>
-    <div id="alertas"></div>
-
-    <fieldset>
-      <legend>Listado discos</legend>
-      <ul id="listado" ></ul>
-    </fieldset>
-    <fieldset id="buscador">
-      <legend>Buscar discos</legend>
-      <input type="text" id="inputBuscar" placeholder="Introduce texto para buscar..." />
-      <input type="button" id="btnBuscar" class ="corto" value="Buscar" />
-      <input type="button" id="btnLimpiar" class="corto" value="Limpiar" />
-    </fieldset>
-  </form>
-  <script type="module" src="main.js"></script>
-</body>
-
+    </form>
+    <script type="module" src="main.js"></script>
+  </body>
 </html>

@@ -80,8 +80,9 @@ li {
 }
 .borrar {
   width: 75px;
-  background-color: red;
+  background-color: rgba(248, 2, 2, 0.566);
   align-content: right;
-  border: solid, 0.4px, blue;
+  border: solid, 0.4px, rgb(214, 214, 223);
   font-size: small;
+  color:#ccc;
 }
