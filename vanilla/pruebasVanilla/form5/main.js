@@ -1,54 +1,44 @@
 "use strict";
 
-/*
-  main.js - Maneja: validaciones, guardar/mostrar, búsqueda, borrar y persistencia.
-  Diseñado para el HTML que me enviaste (form id="adDisco", botones name="guardar"/"mostrar",
-  buscador id="inputBuscar", btnBuscar, btnLimpiar, listado id="listado", errores id="errores").
-*/
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Elementos
-  const form = document.getElementById("adDisco");//15
-  const erroresDiv = document.getElementById("errores");//72
-  const listado = document.getElementById("listado");//75
+  // ELEMENTOS
+  const form = document.getElementById("adDisco");
+  const erroresDiv = document.getElementById("errores");
+  const listado = document.getElementById("listado");
 
-  const inputBuscar = document.getElementById("inputBuscar");//80
-  const btnBuscar = document.getElementById("btnBuscar");//81
-  const btnLimpiar = document.getElementById("btnLimpiar");//82
+  const inputBuscar = document.getElementById("inputBuscar");
+  const btnBuscar = document.getElementById("btnBuscar");
+  const btnLimpiar = document.getElementById("btnLimpiar");
 
-  // Botones del formulario (inputs type=button con name)
   const btnGuardar = form.querySelector('input[name="guardar"]');
   const btnMostrar = form.querySelector('input[name="mostrar"]');
 
-  // Array donde guardamos los discos (cargado desde localStorage)
+  // ARRAY DE DISCOS
   let discos = cargarDiscos();
 
-  // ---------- VALIDACIONES ----------
+  /* ---------- VALIDACIONES ----------*/
   const validarNombre = (nombre) => nombre && nombre.trim().length >= 5;
-
   const validarGrupoSolista = (form) =>
     form.querySelector('input[name="grupoSolista"]:checked') !== null;
-
   const validarAnio = (anio) => /^\d{4}$/.test(anio);
-
   const validarGeneroMusical = (form) =>
     form.querySelectorAll('input[name="generoMusical"]:checked').length > 0;
-
   const validarLocalizacion = (codigo) => /^ES-\d{3}[A-Z]{2}$/.test(codigo);
 
-  // ---------- ERRORES ----------
-  const marcarError = (input, mensaje) => {
+  /* ---------- ERRORES REUTILIZABLES ----------*/
+  const marcarError = (input, mensaje, contenedorErrores) => {
     if (input) input.classList.add("error");
-    // si no hay input específico (por ejemplo: géneros), mostramos el mensaje igualmente
-    erroresDiv.innerHTML += `<p>${mensaje}</p>`;
+    contenedorErrores.innerHTML += `<p>${mensaje}</p>`;
   };
 
-  const limpiarErrores = () => {
-    erroresDiv.innerHTML = "";
-    form.querySelectorAll("input").forEach((i) => i.classList.remove("error"));
+  const limpiarErrores = (contenedorErrores, form) => {
+    contenedorErrores.innerHTML = "";
+    form.querySelectorAll("input").forEach((input) =>
+      input.classList.remove("error")
+    );
   };
 
-  // ---------- LOCALSTORAGE ----------
+  /* ---------- LOCALSTORAGE ----------*/
   function cargarDiscos() {
     try {
       const datos = localStorage.getItem("discos");
@@ -69,48 +59,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---------- OPERACIONES ----------
   function validarFormulario() {
-    limpiarErrores();
+    limpiarErrores(erroresDiv, form);
     let valido = true;
 
     const nombreInput = form.elements["nombre"];
-    //const caratulaInput = form.elements["caratula"];
     const anioInput = form.elements["anio"];
     const codigoInput = form.elements["codigo"];
 
-    // Nombre
     if (!validarNombre(nombreInput.value)) {
-      marcarError(nombreInput, "Nombre: obligatorio y >= 5 caracteres.");
+      marcarError(nombreInput, "Nombre: obligatorio y >= 5 caracteres.", erroresDiv);
       valido = false;
     }
 
-    // Carátula -> no obligatorio según enunciado, pero mostramos aviso si vacío
-    // (si no quieres validarlo, puedes quitar este bloque)
-    // if (!caratulaInput.value) {
-    //   marcarError(caratulaInput, "Carátula: introduce una URL si quieres.");
-    //   // no cambiamos 'valido' porque en enunciado no es obligatorio
-    // }
-
-    // Grupo/Solista
     if (!validarGrupoSolista(form)) {
-      marcarError(null, "Selecciona: Grupo musical o Solista.");
+      marcarError(null, "Selecciona: Grupo musical o Solista.", erroresDiv);
       valido = false;
     }
 
-    // Año
     if (!validarAnio(anioInput.value)) {
-      marcarError(anioInput, "Año: debe tener formato YYYY (4 dígitos).");
+      marcarError(anioInput, "Año: debe tener formato YYYY (4 dígitos).", erroresDiv);
       valido = false;
     }
 
-    // Genero musical
     if (!validarGeneroMusical(form)) {
-      marcarError(null, "Selecciona al menos un género musical.");
+      marcarError(null, "Selecciona al menos un género musical.", erroresDiv);
       valido = false;
     }
 
-    // Localización
     if (!validarLocalizacion(codigoInput.value)) {
-      marcarError(codigoInput, "Localización: formato ES-001AA (3 números y 2 mayúsculas).");
+      marcarError(
+        codigoInput,
+        "Localización: formato ES-001AA (3 números y 2 mayúsculas).",
+        erroresDiv
+      );
       valido = false;
     }
 
@@ -121,18 +102,23 @@ document.addEventListener("DOMContentLoaded", () => {
     return {
       nombre: form.elements["nombre"].value.trim(),
       caratula: form.elements["caratula"].value.trim(),
-      grupoSolista: (form.querySelector('input[name="grupoSolista"]:checked') || {}).value || "",
+      //Selecciona todos los inputs con el name igual seleccionados, sino {}para evitar el error .value.Devuelve null o "".
+      grupoSolista:
+        (form.querySelector('input[name="grupoSolista"]:checked') || {})
+          .value || "",
       anio: form.elements["anio"].value.trim(),
-      generos: Array.from(form.querySelectorAll('input[name="generoMusical"]:checked')).map(
-        (c) => c.value
-      ),
+      generos: Array.from(
+        //Selecciona todos los inputs con el mismo name que estén seleccionados.
+        form.querySelectorAll('input[name="generoMusical"]:checked')
+      ).map((c) => c.value),
       codigo: form.elements["codigo"].value.trim(),
-      prestado: !!form.elements["prestado"].checked
+      prestado: form.elements["prestado"].checked,
     };
   }
 
-  function mostrarDiscos(array) {
+  /* function mostrarDiscos(array) {
     listado.innerHTML = "";
+
     if (!array || array.length === 0) {
       listado.innerHTML = "<li>No hay discos.</li>";
       return;
@@ -141,93 +127,161 @@ document.addEventListener("DOMContentLoaded", () => {
     array.forEach((d, i) => {
       const li = document.createElement("li");
 
-      // estructura visual: nombre (año) - generos - prestado - borrar
-      li.innerHTML = `
-        <strong>${escapeHtml(d.nombre)}</strong>
-        ${d.anio ? `(${escapeHtml(d.anio)})` : ""}
-        <div class="meta">Géneros: ${escapeHtml((d.generos || []).join(", "))} 
-        | Código: ${escapeHtml(d.codigo)} 
-        | Prestado: ${d.prestado ? "Sí" : "No"}</div>
-        <button class="borrar" data-index="${i}" title="Borrar disco">🗑️</button>
-      `;
+
+      // Crear bloque de texto
+      const divInfo = document.createElement("fieldset");
+      const titulo = document.createElement("strong");
+      titulo.textContent = d.nombre;
+
+      const anio = d.anio ? ` (${d.anio})` : "";
+
+        const formatoDisco = document.createElement("div");
+       formatoDisco.className = "formatoDisco";
+ 
+       formatoDisco.textContent = `Género musical: ${Array.isArray(d.generos) ? d.generos.join(", ") : ""}
+       | Código: ${d.codigo}
+       | Prestado: ${d.prestado ? "Sí" : "No"}`; 
+
+      divInfo.appendChild(titulo);
+      divInfo.append(anio);
+      divInfo.appendChild(formatoDisco);
+
+      // Botón borrar
+      const btn = document.createElement("input");
+      btn.className = "borrar";
+      btn.dataset.index = i;
+      btn.value = "Eliminar";
+      btn.type = "button;";
+
+      // Montar todo
+
+      divInfo.appendChild(btn);
+      li.appendChild(divInfo);
+
       listado.appendChild(li);
     });
+  } */
+
+function crearFormatoDisco(disco) {
+  const div = document.createElement("div");
+  div.className = "formato";
+  div.textContent = `Género musical: ${
+    Array.isArray(disco.generos) ? disco.generos.join(", ") : ""
+  } | Código: ${disco.codigo} | Prestado: ${disco.prestado ? "Sí" : "No"}`;
+  return div;
+}
+
+function crearBotonEliminar(index) {
+  const btn = document.createElement("input");
+  btn.className = "borrar";
+  btn.dataset.index = index;
+  btn.value = "Eliminar";
+  btn.type = "button";
+  return btn;
+}
+
+function crearItemDisco(disco, index) {
+  const li = document.createElement("li");
+  const divInfo = document.createElement("fieldset");
+
+  const titulo = document.createElement("strong");
+  titulo.textContent = disco.nombre;
+
+  const anio = disco.anio ? ` (${disco.anio})` : "";
+
+  const formatoDisco = crearFormatoDisco(disco);
+  const btn = crearBotonEliminar(index);
+
+  divInfo.appendChild(titulo);
+  divInfo.append(anio);
+  divInfo.appendChild(formatoDisco);
+  divInfo.appendChild(btn);
+
+  li.appendChild(divInfo);
+
+  return li;
+}
+
+function mostrarDiscos(array) {
+  listado.innerHTML = "";
+
+  if (!array || array.length === 0) {
+    listado.innerHTML = "<li>No hay discos.</li>";
+    return;
   }
 
-  function escapeHtml(str) {
-    if (!str) return "";
-    return String(str)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-  }
+  array.forEach((disco, i) => {
+    const item = crearItemDisco(disco, i);
+    listado.appendChild(item);
+  });
+}
+
 
   function buscarDiscos(texto) {
-    const t = texto.trim().toLowerCase();
-    if (!t) {
-      mostrarDiscos(discos);
+    const titulo = texto.trim().toLowerCase();
+    if (!titulo) {
+      //mostrarDiscos(discos);
       return;
     }
-    const filtrados = discos.filter((d) => d.nombre.toLowerCase().includes(t));
+    const filtrados = discos.filter((d) =>
+      (d.nombre || "").toLowerCase().includes(titulo)
+    );
     mostrarDiscos(filtrados);
   }
+  const mostrarMensajeSegundos = (texto) => {
+    const mensajeGuardado = document.getElementById("alertas");
+    //Coloco el texto dentro del div-alertas.
+    mensajeGuardado.textContent = texto;
+    mensajeGuardado.classList.add("mensaje");
+
+    //Elimino el mensaje en  3 segundos.
+    setTimeout(() => {
+      mensajeGuardado.classList.add("hidden");
+      mensajeGuardado.classList.remove("mensaje");
+    }, 3000);
+  };
 
   // ---------- EVENTOS ----------
-  // Guardar
+
   btnGuardar.addEventListener("click", () => {
-    try {
-      if (validarFormulario()) {
-        const nuevo = construirDiscoDesdeFormulario();
-        discos.push(nuevo);
-        guardarEnLocalStorage();
-        mostrarDiscos(discos);
-        // mensaje de éxito y limpiar formulario parcialmente
-        alert("Disco guardado correctamente.");
-        form.reset();
-      } else {
-        // si hay errores, la función validarFormulario ya los añadió al div errores
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    } catch (e) {
-      console.error("Error en Guardar:", e);
-    }
-  }, false);
+    if (!validarFormulario()) return;
 
-  // Mostrar
-  btnMostrar.addEventListener("click", () => mostrarDiscos(discos), false);
+    const nuevo = construirDiscoDesdeFormulario();
+    discos = [...discos, nuevo];
+    guardarEnLocalStorage();
 
-  // Borrar (delegación)
+    //Mostrar mensaje en contenedor de alertass.
+    mostrarMensajeSegundos("Disco guardado correctamente");
+
+    form.reset();
+  });
+
+  btnMostrar.addEventListener("click", () => mostrarDiscos(discos));
+
   listado.addEventListener("click", (e) => {
     if (e.target.classList.contains("borrar")) {
       const idx = Number(e.target.dataset.index);
-      if (Number.isFinite(idx) && idx >= 0) {
-        if (confirm("¿Seguro que deseas borrar este disco?")) {
-          discos.splice(idx, 1);
-          guardarEnLocalStorage();
-          mostrarDiscos(discos);
-        }
-      } else {
-        console.warn("Índice de borrado inválido:", e.target.dataset.index);
+
+      // Comprobamos que idx es un número válido
+      if (!isNaN(idx) && idx >= 0) {
+        discos.splice(idx, 1); // Borra el disco
+        guardarEnLocalStorage(); // Guarda cambios
+        mostrarDiscos(discos); // Vuelve a pintar la lista
+
+        // Muestra mensaje temporal
+        mostrarMensajeSegundos("Disco eliminado");
       }
     }
-  }, false);
+  });
 
-  // Buscar
-  btnBuscar.addEventListener("click", () => {
-    buscarDiscos(inputBuscar.value);
-  }, false);
 
-  // Limpiar busqueda
+  btnBuscar.addEventListener("click", () => buscarDiscos(inputBuscar.value));
   btnLimpiar.addEventListener("click", () => {
     inputBuscar.value = "";
-    mostrarDiscos(discos);
-  }, false);
+    //mostrarDiscos(discos);
+  });
 
   // Mostrar inicial
   mostrarDiscos(discos);
-
-  // Para desarrollo: mostrar errores en consola si localStorage falla
-  window.addEventListener("error", (ev) => {
-    console.error("Error global detectado:", ev.error || ev.message);
-  });
+  localStorage.clear();
 });
