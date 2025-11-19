@@ -167,14 +167,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function buscarDiscos(texto) {
+   function buscarDiscos(texto) {
     const titulo = texto.trim().toLowerCase();
     if (!titulo) return;
     const filtrados = discos.filter((d) =>
       (d.nombre || "").toLowerCase().includes(titulo)
     );
+      // Si no hay coincidencias
+  if (filtrados.length === 0) {
+    listado.innerHTML = "<li>No se encontraron discos con ese criterio.</li>";
+  } else {
     mostrarDiscos(filtrados);
   }
+  } 
 
   const mostrarMensajeSegundos = (texto) => {
     const mensajeGuardado = document.getElementById("alertas");

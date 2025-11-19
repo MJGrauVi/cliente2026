@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const limpiarErrores = (contenedorErrores, form) => {
     contenedorErrores.innerHTML = "";
-    form.querySelectorAll("input").forEach((input) =>
-      input.classList.remove("error")
-    );
+    form
+      .querySelectorAll("input")
+      .forEach((input) => input.classList.remove("error"));
   };
 
   /* ---------- LOCALSTORAGE ----------*/
@@ -67,7 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const codigoInput = form.elements["codigo"];
 
     if (!validarNombre(nombreInput.value)) {
-      marcarError(nombreInput, "Nombre: obligatorio y >= 5 caracteres.", erroresDiv);
+      marcarError(
+        nombreInput,
+        "Nombre: obligatorio y >= 5 caracteres.",
+        erroresDiv
+      );
       valido = false;
     }
 
@@ -77,7 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (!validarAnio(anioInput.value)) {
-      marcarError(anioInput, "Año: debe tener formato YYYY (4 dígitos).", erroresDiv);
+      marcarError(
+        anioInput,
+        "Año: debe tener formato YYYY (4 dígitos).",
+        erroresDiv
+      );
       valido = false;
     }
 
@@ -103,7 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
       nombre: form.elements["nombre"].value.trim(),
       caratula: form.elements["caratula"].value.trim(),
       grupoSolista:
-        (form.querySelector('input[name="grupoSolista"]:checked') || {}).value || "",
+        (form.querySelector('input[name="grupoSolista"]:checked') || {})
+          .value || "",
       anio: form.elements["anio"].value.trim(),
       generos: Array.from(
         form.querySelectorAll('input[name="generoMusical"]:checked')
@@ -116,9 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function crearFormatoDisco(disco) {
     const div = document.createElement("div");
     div.className = "formato";
-    div.textContent = `Género musical: ${
-      Array.isArray(disco.generos) ? disco.generos.join(", ") : ""
-    } | Código: ${disco.codigo} | Prestado: ${disco.prestado ? "Sí" : "No"}`;
+    div.textContent = `Género musical: ${Array.isArray(disco.generos) ? disco.generos.join(", ") : ""
+      } | Código: ${disco.codigo} | Prestado: ${disco.prestado ? "Sí" : "No"}`;
     return div;
   }
 
@@ -173,7 +181,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const filtrados = discos.filter((d) =>
       (d.nombre || "").toLowerCase().includes(titulo)
     );
-    mostrarDiscos(filtrados);
+    // Si no hay coincidencias
+    if (filtrados.length === 0) {
+      listado.innerHTML = "<li>No se encontraron discos con ese criterio.</li>";
+    } else {
+      mostrarDiscos(filtrados);
+    }
   }
 
   const mostrarMensajeSegundos = (texto) => {
@@ -199,8 +212,21 @@ document.addEventListener("DOMContentLoaded", () => {
     form.reset();
   });
 
-  btnMostrar.addEventListener("click", () => mostrarDiscos(discos));
+  /*  btnMostrar.addEventListener("click", () => mostrarDiscos(discos)); */
 
+  let mostrando = false; // estado inicial: oculto.
+
+  btnMostrar.addEventListener("click", () => {
+    if (!mostrando) {
+      // Mostrar discos.
+      mostrarDiscos(discos);
+      mostrando = true;
+    } else {
+      // Ocultar discos.
+      listado.innerHTML = "";
+      mostrando = false;
+    }
+  });
   listado.addEventListener("click", (e) => {
     if (e.target.classList.contains("borrar")) {
       const idx = Number(e.target.dataset.index);
