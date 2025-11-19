@@ -125,8 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function crearFormatoDisco(disco) {
     const div = document.createElement("div");
     div.className = "formato";
-    div.textContent = `Género musical: ${Array.isArray(disco.generos) ? disco.generos.join(", ") : ""
-      } | Código: ${disco.codigo} | Prestado: ${disco.prestado ? "Sí" : "No"}`;
+    div.textContent = `Género musical: ${
+      Array.isArray(disco.generos) ? disco.generos.join(", ") : ""
+    } | Código: ${disco.codigo} | Prestado: ${disco.prestado ? "Sí" : "No"}`;
     return div;
   }
 
@@ -210,6 +211,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mostrarMensajeSegundos("Disco guardado correctamente");
     form.reset();
+
+    //llamamos de nuevo a mostrarDiscos() para que desaparezca el mensaje inicial.
+    listado.innerHtml = "";
   });
 
   /*  btnMostrar.addEventListener("click", () => mostrarDiscos(discos)); */
