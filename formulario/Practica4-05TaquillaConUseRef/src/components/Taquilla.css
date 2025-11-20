@@ -1,0 +1,12 @@
+.contenedor-taquilla {
+  text-align: right;
+  color: rgb(0, 166, 255);
+  font-size: x-large;
+  padding: 10px;
+  
+  border-color: dotted 1px blue;
+}
+
+.hidden {
+  display: none;
+}

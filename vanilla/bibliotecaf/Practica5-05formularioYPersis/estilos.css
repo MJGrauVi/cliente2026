@@ -82,7 +82,13 @@ li {
   width: 75px;
   background-color: rgba(248, 2, 2, 0.566);
   align-content: right;
-  border: solid, 0.4px, rgb(214, 214, 223);
+ 
   font-size: small;
   color: #ccc;
+}
+strong {
+  width: 75px;
+  align-content: right;
+  margin-left:20px;
+  color: rgba(248, 2, 2, 0.566);
 }

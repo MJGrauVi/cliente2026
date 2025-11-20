@@ -1,0 +1,62 @@
+.listado-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 15px;
+  border: 2px solid #2c3e50;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.listado-container h3 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50; /* un gris azulado elegante */
+  text-align: center;
+  margin: 1rem 0;
+}
+.listado-p {
+  background-color: white;
+  border-radius: 5px;
+  color: #463538;
+  min-width: 300px;
+  margin: 10px auto;
+}
+.listado-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.listado-container li {
+  background: rgba(158, 237, 237, 0.349);
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.listado-botones {
+  margin-top: 15px;
+}
+
+.listado-botones button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: darkcyan;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.listado-botones button:hover {
+  background-color: rgba(43, 190, 190, 0.771);
+}
+strong {
+  color: darkcyan;
+}
+.listado-botones button:focus {
+  outline: 1px solid darkcyan;
+  outline-offset: 2px;
+}
