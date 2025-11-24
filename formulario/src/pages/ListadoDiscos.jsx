@@ -1,18 +1,15 @@
-import {useNavigate} from "react-router-dom";
-const ListadoDiscos = ()=>{
+import ListadoDiscos from "../Ejercicio1/ListadoDiscos.jsx";
 
-    //Hook para redirigir la navegación.
-    const navegar = useNavigate();
-    return(
-        <div className="contenedor-listadoDiscos">
-            <h2>ListadoDiscos</h2>
-           
-            <button onClick={()=>{
-                navegar("/");
-            }}>
-                Volver a inicio
-            </button>
-        </div>
-    )
-}
-export default ListadoDiscos;
+/**
+ * Componente ListadoDiscos (Página)
+ * Página que contiene el listado de discos con filtrado y eliminación
+ */
+const ListadoDiscosPage = () => {
+  return (
+    <div className="contenedor-pagina-listado">
+      <ListadoDiscos />
+    </div>
+  );
+};
+
+export default ListadoDiscosPage;

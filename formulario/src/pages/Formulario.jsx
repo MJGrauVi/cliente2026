@@ -1,26 +1,13 @@
 import "./Formulario.css";
-import FormularioControlado from "../components/FormularioControlado.jsx";
-import  FormularioObjetoControl from "../components/FormularioObjetoControl.jsx";
-import { useNavigate } from "react-router-dom";
+import FormularioDisco from "../Ejercicio1/FormularioDisco.jsx";
 
-const Formulario = ()=>{
-     const navegar = useNavigate();
-     return(
-        <>
-        <h1>Formulario</h1>
-        <div>
-          {/* <FormularioControlado /> */}
-          <FormularioObjetoControl />
-        </div>
-         <button
-        onClick={() => {
-          navegar("/");
-        }}
-      >
-        Volver a Inicio
-      </button>
-        </>
-     )
-    
+/*  Cargo formulario para insertar discos ******************/
+const Formulario = () => {
+  return (
+    <div className="contenedor-pagina-formulario">
+      <FormularioDisco />
+    </div>
+  );
 };
+
 export default Formulario;

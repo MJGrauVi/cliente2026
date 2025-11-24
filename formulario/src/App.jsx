@@ -10,16 +10,14 @@ const App = () => {
   return (
     <div className="contenedor-app">
       <Header>
-        <h2>Interfaz con rutas en React</h2>
+        <h2>Mi Colección de Discos</h2>
         <Menu />
       </Header>
 
       <Contenedor>
         <Rutas />
       </Contenedor>
-      <Footer>
-        <p>Pie de Página</p>
-      </Footer>
+      <Footer />
     </div>
   );
 };
