@@ -1,0 +1,68 @@
+/* === Contenedor principal del discente === */
+.discente-container {
+  position: relative; /* necesario para posicionar el botón respecto al contenedor */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem 1rem 1rem 3.5rem; /* espacio extra a la izquierda para el botón */
+  margin: 0.8rem 0;
+  background-color: #fafafa;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.discente-container:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+/* === Lista de datos del discente === */
+.discente-info {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: left;
+}
+
+.discente-info li {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.discente-info strong {
+  color: #333;
+}
+
+/* === Botón Desmatricular === */
+.btn-desmatricular {
+  position: absolute;
+  left: -0.9rem; /* distancia desde el borde izquierdo */
+  top: 0.9rem; /* alineado con el texto */
+  z-index: 5;
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+
+  /* efectos de entrada/salida */
+  opacity: 0;
+  transform: translateX(-15px);
+  transition: all 0.3s ease;
+}
+
+/* Cuando hay hover en el contenedor, el botón aparece */
+.discente-container:hover .btn-desmatricular {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hover del propio botón */
+.btn-desmatricular:hover {
+  background-color: #c9302c;
+}
+
+/* === Pequeño detalle visual al pasar el ratón === */
+.discente-container:hover li:first-child strong {
+  color: #c9302c;
+}

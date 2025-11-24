@@ -1,0 +1,28 @@
+
+.matricula-botones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+.btn {
+  padding: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Colores personalizados */
+.mostrar { background-color: #3498db; }     /* Azul */
+.segundo { background-color: #e67e22; }     /* Naranja */
+.primero { background-color: #2ecc71; }     /* Verde */
+.daw     { background-color: #9b59b6; }     /* Violeta */
+.lector  { background-color: #f1c40f; }     /* Amarillo */
+.orden   { background-color: #34495e; }     /* Gris oscuro */
+.reset   { background-color: #e74c3c; }     /* Rojo */
+
+.anchoTotal {
+  grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
+}

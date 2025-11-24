@@ -1,0 +1,305 @@
+{
+    "peliculas": [
+        {
+            "id": 1,
+            "nombre": "Sisu",
+            "director": "Jalmari Helander",
+            "clasificacion": 7,
+            "recaudacion": "$200 millones",
+            "cartelera": "https://tse3.mm.bing.net/th/id/OIP.zG3sRXu9Aia77F8VIuYKNwHaFj?rs=1&pid=ImgDetMain&o=7&rm=3",
+            "nota": 7,
+            "actores": [
+                {
+                    "nombre": "Jorma Tommila",
+                    "foto": "https://healthyceleb.com/wp-content/uploads/2023/05/Jorma-Tommila-as-seen-in-an-Instagram-Post-in-March-2019-2.jpg",
+                    "bio": "Actor principal de la película desarrolla el papel de Aatami, conocido por su intensidad interpretativa."
+                },
+                {
+                    "nombre": "Aksel Hennie",
+                    "foto": "https://es.web.img3.acsta.net/r_1024_576/pictures/14/08/21/16/35/073768.jpg",
+                    "bio": "Actor secundario en esta película. Es más conocido por su rol en The Martian (2015)."
+                },
+                {
+                    "nombre": "Mimosa Willamo",
+                    "foto": "https://es.web.img3.acsta.net/r_1024_576/pictures/17/06/15/14/34/086685.jpg",
+                    "bio": "Actriz que interpreta a Aino en esta película."
+                }
+            ],
+            "resumen": "En los últimos días de la Segunda Guerra Mundial, un minero encuentra oro y lucha contra un grupo de nazis para conservarlo."
+        },
+        {
+            "id": 2,
+            "nombre": "Titanic",
+            "director": "James Cameron",
+            "clasificacion": "",
+            "recaudacion": "$1.2 millones",
+            "cartelera": "https://i.ebayimg.com/images/g/Kc0AAeSwMPVoxbBq/s-l1600.webp",
+            "nota": 8,
+            "actores": [
+                {
+                    "nombre": "Leonardo DiCaprio",
+                    "foto": "https://th.bing.com/th?q=Leonardo+DiCaprio+En+El+Titanic&w=120&h=120&c=1&rs=1&qlt=70&o=7&cb=1&dpr=1.5&pid=InlineBlock&rm=3&mkt=es-ES&cc=ES&setlang=es&adlt=moderate&t=1&mw=247",
+                    "bio": "Actor que interpreta a Jack Dawson."
+                },
+                {
+                    "nombre": "Kate Winslet",
+                    "foto": "data:image/webp;base64,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",
+                    "bio": "Actriz que interpreta a Rose DeWitt Bukater."
+                }
+            ],
+            "resumen": "Una historia de amor en el trágico hundimiento del Titanic."
+        },
+        {
+            "id": 3,
+            "nombre": "El sexto sentido",
+            "director": "M. Night Shyamalan",
+            "clasificacion": "Drama",
+            "recaudacion": "$245 millones",
+            "carteleraera": "https://www.ecarteleraera.com/carteleraes/5400/5409/001.jpg",
+            "nota": 8,
+            "actores": [
+                {
+                    "nombre": "Marlon Brando",
+                    "fechaNacimiento": "03/04/1924",
+                    "biografia": "Marlon Brando fue un influyente actor estadounidense...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Marlon_Brando_publicity_for_One-Eyed_Jacks.png/270px-Marlon_Brando_publicity_for_One-Eyed_Jacks.png"
+                },
+                {
+                    "nombre": "Al Pacino",
+                    "fechaNacimiento": "25/04/1940",
+                    "biografia": "Al Pacino es un actor y director de cine estadounidense...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Al_Pacino.jpg/220px-Al_Pacino.jpg"
+                },
+                {
+                    "nombre": "James Caan",
+                    "fechaNacimiento": "26/03/1940",
+                    "biografia": "James Caan es un actor estadounidense...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/James_Caan_Guillaume_Canet_Cannes_2013_cropped.jpg/220px-James_Caan_Guillaume_Canet_Cannes_2013_cropped.jpg"
+                },
+                {
+                    "nombre": "Robert Duvall",
+                    "fechaNacimiento": "05/01/1931",
+                    "biografia": "Robert Duvall es un actor y director estadounidense...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Robert_Duvall_by_David_Shankbone.jpg/250px-Robert_Duvall_by_David_Shankbone.jpg"
+                },
+                {
+                    "nombre": "Diane Keaton",
+                    "fechaNacimiento": "05/01/1946",
+                    "biografia": "Diane Keaton es una actriz estadounidense...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Diane_Keaton_by_Firooz_Zahedi_2.jpg/250px-Diane_Keaton_by_Firooz_Zahedi_2.jpg"
+                }
+            ],
+            "resumen": "El Dr. Malcom Crowe es un conocido psicólogo infantil obsesionado con el doloroso recuerdo de un joven paciente desequilibrado al que fue incapaz de ayudar. Cole Sear es un aterrorizado y confuso niño de ocho años que necesita tratamiento, El Dr. Crowe ve la oportunidad de redimirse haciendo todo lo posible por ayudarle. Al principio Cole es muy reticente a la ayuda del psicólogo, pero poco a poco, va confiando en el doctor, quien sólo intenta ayudarle. Sin embargo, Malcom no está preparado para conocer la terrible verdad acerca del don sobrenatural de su paciente. Recibe visitas no deseadas de espíritus atormentados. Una de las películas más aclamadas del director indio M. Night Shyamalan."
+        },
+        {
+            "id": 4,
+            "nombre": "Pulp Fiction",
+            "director": "Tarantino",
+            "clasificacion": "Acción",
+            "recaudacion": "$2.2 mil millones",
+            "carteleraera": "https://www.ecarteleraera.com/carteleraes/200/286/001.jpg",
+            "nota": 9,
+            "actores": [
+                {
+                    "nombre": "Leonardo DiCaprio",
+                    "fechaNacimiento": "11/11/1974",
+                    "biografia": "Leonardo DiCaprio es un actor y productor de cine estadounidense...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Leonardo_Dicaprio_Cannes_2019.jpg/220px-Leonardo_Dicaprio_Cannes_2019.jpg"
+                },
+                {
+                    "nombre": "Kate Winslet",
+                    "fechaNacimiento": "05/10/1975",
+                    "biografia": "Kate Winslet es una actriz británica...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg/220px-Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg"
+                },
+                {
+                    "nombre": "Billy Zane",
+                    "fechaNacimiento": "24/02/1966",
+                    "biografia": "Billy Zane es un actor y productor de cine estadounidense...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Billy_Zane_Photo_Op_GalaxyCon_Raleigh_2019.jpg/220px-Billy_Zane_Photo_Op_GalaxyCon_Raleigh_2019.jpg"
+                },
+                {
+                    "nombre": "Kathy Bates",
+                    "fechaNacimiento": "28/06/1948",
+                    "biografia": "Kathy Bates es una actriz y directora estadounidense...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kathy_Bates_2024.jpg/220px-Kathy_Bates_2024.jpg"
+                },
+                {
+                    "nombre": "Bill Paxton",
+                    "fechaNacimiento": "17/05/1955",
+                    "biografia": "Bill Paxton fue un actor y director de cine estadounidense...",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Bill_Paxton_in_July_2016_cropped_lighting_corrected_hue_correction.jpg/250px-Bill_Paxton_in_July_2016_cropped_lighting_corrected_hue_correction.jpg"
+                }
+            ],
+            "resumen": "Narrada de una forma no lineal, la historia principal cuenta la historia de Vincent Vega (John Travolta) y Jules Winnfield (Samuel L. Jackson), son dos asesinos a sueldo que tienen como misión recuperar un misterioso maletín. Vincent le confiesa a Jules que Marsellus Wallace (Ving Rhames), su jefe, le ha pedido que cuide de su mujer Mia (Uma Thurman) mientras él está fuera de la ciudad, pero deberá tener cuidado ya que se rumorea que Marsellus mató a un hombre por tocarle los pies a Mia. Por otro lado, Butch Coolidge (Bruce Willis), boxeador, es pagado por Marsellus para perder a propósito en su próxima pelea, pero termina matando sin querer a su contrincante. Lo que provoca que él y sus secuaces le persigan, haciendo que trate de huir de la ciudad. Y por último, la situación del restaurante en la que una mujer y su marido tratan de atracarlo. La película está escrita y dirigida por Quentin Tarantino, y es considerada una de las obras cumbre del cine moderno. Ganó la Palma de Oro en el prestigioso festival de Cannes en 1994 y un Óscar por mejor guion original."
+        },
+        {
+            "id": 5,
+            "nombre": "300",
+            "director": "Zack Snyder",
+            "clasificacion": "Acción",
+            "recaudacion": "$213 millones",
+            "carteleraera": "https://www.ecarteleraera.com/carteleraes/1300/1370/001.jpg",
+            "nota": 7,
+            "actores": [
+                {
+                    "nombre": "John Travolta",
+                    "fechaNacimiento": "18/02/1954",
+                    "biografia": "John Travolta es un actor, bailarín y cantante estadounidense...",
+                    "imagen": "https://example.com/john_travolta.jpg"
+                },
+                {
+                    "nombre": "Uma Thurman",
+                    "fechaNacimiento": "29/04/1970",
+                    "biografia": "Uma Thurman es una actriz y modelo estadounidense...",
+                    "imagen": "https://example.com/uma_thurman.jpg"
+                },
+                {
+                    "nombre": "Samuel L. Jackson",
+                    "fechaNacimiento": "21/12/1948",
+                    "biografia": "Samuel L. Jackson es un actor y productor estadounidense...",
+                    "imagen": "https://example.com/samuel_jackson.jpg"
+                },
+                {
+                    "nombre": "Bruce Willis",
+                    "fechaNacimiento": "19/03/1955",
+                    "biografia": "Bruce Willis es un actor, productor y cantante estadounidense...",
+                    "imagen": "https://example.com/bruce_willis.jpg"
+                },
+                {
+                    "nombre": "Ving Rhames",
+                    "fechaNacimiento": "12/05/1959",
+                    "biografia": "Ving Rhames es un actor estadounidense...",
+                    "imagen": "https://example.com/ving_rhames.jpg"
+                }
+            ],
+            "resumen": "Basada en la épica novela gráfica de Frank Miller, 300 narra una vez más de manera atroz la antigua Batalla de Termópilas, en la que el rey Leónidas (Gerard Butler), junto con 300 espartanos, luchó a muerte contra el Emperador Jerjes y su gran ejército persa. Haciendo frente a insuperables adversidades, el valor y sacrificio de estos hombres inspiró a toda Grecia para unirse contra el enemigo persa, y así decir basta a esa situación en favor de la democracia. La película hace cobrar vida a la aclamada novela gráfica de Miller (Sin City) al combinar la acción real con fondos digitales que reproducen su marcada visión de este antiguo cuento histórico."
+        },
+        {
+            "id": 6,
+            "nombre": "El silencio de los corderos",
+            "director": "Jonathan Demme",
+            "clasificacion": "Drama",
+            "recaudacion": "$678 millones",
+            "carteleraera": "https://www.ecarteleraera.com/carteleraes/2500/2508/001.jpg",
+            "nota": 8,
+            "actores": [
+                {
+                    "nombre": "Tom Hanks",
+                    "fechaNacimiento": "09/07/1956",
+                    "biografia": "Tom Hanks es un actor y productor de cine estadounidense...",
+                    "imagen": "https://example.com/tom_hanks.jpg"
+                },
+                {
+                    "nombre": "Robin Wright",
+                    "fechaNacimiento": "08/04/1966",
+                    "biografia": "Robin Wright es una actriz estadounidense...",
+                    "imagen": "https://example.com/robin_wright.jpg"
+                },
+                {
+                    "nombre": "Gary Sinise",
+                    "fechaNacimiento": "17/03/1955",
+                    "biografia": "Gary Sinise es un actor, director y músico estadounidense...",
+                    "imagen": "https://example.com/gary_sinise.jpg"
+                },
+                {
+                    "nombre": "Sally Field",
+                    "fechaNacimiento": "06/11/1946",
+                    "biografia": "Sally Field es una actriz y directora estadounidense...",
+                    "imagen": "https://example.com/sally_field.jpg"
+                },
+                {
+                    "nombre": "Haley Joel Osment",
+                    "fechaNacimiento": "10/04/1988",
+                    "biografia": "Haley Joel Osment es un actor y productor estadounidense...",
+                    "imagen": "https://example.com/haley_joel_osment.jpg"
+                }
+            ],
+            "resumen": "El FBI busca a un asesino en serie, le llaman Buffalo Bill, todas las víctimas a las que mata este asesino son chicas adolescentes, pero sólo las mata después de prepararlas minuciosamente y arrancarles la piel. Para poder atraparlo contactan con Clarice Starling, una brillante licenciada universitaria, experta en conductas psicópatas, que aspira a formar parte del FBI. Siguiendo las instrucciones de su jefe, Jack Crawford, Clarice visita la cárcel de alta seguridad donde el gobierno mantiene encerrado a Hanibal Lecter, antiguo psicoanalista y asesino, dotado de una inteligencia superior a la normal. Su misión será intentar sacarle información sobre los patrones de conducta de Buffalo Bill."
+        },
+        {
+            "id": 7,
+            "nombre": "Forrest Gump",
+            "director": "Robert Zemeckis",
+            "clasificacion": "Comedia",
+            "recaudacion": "$463 millones",
+            "carteleraera": "https://www.ecarteleraera.com/carteleraes/3400/3475/001.jpg",
+            "nota": 9,
+            "actores": [
+                {
+                    "nombre": "Keanu Reeves",
+                    "fechaNacimiento": "02/09/1964",
+                    "biografia": "Keanu Reeves es un actor y productor de cine canadiense...",
+                    "imagen": "https://example.com/keanu_reeves.jpg"
+                },
+                {
+                    "nombre": "Carrie-Anne Moss",
+                    "fechaNacimiento": "21/08/1967",
+                    "biografia": "Carrie-Anne Moss es una actriz canadiense...",
+                    "imagen": "https://example.com/carrie_anne_moss.jpg"
+                },
+                {
+                    "nombre": "Laurence Fishburne",
+                    "fechaNacimiento": "30/07/1961",
+                    "biografia": "Laurence Fishburne es un actor, director y productor estadounidense...",
+                    "imagen": "https://example.com/laurence_fishburne.jpg"
+                },
+                {
+                    "nombre": "Hugo Weaving",
+                    "fechaNacimiento": "04/04/1960",
+                    "biografia": "Hugo Weaving es un actor británico-australiano...",
+                    "imagen": "https://example.com/hugo_weaving.jpg"
+                },
+                {
+                    "nombre": "Joe Pantoliano",
+                    "fechaNacimiento": "12/09/1951",
+                    "biografia": "Joe Pantoliano es un actor estadounidense...",
+                    "imagen": "https://example.com/joe_pantoliano.jpg"
+                }
+            ],
+            "resumen": "Forrest Gump es un tipo con discapacidades mentales no muy profundas y algunas alteraciones motoras, pero a pesar de todo, la persistencia y la bondad le llevará a conseguir una gran fortuna, estar sujeto al clamor popular y codearse con las más altas esferas sociales y políticas del país . Forrest se sienta en un banco y habla de sus experiencias con los extranjeros que se sientan con él. Y es que Forrest ha vivido gran parte de la historia reciente de los Estados Unidos de América. Y además de todo eso tiene una gran historia que contar acerca de su mejor amigo, Bubba, a quien conoce en la guerra de Vietnam. Y el amor de su vida que conoce desde que eran niños, Jenny. Forrest Gump no es un tipo inteligente, pero ya que es un buen tipo."
+        },
+        {
+            "id": 8,
+            "nombre": "Concursante",
+            "director": "Rodrigo Cortés",
+            "clasificacion": "Drama",
+            "recaudacion": "$47 millones",
+            "carteleraera": "https://www.ecarteleraera.com/carteleraes/1300/1364/001.jpg",
+            "nota": 10,
+            "actores": [
+                {
+                    "nombre": "Jack Nicholson",
+                    "fechaNacimiento": "22/04/1937",
+                    "biografia": "Jack Nicholson es un actor y cineasta estadounidense...",
+                    "imagen": "https://example.com/jack_nicholson.jpg"
+                },
+                {
+                    "nombre": "Shelley Duvall",
+                    "fechaNacimiento": "07/07/1949",
+                    "biografia": "Shelley Duvall es una actriz estadounidense...",
+                    "imagen": "https://example.com/shelley_duvall.jpg"
+                },
+                {
+                    "nombre": "Danny Lloyd",
+                    "fechaNacimiento": "13/01/1973",
+                    "biografia": "Danny Lloyd es un actor estadounidense...",
+                    "imagen": "https://example.com/danny_lloyd.jpg"
+                },
+                {
+                    "nombre": "Scatman Crothers",
+                    "fechaNacimiento": "23/05/1910",
+                    "biografia": "Scatman Crothers fue un actor y músico estadounidense...",
+                    "imagen": "https://example.com/scatman_crothers.jpg"
+                },
+                {
+                    "nombre": "Barry Nelson",
+                    "fechaNacimiento": "16/04/1917",
+                    "biografia": "Barry Nelson fue un actor estadounidense...",
+                    "imagen": "https://example.com/barry_nelson.jpg"
+                }
+            ],
+            "resumen": "Martín Circo Martín es el afortunado ganador del mayor concurso de la historia de la televisión: un premio valorado en tres millones de euros. En esta ácida sátira de la sociedad actual, el golpe de suerte de Martín dará un vuelco a su vida convirtiéndola en una auténtica pesadilla."
+        }
+    ]
+}
