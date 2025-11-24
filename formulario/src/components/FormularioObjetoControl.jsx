@@ -80,15 +80,33 @@ function FormularioObjetoControl() {
       if (!/^\d{4}$/.test(value))
         erroresElemento = [...erroresElemento, `El año debe tener 4 dígitos.`];
     }
-    // Campo correo electrónico----------------------------------------------------------*/
-    if (name === "correo") {
-      // Se comprueba si tiene algo escrito.
-      if (!value.length)
+    // Campo Genero musical----------------------------------------------------------*/
+    if (name === "generoMusical") {
+      // Se comprueba si tiene checks marcados.
+      if (!disco.pop && !disco.rock && !disco.salsa && !disco.clasica)
         erroresElemento = [
           ...erroresElemento,
-          `El campo correo electrónico debe tener un valor.`,
+          `Debes marcar al menos un género musical.`,
         ];
     }
+    /* Campo Licalización --------------------------------------------------------------*/
+    if (name === "ubicado") {
+      // Se comprueba si tiene algo escrito.
+      if (!value.length) {
+        erroresElemento = [
+          ...erroresElemento,
+          `El campo ${name} debe tener un valor.`,
+        ];
+      }
+      // Se comprueba que el valor tenga al menos 5 caracteres máximo 21. /* visto */
+      if (!/^[a-zA-Z][a-zA-Z0-9 ]{4,20}$/.test(value)) {
+        erroresElemento = [
+          ...erroresElemento,
+          `El valor debe seguir el siguiente patron: Es-AA555`,
+        ];
+      }
+    }
+
     // Se devuelve el listado de errores (o ninguno).
     return erroresElemento;
   };
@@ -254,6 +272,22 @@ function FormularioObjetoControl() {
               Clásica
             </label>
             <br />
+
+            <h3>Localización</h3>
+            <label htmlFor="ubicado">Ubicado en:</label>
+            <input
+              name="ubicado"
+              id="ubicado"
+              className="conEstilo"
+              type="text"
+              placeholder="Es-AA159"
+              value={disco.ubicado}
+              onChange={(evento) => {
+                actualizarDato(evento);
+              }}
+            />
+            <br />
+
             <h3>Préstado</h3>
             <label>
               <input
