@@ -12,7 +12,7 @@ const Disco = (props) => {
 
   /* Maneja la eliminación del disco por el id, evita la propagación al hacer clic en el input y elimina el disco. ---*/
   const manejarEliminar = (evento) => {
-    evento.stopPropagation(); // Evitar que se active el click del contenedor
+    evento.stopPropagation(); // Evitar que se propague el evento con el click .
     evento.preventDefault(); // Evitar la recarga de la página.
     onEliminar(disco.id); //LLamada a la función eliminarDisco.
   };
