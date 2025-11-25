@@ -32,7 +32,7 @@ const Disco = ({ disco, onEliminar }) => {
       onClick={alternarInformacion}
     >
       <div className="disco-resumen">
-        {/* Imagen de portada */}
+        {/* Imagen de carátula */}
         <div className="disco-imagen">
           {disco.caratula ? (
             <img src={disco.caratula} alt={disco.nombre} />

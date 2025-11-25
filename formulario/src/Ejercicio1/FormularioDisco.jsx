@@ -26,16 +26,16 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
     prestado: false,
   };
 
-  // Estado para los valores del formulario
+  // Estado para los valores del formulario.
   const [disco, setDisco] = useState(valoresIniciales);
 
   // Estado para los errores de validación por campo
   const [errores, setErrores] = useState({});
 
-  // Estado para mensajes de confirmación o error
+  // Estado para mensajes de confirmación o error.
   const [mensaje, setMensaje] = useState({ tipo: "", texto: "" });
 
-  // Géneros musicales disponibles (mínimo 4 según especificación)
+  // Géneros musicales.
   const generosMusicales = ["Rock", "Pop", "Jazz", "Clásica"];
 
   /**
@@ -86,6 +86,7 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
    * Maneja el envío del formulario
    * @param {Event} evento - Evento del formulario
    */
+  
   const manejarEnvio = (evento) => {
     evento.preventDefault();
 

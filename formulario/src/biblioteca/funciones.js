@@ -1,7 +1,7 @@
 "use strict";
 
 // Clave para almacenar los discos en localStorage
-const CLAVE_LOCAL_STORAGE = "coleccionDiscos";
+const CD_LOCAL_STORAGE = "coleccionDiscos";
 
 /**
  * Carga los discos desde localStorage
@@ -9,7 +9,7 @@ const CLAVE_LOCAL_STORAGE = "coleccionDiscos";
  */
 const cargarDiscosDesdeLocalStorage = () => {
   try {
-    const discosGuardados = localStorage.getItem(CLAVE_LOCAL_STORAGE); //Guarda un string.
+    const discosGuardados = localStorage.getItem(CD_LOCAL_STORAGE); //Guarda un string.
     console.log(typeof discosGuardados);
     if (discosGuardados) {
       const guardadoJson = JSON.parse(discosGuardados); //Convierto en objeto
@@ -25,7 +25,7 @@ const cargarDiscosDesdeLocalStorage = () => {
  */
 const guardarDiscosEnLocalStorage = (discos) => {
   try {
-    localStorage.setItem(CLAVE_LOCAL_STORAGE, JSON.stringify(discos));
+    localStorage.setItem(CD_LOCAL_STORAGE, JSON.stringify(discos));
     console.log("Discos guardados en localStorage:", discos);
   } catch (error) {
     console.error("Error al guardar discos en localStorage:", error);
@@ -96,7 +96,7 @@ const validarLocalizacion = (localizacion) => {
   return errores;
 };
 /*--Valida todos los campos del formulario de disco - Objeto con los datos del disco - Objeto con errores ----*/
-export const validarDiscoCompleto = (disco) => {
+ const validarDiscoCompleto = (disco) => {
   const errores = {
     nombre: validarNombreDisco(disco.nombre),
     grupo: validarGrupo(disco.tipoGrupo, disco.nombreGrupo),
@@ -115,10 +115,11 @@ const generarIdDisco = () => {
 export {
   cargarDiscosDesdeLocalStorage,
   guardarDiscosEnLocalStorage,
-  validarNombreDisco,
+ /*  validarNombreDisco,
   validarGrupo,
   validarAnio,
   validarGenero,
-  validarLocalizacion,
+  validarLocalizacion, */
+  validarDiscoCompleto,
   generarIdDisco,
 };
