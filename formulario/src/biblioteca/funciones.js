@@ -1,7 +1,4 @@
-/**
- * Funciones para la gestión de discos
- * Contiene funciones para validación y gestión de localStorage
- */
+"use strict";
 
 // Clave para almacenar los discos en localStorage
 const CLAVE_LOCAL_STORAGE = "coleccionDiscos";
@@ -10,11 +7,13 @@ const CLAVE_LOCAL_STORAGE = "coleccionDiscos";
  * Carga los discos desde localStorage
  * @returns {Array} Array de discos o array vacío si no hay datos
  */
-export const cargarDiscosDesdeLocalStorage = () => {
+const cargarDiscosDesdeLocalStorage = () => {
   try {
-    const discosGuardados = localStorage.getItem(CLAVE_LOCAL_STORAGE);
+    const discosGuardados = localStorage.getItem(CLAVE_LOCAL_STORAGE); //Guarda un string.
+    console.log(typeof discosGuardados);
     if (discosGuardados) {
-      return JSON.parse(discosGuardados);
+      const guardadoJson = JSON.parse(discosGuardados); //Convierto en objeto
+      return guardadoJson;
     }
   } catch (error) {
     console.error("Error al cargar discos desde localStorage:", error);
@@ -22,11 +21,9 @@ export const cargarDiscosDesdeLocalStorage = () => {
   return [];
 };
 
-/**
- * Guarda los discos en localStorage
- * @param {Array} discos - Array de discos a guardar
+/* Recibe un array de discos a guardar lo convierte en string y lo guarda el localStorage, ambos deben ser cadenas
  */
-export const guardarDiscosEnLocalStorage = (discos) => {
+const guardarDiscosEnLocalStorage = (discos) => {
   try {
     localStorage.setItem(CLAVE_LOCAL_STORAGE, JSON.stringify(discos));
     console.log("Discos guardados en localStorage:", discos);
@@ -35,31 +32,25 @@ export const guardarDiscosEnLocalStorage = (discos) => {
   }
 };
 
-/**
- * Valida el nombre del disco
- * @param {string} nombre - Nombre del disco a validar
- * @returns {Array} Array de mensajes de error (vacío si es válido)
- */
-export const validarNombreDisco = (nombre) => {
-  const errores = [];
+/* Valida el nombre del disco y si hay error lo incluye en el array de mensajes de error (vacío si es válido).*/
+const validarNombreDisco = (nombre) => {
+  let errores = [];
   if (!nombre || nombre.trim().length === 0) {
-    errores.push("El nombre del disco es obligatorio.");
+    errores = [...errores, `El nombre del disco es obligatorio`];
   } else if (nombre.trim().length < 5) {
-    errores.push("El nombre del disco debe tener al menos 5 caracteres.");
+    errores = [
+      ...errores,
+      `El nombre del disco debe tener al menos 5 caracteres.`,
+    ];
   }
   return errores;
 };
 
-/**
- * Valida el tipo de grupo (Grupo musical o Solista) y el nombre
- * @param {string} tipoGrupo - Tipo seleccionado (Grupo musical o Solista)
- * @param {string} nombreGrupo - Nombre del grupo o solista
- * @returns {Array} Array de mensajes de error (vacío si es válido)
- */
-export const validarGrupo = (tipoGrupo, nombreGrupo) => {
-  const errores = [];
+/*Valida el tipo de grupo  y el nombre si hay error añade al array de errores.------*/
+const validarGrupo = (tipoGrupo, nombreGrupo) => {
+  let errores = [];
   if (!tipoGrupo || tipoGrupo.trim().length === 0) {
-    errores.push("Debe seleccionar si es Grupo musical o Solista.");
+    errores = [...errores, `Debe seleccionar si es Grupo musical o Solista.`];
   }
   if (!nombreGrupo || nombreGrupo.trim().length === 0) {
     errores.push("El nombre es obligatorio.");
@@ -69,12 +60,8 @@ export const validarGrupo = (tipoGrupo, nombreGrupo) => {
   return errores;
 };
 
-/**
- * Valida el año de publicación
- * @param {string} anio - Año a validar
- * @returns {Array} Array de mensajes de error (vacío si es válido)
- */
-export const validarAnio = (anio) => {
+/* Valida el año de publicación------------------*/
+const validarAnio = (anio) => {
   const errores = [];
   if (!anio || anio.trim().length === 0) {
     errores.push("El año de publicación es obligatorio.");
@@ -84,12 +71,9 @@ export const validarAnio = (anio) => {
   return errores;
 };
 
-/**
- * Valida el género musical
- * @param {string} genero - Género seleccionado
- * @returns {Array} Array de mensajes de error (vacío si es válido)
- */
-export const validarGenero = (genero) => {
+//Valida el género musical, añade error si lo hay al array errores con .push().
+
+const validarGenero = (genero) => {
   const errores = [];
   if (!genero || genero.trim().length === 0) {
     errores.push("Debe seleccionar un género musical.");
@@ -97,28 +81,21 @@ export const validarGenero = (genero) => {
   return errores;
 };
 
-/**
- * Valida la localización
- * @param {string} localizacion - Código de localización
- * @returns {Array} Array de mensajes de error (vacío si es válido)
- */
-export const validarLocalizacion = (localizacion) => {
-  const errores = [];
+/*Valida la localización, igual anteriores -----------*/
+
+const validarLocalizacion = (localizacion) => {
+  let errores = [];
   if (!localizacion || localizacion.trim().length === 0) {
-    errores.push("La localización es obligatoria.");
+    errores = [...errores, `El código de localización es obligatorio`];
   } else if (!/^ES-\d{3}[A-Z]{2}$/.test(localizacion.toUpperCase())) {
-    errores.push(
-      "La localización debe tener el formato ES-001AA donde 001 es el número de estantería y AA son dos letras mayúsculas."
-    );
+    errores = [
+      ...errores,
+      `La localización debe tener el formato ES-001AA donde 001 es el número de estantería y AA son dos letras mayúsculas.`,
+    ];
   }
   return errores;
 };
-
-/**
- * Valida todos los campos del formulario de disco
- * @param {Object} disco - Objeto con los datos del disco
- * @returns {Object} Objeto con errores por campo
- */
+/*--Valida todos los campos del formulario de disco - Objeto con los datos del disco - Objeto con errores ----*/
 export const validarDiscoCompleto = (disco) => {
   const errores = {
     nombre: validarNombreDisco(disco.nombre),
@@ -131,10 +108,17 @@ export const validarDiscoCompleto = (disco) => {
   return errores;
 };
 
-/**
- * Genera un ID único para un disco
- * @returns {string} UUID único
- */
-export const generarIdDisco = () => {
+/* Genera ID único para un disco, retorna un string ----- */
+const generarIdDisco = () => {
   return crypto.randomUUID();
+};
+export {
+  cargarDiscosDesdeLocalStorage,
+  guardarDiscosEnLocalStorage,
+  validarNombreDisco,
+  validarGrupo,
+  validarAnio,
+  validarGenero,
+  validarLocalizacion,
+  generarIdDisco,
 };
