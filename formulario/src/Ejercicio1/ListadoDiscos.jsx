@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./ListadoDiscos.css";
 import Disco from "./Disco.jsx";
+import MensajeTemporal from "./MensajeTemporal.jsx";
 import {
   cargarDiscosDesdeLocalStorage,
   guardarDiscosEnLocalStorage,
 } from "../biblioteca/funciones.js";
 
-/**
- * Componente ListadoDiscos
- * Muestra un listado de discos con funcionalidad de filtrado
- * Permite eliminar discos de la colección
- */
+/*---Muestra un listado de discos con funcion de filtrado------------------*/
 const ListadoDiscos = () => {
-  // Estado para almacenar todos los discos
+  // Estado para almacenar todos los discos.
   const [discos, setDiscos] = useState([]);
 
-  // Estado para los discos filtrados
+
   const [discosFiltrados, setDiscosFiltrados] = useState([]);
 
   // Estado para el texto de filtrado
@@ -24,19 +21,14 @@ const ListadoDiscos = () => {
   // Estado para el mensaje de eliminación
   const [mensajeEliminado, setMensajeEliminado] = useState("");
 
-  /**
-   * Carga los discos desde localStorage al montar el componente
-   */
+  /*-----Carga los discos desde localStorage al montar el componente--------------*/
   useEffect(() => {
     const discosCargados = cargarDiscosDesdeLocalStorage();
     setDiscos(discosCargados);
     setDiscosFiltrados(discosCargados);
-    console.log("Discos cargados:", discosCargados);
   }, []);
 
-  /**
-   * Filtra los discos según el texto introducido
-   * Busca en nombre, grupo y género
+  /*Filtra los discos según el texto introducido y busca según en nombre, grupo y género
    */
   useEffect(() => {
     if (!textoFiltro.trim()) {
@@ -101,10 +93,7 @@ const ListadoDiscos = () => {
     <div className="contenedor-listado-discos">
       <h2>Listado de Discos</h2>
 
-      {/* Mensaje temporal de eliminación */}
-      {mensajeEliminado && (
-        <div className="mensaje-eliminado">{mensajeEliminado}</div>
-      )}
+      <MensajeTemporal texto={mensajeEliminado} />
 
       {/* Controles de filtrado */}
       <div className="controles-filtrado">
@@ -129,7 +118,7 @@ const ListadoDiscos = () => {
         </button>
       </div>
 
-      {/* Información del listado */}
+      {/* plantilla para información del listado */}
       <div className="info-listado">
         <p>
           Mostrando {discosFiltrados.length} de {discos.length} discos

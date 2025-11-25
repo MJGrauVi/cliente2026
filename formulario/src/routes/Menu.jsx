@@ -6,13 +6,13 @@ const Menu = () => {
   return (
     <>
       <nav>
-        <Link className="menu-elemento" to="/" title="">
+        <Link className="menu-elemento" to="/">
           Inicio
         </Link>
-        <Link className="menu-elemento" to="/formulario" title="">
+        <Link className="menu-elemento" to="/contenedor">
           Insertar disco
         </Link>
-        <Link className="menu-elemento" to="/listadoDiscos" title="">
+        <Link className="menu-elemento" to="/listadoDiscos">
           Listar disco
         </Link>
       </nav>

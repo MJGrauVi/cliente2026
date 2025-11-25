@@ -1,6 +1,6 @@
 import "./Inicio.css";
 
-/*  Presentación de la aplicación de gestión de discos **********************/
+/* -----------Presentación de la aplicación de gestión de discos -------------------*/
 const Inicio = () => {
   return (
     <div className="contenedor-inicio">
@@ -16,7 +16,7 @@ const Inicio = () => {
           <h2>Características principales:</h2>
           <ul>
             <li>
-              <strong>Insertar discos:</strong> Añade nuevos discos a tu
+              <strong>Insertar discos:</strong> Añade discos a tu
               colección con toda su información (nombre, grupo, año, género,
               localización, etc.)
             </li>

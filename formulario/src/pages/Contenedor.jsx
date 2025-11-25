@@ -1,13 +1,13 @@
-import "./Formulario.css";
+
 import FormularioDisco from "../Ejercicio1/FormularioDisco.jsx";
 
 /*  Cargo formulario para insertar discos ******************/
-const Formulario = () => {
+const Contenedor = () => {
   return (
-    <div className="contenedor-pagina-formulario">
+    <div className="contenedor-formulario">
       <FormularioDisco />
     </div>
   );
 };
 
-export default Formulario;
+export default Contenedor;

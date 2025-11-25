@@ -46,6 +46,13 @@ const Disco = ({ disco, onEliminar }) => {
           <h3 className="disco-nombre">{disco.nombre}</h3>
           <p className="disco-grupo">{disco.grupo}</p>
           <p className="disco-genero">{disco.genero}</p>
+          <p className="disco-estado">
+            {disco.prestado ? (
+              <span className="prestado">Prestado</span>
+            ) : (
+              <span className="disponible">Disponible</span>
+            )}
+          </p>
         </div>
 
         {/* Botón eliminar */}
