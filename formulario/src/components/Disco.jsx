@@ -1,29 +1,20 @@
 import React, { useState } from "react";
 import "./Disco.css";
 
-/**
- * Componente Disco
- * Muestra la información de un disco individual
- * Al hacer clic muestra/oculta la información completa
- */
-const Disco = ({ disco, onEliminar }) => {
+const Disco = (props) => {
+  const { disco, onEliminar } = props; //desestructuro props.
   const [mostrarCompleto, setMostrarCompleto] = useState(false);
 
-  /**
-   * Alterna la visualización de información completa
-   */
+  /* Alterna la visualización de información completa ------------ */
   const alternarInformacion = () => {
     setMostrarCompleto(!mostrarCompleto);
   };
 
-  /**
-   * Maneja la eliminación del disco
-   */
+  /* Maneja la eliminación del disco por el id, evita la propagación al hacer clic en el input y elimina el disco. ---*/
   const manejarEliminar = (evento) => {
     evento.stopPropagation(); // Evitar que se active el click del contenedor
-    evento.preventDefault(); // Evitar recarga de página
-    onEliminar(disco.id);
-    console.log(`Disco "${disco.nombre}" eliminado.`);
+    evento.preventDefault(); // Evitar la recarga de la página.
+    onEliminar(disco.id); //LLamada a la función eliminarDisco.
   };
 
   return (
@@ -61,7 +52,6 @@ const Disco = ({ disco, onEliminar }) => {
           className="boton-eliminar"
           onClick={manejarEliminar}
           value="Eliminar"
-          title="Eliminar disco"
         />
       </div>
 

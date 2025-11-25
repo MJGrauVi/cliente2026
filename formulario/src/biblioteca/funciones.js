@@ -96,7 +96,7 @@ const validarLocalizacion = (localizacion) => {
   return errores;
 };
 /*--Valida todos los campos del formulario de disco - Objeto con los datos del disco - Objeto con errores ----*/
- const validarDiscoCompleto = (disco) => {
+const validarDiscoCompleto = (disco) => {
   const errores = {
     nombre: validarNombreDisco(disco.nombre),
     grupo: validarGrupo(disco.tipoGrupo, disco.nombreGrupo),
@@ -115,7 +115,7 @@ const generarIdDisco = () => {
 export {
   cargarDiscosDesdeLocalStorage,
   guardarDiscosEnLocalStorage,
- /*  validarNombreDisco,
+  /*  validarNombreDisco,
   validarGrupo,
   validarAnio,
   validarGenero,

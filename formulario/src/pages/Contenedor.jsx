@@ -1,5 +1,6 @@
 
-import FormularioDisco from "../Ejercicio1/FormularioDisco.jsx";
+import FormularioDisco from "../components/FormularioDisco.jsx";
+
 
 /*  Cargo formulario para insertar discos ******************/
 const Contenedor = () => {

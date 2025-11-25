@@ -6,7 +6,7 @@ const Errores = ({ erroresMostrar }) => {
   //const { erroresMostrar } = props;
   // Que a su vez equivale al método tradicional:
   //const erroresMostrar = props.erroresMostrar;
-  // Con un sólo valor no se aprecia la utilidad de este método, pero ¿y si fueran cinco valores?
+ 
   return (
     <>
       <h2>Control de errores.</h2>

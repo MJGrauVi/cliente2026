@@ -1,4 +1,4 @@
-import ListadoDiscos from "../Ejercicio1/ListadoDiscos.jsx";
+import ListadoDiscos from "../components/ListadoDiscos";
 
 /**
  * Componente ListadoDiscos (Página)

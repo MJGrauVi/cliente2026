@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./FormularioDisco.css";
-import Errores from "../components/Errores.jsx";
+import Errores from "./Errores.jsx";
 import {
   validarDiscoCompleto,
   generarIdDisco,
@@ -8,11 +8,7 @@ import {
   cargarDiscosDesdeLocalStorage,
 } from "../biblioteca/funciones.js";
 
-/**
- * Componente FormularioDisco
- * Formulario controlado para insertar discos en la colección
- * Incluye validación en tiempo real y mensajes de confirmación/error
- */
+/* Formulario controlado para insertar discos */
 const FormularioDisco = ({ onDiscoGuardado }) => {
   // Valores iniciales del formulario
   const valoresIniciales = {
@@ -38,10 +34,7 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
   // Géneros musicales.
   const generosMusicales = ["Rock", "Pop", "Jazz", "Clásica"];
 
-  /**
-   * Actualiza el estado del formulario cuando cambia un campo
-   * @param {Event} evento - Evento del input
-   */
+  /* Actualiza el estado del formulario cuando cambia un campo,evento - Evento del input*/
   const actualizarDato = (evento) => {
     const { name, value, type, checked } = evento.target;
     const nuevoValor = type === "checkbox" ? checked : value;
@@ -50,19 +43,13 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
       ...disco,
       [name]: nuevoValor,
     });
-
-    // Limpiar mensaje al modificar el formulario
+    // Limpiar mensaje al modificar el formulario.
     setMensaje({ tipo: "", texto: "" });
-
-    // Validar el campo modificado en tiempo real
+    // Validar el campo modificado en tiempo real.
     validarCampo(name, nuevoValor);
   };
 
-  /**
-   * Valida un campo específico del formulario
-   * @param {string} nombreCampo - Nombre del campo a validar
-   * @param {any} valor - Valor del campo
-   */
+  /* Valida un campo específico del formulario*/
   const validarCampo = (nombreCampo, valor) => {
     const discoTemporal = { ...disco, [nombreCampo]: valor };
     const erroresCompletos = validarDiscoCompleto(discoTemporal);
@@ -86,7 +73,7 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
    * Maneja el envío del formulario
    * @param {Event} evento - Evento del formulario
    */
-  
+
   const manejarEnvio = (evento) => {
     evento.preventDefault();
 
@@ -141,37 +128,24 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
     if (onDiscoGuardado) {
       onDiscoGuardado();
     }
-
-    console.log("Disco guardado:", nuevoDisco);
-    console.log("Total de discos en la colección:", discosActualizados.length);
   };
 
-  /**
-   * Obtiene la clase CSS para un campo según si tiene errores
-   * @param {string} nombreCampo - Nombre del campo
-   * @returns {string} Clase CSS
-   */
+  /* Devuelve la cadena si array errores existe y es distinto de 0, si tiene mensaje*/
   const obtenerClaseError = (nombreCampo) => {
-    return errores[nombreCampo] && errores[nombreCampo].length > 0
-      ? "campo-error"
-      : "";
+     return errores[nombreCampo] && errores[nombreCampo].length > 0 ? "campo-error" : "";
   };
 
-  // Obtener todos los mensajes de error para el componente Errores
+  // Obtener todos los mensajes de error para el componente Errores.
   const todosLosErrores = Object.values(errores).flat();
 
   return (
     <div className="contenedor-formulario-disco">
       <h2>Insertar Disco</h2>
-      <form
-        onSubmit={manejarEnvio}
-        className="formulario-disco"
-        autoComplete="off"
-      >
+      <form onSubmit={manejarEnvio} className="formulario-disco">
         {/* Nombre del disco */}
         <div className="campo-formulario">
           <label htmlFor="nombre">
-            Nombre del disco <span className="obligatorio">*</span>
+            Nombre del disco <span className="obligatorio">*</span>{/* <!--Marco con asterisco rojo los campos obligatorios.--> */}
           </label>
           <input
             type="text"
@@ -180,8 +154,7 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
             value={disco.nombre}
             onChange={actualizarDato}
             className={`input-formulario ${obtenerClaseError("nombre")}`}
-            placeholder="Ej: The Dark Side of the Moon"
-            autoComplete="off"
+            placeholder="Título del disco"
           />
         </div>
 
@@ -195,8 +168,7 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
             value={disco.caratula}
             onChange={actualizarDato}
             className="input-formulario"
-            placeholder="https://ejemplo.com/imagen.jpg"
-            autoComplete="off"
+            placeholder="https://caralula-disco.jpg..."
           />
         </div>
 
@@ -213,7 +185,6 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
                 value="Grupo musical"
                 checked={disco.tipoGrupo === "Grupo musical"}
                 onChange={actualizarDato}
-                autoComplete="off"
               />
               Grupo musical
             </label>
@@ -243,8 +214,7 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
             value={disco.nombreGrupo}
             onChange={actualizarDato}
             className={`input-formulario ${obtenerClaseError("grupo")}`}
-            placeholder="Ej: Pink Floyd"
-            autoComplete="off"
+            placeholder="Nombre del grupo o solista"
           />
         </div>
 
@@ -260,9 +230,8 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
             value={disco.anio}
             onChange={actualizarDato}
             className={`input-formulario ${obtenerClaseError("anio")}`}
-            placeholder="Ej: 1973"
+            placeholder="YYYY"
             maxLength="4"
-            autoComplete="off"
           />
         </div>
 
@@ -277,7 +246,6 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
             value={disco.genero}
             onChange={actualizarDato}
             className={`input-formulario ${obtenerClaseError("genero")}`}
-            autoComplete="off"
           >
             <option value="">Seleccione un género</option>
             {generosMusicales.map((genero) => (
@@ -301,8 +269,7 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
             onChange={actualizarDato}
             className={`input-formulario ${obtenerClaseError("localizacion")}`}
             placeholder="ES-001AA"
-            style={{ textTransform: "uppercase" }}
-            autoComplete="off"
+            /* style={{ textTransform: "uppercase" }} */
           />
         </div>
 
@@ -327,7 +294,7 @@ const FormularioDisco = ({ onDiscoGuardado }) => {
         </button>
       </form>
 
-      {/* Mensaje de confirmación o error */}
+      {/* Plantilla con el mensaje de confirmación o error */}
       {mensaje.texto && (
         <div
           className={`mensaje-formulario ${
