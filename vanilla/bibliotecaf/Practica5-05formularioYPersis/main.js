@@ -1,7 +1,7 @@
 "use strict";
 
 import {
-  validarNombre,
+  /* validarNombre, */
   validarGrupoSolista,
   validarAnio,
   validarGeneroMusical,
