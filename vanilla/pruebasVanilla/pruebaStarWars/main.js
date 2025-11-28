@@ -15,6 +15,7 @@ async function cargarPeliculas() {
     console.error(`Error cargando peliculas: ${error}`);
   }
   /* Ejemplo con .then()
+  
     function cargarPeliculas() {
   fetch(API_URL)
     .then(respuesta => respuesta.json()) // consumir promesa de fetch
