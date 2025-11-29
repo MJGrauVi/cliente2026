@@ -24,17 +24,21 @@ async function cargarPeliculas() {
 }
      */
 }
+const plantillaLista = ()=>{
+
+}
 // Función para mostrar listado de películas
 function mostrarListado(peliculas) {
   const contenedor = document.getElementById("peliculas");
   contenedor.innerHTML = ""; // limpiar
 
   peliculas.forEach((pelicula, index) => {
-    const div = document.createElement("div");
-    div.className = "pelicula";
-    div.textContent = `${index + 1}. ${pelicula.title}`;
-    div.addEventListener("click", () => mostrarDetalle(pelicula));
-    contenedor.appendChild(div);
+    const elementoLista = document.createElement("li");
+    elementoLista.className = "pelicula";
+    elementoLista.textContent = `${index + 1}. ${pelicula.title}`;
+    elementoLista.addEventListener("click", () => mostrarDetalle(pelicula));
+
+    contenedor.appendChild(elementoLista);
   });
 }
 

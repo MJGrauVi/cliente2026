@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pratica 6.02 Enciclopedia galáctica</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            background: #eee;
+            padding: 8px;
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background: #ddd;
+        }
+
+        #detalles {
+            background: #f5f5f5;
+            padding: 15px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="contenedor">
-        <div id="peliculas"></div>
-        <div id="informacion"></div>
-    </div>
+    <h1>Enciclopedia Star Wars</h1>
+    
+    <h2>Películas</h2>
+    <ul id="listaPeliculas"></ul>
+
+    <h2>Detalles</h2>
+    <div id="detalles"></div>
     <script src="./main.js" type="module"></script>
 </body>
+
 </html>

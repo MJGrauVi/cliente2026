@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./estiloStarWars.css">
+  <title>Enciclopedia Star Wars - DAW</title>
+
+</head>
+<body>
+  <div class="container">
+    <section class="panel">
+      <h1>Películas de Star Wars</h1>
+      <p class="fallback-note">Haz clic en el título de una película para ver su ficha.</p>
+      <ul id="films" aria-live="polite">
+        <!-- Lista de películas -->
+      </ul>
+      <p id="loading" class="fallback-note">Cargando películas…</p>
+    </section>
+
+    <section class="panel details" id="detailsPanel">
+      <h2>Ficha de la película</h2>
+      <div id="detailsEmpty">
+        Selecciona una película para ver su sinopsis y ficha.
+      </div>
+
+      <div id="detailsContent" style="display:none;">
+        <div class="card-row">
+          <div class="chip" id="detail-id">ID</div>
+          <div class="chip" id="detail-release">Fecha</div>
+          <div class="chip" id="detail-director">Director</div>
+          <div class="chip" id="detail-producer">Productor</div>
+        </div>
+        <h3 id="detail-title"></h3>
+        <p class="synopsis" id="detail-opening"></p>
+      </div>
+    </section>
+  </div>
+
+  <script src="./main.js" type="module"></script>
+</body>
+</html>
