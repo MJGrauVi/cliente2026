@@ -54,6 +54,11 @@ function reemplazarPalabraEnTodaLaWeb(palabraOriginal, palabraNueva) {
     }
   }
 }
+// ---- 4. FORMATEAR FECHA ---------------------
+function formatearFechaEuropea(fechaISO) {
+  const d = new Date(fechaISO);
+  return d.toLocaleDateString("es-ES");
+}
 
 console.log(typeof null); //object
 console.log(null === "object"); //false
@@ -73,4 +78,4 @@ console.log(typeof {}); //object
 console.log(Number({})); //NaN
 console.log(Number([])); //0
 console.log(Array.isArray([]));
-export { sumaArrayFor, entraEnteroDelRango, imcMayor, stringMayus, reemplazarPalabraEnTodaLaWeb };
+export { sumaArrayFor, entraEnteroDelRango, imcMayor, stringMayus, reemplazarPalabraEnTodaLaWeb, formatearFechaEuropea};
