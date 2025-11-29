@@ -11,8 +11,9 @@ function init() {
 // ----------- 2. FUNCIÓN PARA TRAER DATOS ------------
 function fetchPeliculas() {
     fetch("https://swapi.info/api/films")
-        .then(res => res.json())
+        .then(resultado => resultado.json())
         .then(data => {
+          console.log(data);
             // Algunas APIs devuelven info en data.results
             listaPeliculas = data.results || data;
 
@@ -24,19 +25,16 @@ function fetchPeliculas() {
 }
 
 // ----------- 3. FUNCIÓN PARA MOSTRAR LISTA ------------
-function renderPeliculas(listaPeliculas) {
-
+function renderPeliculas(listaPeliculas) {//Entra un array de objetos.
+  
     const ul = document.getElementById("listaPeliculas");
     ul.innerHTML = ""; // Limpiar
 
-    listaPeliculas.forEach(pelicula => {
-
-        // Crear UUID único
-        const uuid = crypto.randomUUID();
+    listaPeliculas.forEach((pelicula, index) => {
 
         // Crear <li>
         const li = document.createElement("li");
-        li.textContent = `${uuid} - ${pelicula.title}`;
+        li.textContent = `${index+1}.- Id: ${pelicula.episode_id} - ${pelicula.title}`;
 
         // Evento click → al pulsar muestra los detalles
         li.addEventListener("click", function () {
