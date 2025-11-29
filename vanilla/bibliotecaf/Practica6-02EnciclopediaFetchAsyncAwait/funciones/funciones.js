@@ -4,17 +4,17 @@ async function traerDatos(urlApi) {
   try {
     const resultado = await fetch(urlApi);
     const data = await resultado.json();
-    return data.results; // siempre array
+    return data.results || data; // siempre array
   } catch (error) {
     console.error("Se ha producido un error:", error.message);
     return [];
   }
 }
-
+//Recorremos el array devuelto de la promesa para mostrar el listado.
 const renderPeliculas = (listaPeliculas) =>{
   const ul = document.getElementById("listaPeliculas");
   ul.innerHTML = "";
-
+  //Guardo el id de la pelicula en attibuto dataset.id.
   listaPeliculas.forEach((pelicula, index) => {
     const li = document.createElement("li");
     li.textContent = `${index+1}.- Id: ${pelicula.episode_id} - ${pelicula.title}`;
@@ -22,11 +22,11 @@ const renderPeliculas = (listaPeliculas) =>{
     ul.appendChild(li);
   });
 }
-
+//Mostramos el detalle de la pelicula, fecha formateada.
 const mostrarDetalles = (pelicula) =>{
   const contenedor = document.getElementById("detalles");
-  const d = new Date(pelicula.release_date);
-  const fechaEuro = d.toLocaleDateString("es-ES");
+  const fechaEuro = new Date(pelicula.release_date).toLocaleDateString("es-ES");
+
 
   contenedor.innerHTML = `
     <h2><strong>Título:</strong> ${pelicula.title}</h2>
