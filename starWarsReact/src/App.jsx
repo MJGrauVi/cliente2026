@@ -8,8 +8,11 @@ export default function App() {
 
   return (
     <Contenedor >
+      <h1>Enciclopedia de Star Wars versión en React</h1>
+      <div className="componentes">
       <FilmList onSelectFilm={setSelectedFilm} />
       <PeliculaDetalle film={selectedFilm} />
+      </div>
     </Contenedor>
   );
 }

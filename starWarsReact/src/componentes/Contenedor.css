@@ -1,5 +1,8 @@
 .contenedor{
-    display:flex;
-    gap: 2rem;
+    
     padding: 20px;
+}
+.componentes{
+    display:flex;
+    max-width:800px;
 }

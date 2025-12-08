@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./ListaPeliculas.css";
 
 const ListaPeliculas = ({ onSelectFilm }) => {
   const [films, setFilms] = useState([]);
