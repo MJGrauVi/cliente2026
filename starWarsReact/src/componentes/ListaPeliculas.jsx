@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function FilmList({ onSelectFilm }) {
+const ListaPeliculas = ({ onSelectFilm }) => {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -39,3 +39,4 @@ export default function FilmList({ onSelectFilm }) {
     </div>
   );
 }
+export default ListaPeliculas;

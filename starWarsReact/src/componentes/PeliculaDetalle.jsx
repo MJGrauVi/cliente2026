@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import ActorDetalle from "./ActorDetalle";
 
-export default function FilmDetail({ film }) {
-  const [actors, setActors] = useState([]);
+const PeliculaDetalle = ({ film }) => {
+  const [actords, setActors] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedActor, setSelectedActor] = useState(null);
-
   useEffect(() => {
     if (!film) return;
 
@@ -16,11 +15,13 @@ export default function FilmDetail({ film }) {
         const urls = film.characters.slice(0, 10);
         const responses = await Promise.all(urls.map(url => fetch(url)));
         const data = await Promise.all(
+          
           responses.map(res => {
             if (!res.ok) throw new Error("Error cargando actor");
             return res.json();
           })
         );
+        console.log(data);
         if (active) setActors(data);
       } catch (err) {
         console.error(err);
@@ -60,3 +61,4 @@ export default function FilmDetail({ film }) {
     </div>
   );
 }
+export default PeliculaDetalle;

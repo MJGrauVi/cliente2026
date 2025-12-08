@@ -1,6 +1,6 @@
 import { useState } from "react";
-import FilmList from "./componentes/FilmList.jsx";
-import FilmDetail from "./componentes/FilmDetail";
+import FilmList from "./componentes/ListaPeliculas.jsx";
+import PeliculaDetalle from "./componentes/PeliculaDetalle.jsx";
 import Contenedor from "./componentes/Contenedor.jsx";
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
   return (
     <Contenedor >
       <FilmList onSelectFilm={setSelectedFilm} />
-      <FilmDetail film={selectedFilm} />
+      <PeliculaDetalle film={selectedFilm} />
     </Contenedor>
   );
 }
