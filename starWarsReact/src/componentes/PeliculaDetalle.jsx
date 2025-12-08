@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import ActorDetalle from "./ActorDetalle";
+import "./PeliculaDetalle.css";
 
 const PeliculaDetalle = ({ film }) => {
-  const [actords, setActors] = useState([]);
+  const [actores, setActores] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedActor, setSelectedActor] = useState(null);
+
   useEffect(() => {
     if (!film) return;
 
@@ -22,7 +24,7 @@ const PeliculaDetalle = ({ film }) => {
           })
         );
         console.log(data);
-        if (active) setActors(data);
+        if (active) setActores(data);
       } catch (err) {
         console.error(err);
       } finally {
@@ -36,7 +38,7 @@ const PeliculaDetalle = ({ film }) => {
   if (!film) return <p>Selecciona una película.</p>;
 
   return (
-    <div>
+    <div className="pelicula-detalle">
       <h2>{film.title}</h2>
       <p><strong>Director:</strong> {film.director}</p>
       <p><strong>Fecha:</strong> {new Date(film.release_date).toLocaleDateString("es-ES", {
@@ -47,7 +49,7 @@ const PeliculaDetalle = ({ film }) => {
       {loading && <p>Cargando actores...</p>}
 
       <ul>
-        {actors.map(actor => (
+        {actores.map(actor => (
           <li key={actor.url}>
             <button onClick={() => setSelectedActor(actor)}>
               {actor.name}

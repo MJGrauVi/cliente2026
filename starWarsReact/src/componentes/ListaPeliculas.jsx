@@ -25,7 +25,7 @@ const ListaPeliculas = ({ onSelectFilm }) => {
   if (loading) return <p>Cargando películas...</p>;
 
   return (
-    <div>
+    <div className="listaPeliculas-starwars">
       <h2>Películas</h2>
       <ul>
         {films.map(film => (
