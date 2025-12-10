@@ -1,0 +1,14 @@
+{"evento": [
+{
+"id": 1,
+"nombre": "Concierto de Rock",
+"fecha": "2025-05-15",
+"ubicacion": "Auditorio Nacional"
+},
+{
+"id": 2,
+"nombre": "Feria Ciencias",
+"fecha": "2025-06-10",
+"ubicacion": "Centro Convenciones"
+}
+]}

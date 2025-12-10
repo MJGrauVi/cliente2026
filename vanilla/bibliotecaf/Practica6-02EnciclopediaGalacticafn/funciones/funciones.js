@@ -2,7 +2,7 @@
 
 async function traerDatos (urlApi) {
   try {
-    const respuesta = await fetch(urlApi);//Devuelbe un objeto response con los datos del detch.
+    const respuesta = await fetch(urlApi);//Devuelve un objeto response con los datos del fetch.
    
     if (!respuesta.ok) {
       throw new Error(`Error HTTP: ${respuesta.status}`);
