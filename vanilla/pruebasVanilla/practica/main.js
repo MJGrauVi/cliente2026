@@ -1,10 +1,9 @@
 "use strict";
 //impor del Ejercicio 1.
-import {eventosData} from "./js/eventosData.js";
+import { eventosData } from "./js/eventosData.js";
 
 //impor del Ejercicio 2.
-//import {mostrarEventos, mostrarError} from "./js/funciones.js"; 
-
+//import {mostrarEventos, mostrarError} from "./js/funciones.js";
 
 /*Ejercicio 1**************************************************/
 /* eventosData.eventos.forEach((evento)=>{
@@ -50,13 +49,13 @@ const barra = document.getElementById("barraError");
 const barraTexto = document.getElementById("barraErrorTexto");
 const barraCerrar = document.getElementById("btnCerrar");
 
-let ocultarTimer = null;      // ID del temporizador para ocultar la barra
+let ocultarTimer = null; // ID del temporizador para ocultar la barra
 const DURACION_MSEGS = 10000; // 10 segundos
 
 // Mostrar eventos en la tabla
-function mostrarEventos(eventos) {
+const mostrarEventos = (eventos) =>{
   tablaBody.innerHTML = ""; // limpiar
-  eventos.forEach(evento => {
+  eventos.forEach((evento) => {
     const tr = document.createElement("tr");
     const fechaFormateada = new Date(evento.fecha).toLocaleDateString("es-ES");
     tr.innerHTML = `
@@ -96,7 +95,7 @@ function ocultarBarra() {
 
   // Esperar la transición para añadir hidden y no ocupar foco
   setTimeout(() => {
-    barra.setAttribute("hidden", ""); 
+    barra.setAttribute("hidden", "");
     barraTexto.textContent = "";
   }, 350); // debe ser >= transición CSS (300ms)
 }
@@ -113,29 +112,32 @@ barraCerrar.addEventListener("click", () => {
 // Cargar datos con async/await y manejo de errores
 const cargarEventos = async () => {
   try {
+    //guardamos los datos de la promesa, await ya la consume.
     const respuesta = await fetch("./assets/eventosData.json");
 
     if (!respuesta.ok) {
-      // Respuestas 4xx/5xx
-      throw new Error(`HTTP ${respuesta.status} - ${respuesta.statusText}`);
+      // Error  HTTP Respuestas 4xx/5xx
+      throw new Error(
+        `Error de red:HTTP ${respuesta.status} - ${respuesta.statusText}`
+      );
     }
 
     const datos = await respuesta.json();
 
-   /*  if (!datos || !Array.isArray(datos.eventos)) {
-      throw new Error("Formato JSON inválido: falta 'eventos' o no es un array");
-    } */
-    if (!Array.isArray(datos.eventos)) {
-    throw new Error(`El archivo JSON no tiene formato válido. ${error.message}.`);
-}
+    if (!datos || !Array.isArray(datos.eventos)) {
+      throw new Error(
+        `El archivo JSON no tiene formato válido. ${error.message}.`
+      );
+    }
     mostrarEventos(datos.eventos);
-
   } catch (error) {
-    console.error(`Error al cargar datos. ${error}`);
+    console.error(`Error al cargar datos. ${error.message}`);
     // Mensaje legible para el usuario.
-    mostrarError(`No se han podido cargar los eventos. Comprueba el archivo o la conexión: ${error.message}`);
+    mostrarError(
+      `No se han podido cargar los eventos. Comprueba el archivo o la conexión: ${error.message}`
+    );
   }
-}
+};
 
 // Ejecutar carga al inicio
 cargarEventos();
