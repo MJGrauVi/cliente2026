@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Libros</title>
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gestor de Libros</h1>
+    </header>
+    <main>
+      <section id="formulario-seccion">
+        <h2>Agregar un libro</h2>
+        <form id="libro-formulario">
+          <label for="titulo">Título:</label>
+          <input type="text" id="titulo" name="titulo" required />
+          <label for="autor">Autor:</label>
+          <input type="text" id="autor" name="autor" />
+          <label for="genero">Género:</label>
+          <select id="genero" name="genero">
+            <option value="">Selecciona un género</option>
+            <option value="Ficción">Ficción</option>
+            <option value="Ensayo">Ensayo</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Misterio">Misterio</option>
+          </select>
+          <label for="fecha">Fecha publicación:</label>
+          <input type="date" id="fecha" name="fecha" required />
+          <button id="boton-guardar">Agregar libro</button>
+        </form>
+      </section>
+      <section id="errores-seccion">
+        <!-- Aquí aparecen los errores. -->
+      </section>
+      <section id="filtros-seccion">
+        <h2>Filtrar</h2>
+        <select id="filtros-genero">
+          <option value="">Filtrar por género</option>
+          <option value="Ficción">Ficción</option>
+          <option value="Ensayo">Ensayo</option>
+          <option value="Fantasía">Fantasía</option>
+          <option value="Misterio">Misterio</option>
+        </select>
+      </section>
+      <section id="estadisticas-seccion">
+        <h2>Estadísticas</h2>
+        <p id="total-libros">Número de libros: 0</p>
+        <p id="generos-libros">Distribución de géneros: N/A</p>
+      </section>
+      <section id="tabla-seccion">
+        <h2>Lista de libros</h2>
+        <table id="tabla-libros">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Autor</th>
+              <th>Género</th>
+              <th>Fecha</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí va el listado de libros. -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+  <script type="module" src="./main.js"></script>
+</html>
