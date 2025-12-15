@@ -9,26 +9,26 @@
 
   <body>
     <header>
-      <h1>Gestor de Libross</h1>
+      <h1>Autores</h1>
     </header>
     <main>
       <section id="formulario-seccion">
-        <h2>Agregar un libro</h2>
-        <form id="libro-formulario">
+        <h2>Agregar un disco</h2>
+        <form id="formulario">
           <label for="autor">Autor:</label>
           <input type="text" id="autor" name="autor" required />
-          <label for="titulo">Título:</label>
-          <input type="text" id="titulo" name="titulo" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
 
           <label for="genero">Género:</label>
           <select id="genero" name="genero">
             <option value="">Selecciona un género</option>
-            <option value="Ficción">Ficción</option>
-            <option value="Ensayo">Ensayo</option>
-            <option value="Fantasía">Fantasía</option>
-            <option value="Misterio">Misterio</option>
+            <option value="Rock">Rock</option>
+            <option value="Salsa">Salsa</option>
+            <option value="Merengue">Merengue</option>
+            <option value="Pop">Pop</option>
           </select>
-          <label for="fecha">Fecha publicación:</label>
+          <label for="fecha">Fecha lanzamiento:</label>
           <input type="date" id="fecha" name="fecha" />
           <fieldset id="radioBoton">
             <legend>En stock</legend>
@@ -44,35 +44,35 @@
             <input type="radio" id="preguntaNS" name="pregunta" value="ns/nc" />
             <label for="preguntaNS">No sabe/No contesta</label>
           </fieldset>
-          <button id="boton-guardar">Agregar libro</button>
+          <button id="boton-guardar">Agregar Canción</button>
           <!--button No tiene type, por defecto type="submit"-->
         </form>
       </section>
       <section id="errores-seccion">
         <!-- Aquí aparecen los errores. -->
       </section>
-      <section id="filtros-seccion">
+   <!--    <section id="filtros-seccion">
         <h2>Filtrar</h2>
         <select id="filtros-genero">
           <option value="">Filtrar por género</option>
-          <option value="Ficción">Ficción</option>
-          <option value="Ensayo">Ensayo</option>
-          <option value="Fantasía">Fantasía</option>
-          <option value="Misterio">Misterio</option>
+          <option value="Rock">Rock</option>
+          <option value="Salsa">Salsa</option>
+          <option value="Merengue">Merengue</option>
+          <option value="Pop">Pop</option>
         </select>
       </section>
       <section id="estadisticas-seccion">
         <h2>Estadísticas</h2>
-        <p id="total-libros">Número de libros: 0</p>
-        <p id="generos-libros">Distribución de géneros: N/A</p>
-      </section>
+        <p id="total-discos">Número de disco: 0</p>
+        <p id="generos-discos">Distribución de géneros: N/A</p>
+      </section> -->
       <section id="tabla-seccion">
-        <h2>Lista de libros</h2>
-        <table id="tabla-libros">
+        <h2>Lista de discos</h2>
+        <table id="tabla-discos">
           <thead>
             <tr>
-              <th>Título</th>
               <th>Autor</th>
+              <th>Email</th>
               <th>Género</th>
               <th>Fecha</th>
               <th>En stock</th>
@@ -80,7 +80,7 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Aquí va el listado de libros. -->
+            <!-- Aquí va el listado de discos. -->
           </tbody>
         </table>
       </section>
