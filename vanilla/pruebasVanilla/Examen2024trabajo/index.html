@@ -6,6 +6,7 @@
     <title>Gestor de Libros</title>
     <link rel="stylesheet" href="estilo.css" />
   </head>
+
   <body>
     <header>
       <h1>Gestor de Libross</h1>
@@ -14,10 +15,11 @@
       <section id="formulario-seccion">
         <h2>Agregar un libro</h2>
         <form id="libro-formulario">
-          <label for="titulo">Título:</label>
-          <input type="text" id="titulo" name="titulo" required />
           <label for="autor">Autor:</label>
-          <input type="text" id="autor" name="autor" />
+          <input type="text" id="autor" name="autor" required />
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" required />
+
           <label for="genero">Género:</label>
           <select id="genero" name="genero">
             <option value="">Selecciona un género</option>
@@ -27,7 +29,21 @@
             <option value="Misterio">Misterio</option>
           </select>
           <label for="fecha">Fecha publicación:</label>
-          <input type="date" id="fecha" name="fecha"  />
+          <input type="date" id="fecha" name="fecha" />
+          <fieldset id="radioBoton">
+            <legend>En stock</legend>
+            <input
+              type="radio"
+              id="preguntaSI"
+              name="pregunta"
+              value="s&iacute;"
+            />
+            <label for="preguntaSI">Sí</label>
+            <input type="radio" id="preguntaNO" name="pregunta" value="no" />
+            <label for="preguntaNO">No</label>
+            <input type="radio" id="preguntaNS" name="pregunta" value="ns/nc" />
+            <label for="preguntaNS">No sabe/No contesta</label>
+          </fieldset>
           <button id="boton-guardar">Agregar libro</button>
           <!--button No tiene type, por defecto type="submit"-->
         </form>
@@ -55,10 +71,11 @@
         <table id="tabla-libros">
           <thead>
             <tr>
-              <th>Título</th>
               <th>Autor</th>
+              <th>Email</th>
               <th>Género</th>
               <th>Fecha</th>
+              <th>En stock</th>
               <th>Acciones</th>
             </tr>
           </thead>

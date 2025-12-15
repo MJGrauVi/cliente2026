@@ -14,7 +14,7 @@ let libros = [];
 
 // desestructuracion del objeto.
 const validarFormulario = ({ titulo, autor, genero, fecha }) => {
-  const errores = [];
+  let errores = [];
 
   if (!titulo || titulo.length < 5) {
     errores.push(
@@ -31,7 +31,7 @@ const validarFormulario = ({ titulo, autor, genero, fecha }) => {
     //con spread operator no funciona, no lanza el mensaje de error.
     errores = [...errores, "El campo fecha es obligatorio"];
   }
-  //Devuelvo un array vacio o no.
+  //Devuelvo un array vacio o siguo con el flujo.
   return errores;
 };
 
@@ -50,6 +50,8 @@ const cargarLibrosDesdeLocalStorage = () => {
   }
 };
 
+console.log(libros);
+
 // 🧼 Borrar todos los libros
 btnBorrarTodo?.addEventListener("click", () => {
   libros = [];
@@ -57,38 +59,43 @@ btnBorrarTodo?.addEventListener("click", () => {
   renderTabla(libros);
   actualizarEstadisticas(libros);
 });
+
 // Función para mostrar errores en la sección
+
 const mostrarErrores = (errores) => {
-  if (errores.length > 0) {
-    erroresSeccion.innerHTML = `<ul>${errores
-      .map((e) => `<li>${e}</li>`)
-      .join("")}</ul>`;
-  } else {
-    erroresSeccion.innerHTML = ""; // Limpia si no hay errores
-  }
+  erroresSeccion.innerHTML = errores.length
+    ? `<ul>${errores.map((error) => `<li>${error}</li>`)}</ul>`
+    : "";
 };
 // 🛠️ Agregar libro sin recargar la página, preventDefault evita que submit recarge la página.
 formulario.addEventListener("submit", (e) => {
+  //Evita el comportamiento de button dentro del formulario(submit por defecto).
   e.preventDefault();
+  //Evita que se acumules mensajes de intentos anteriores.
   erroresSeccion.innerHTML = "";
 
+  //Capturamos los datos del DOM y guardamos su referencia.
   const titulo = document.getElementById("titulo").value.trim();
   const autor = document.getElementById("autor").value.trim();
   const genero = document.getElementById("genero").value;
   const fecha = document.getElementById("fecha").value;
+
+  //Validamos los datos y si hay errores los guardamos y mostramos, cortamos el flujo.
   const errores = validarFormulario({ titulo, autor, genero, fecha });
   if (errores.length > 0) {
     mostrarErrores(errores);
-    /*  erroresSeccion.innerHTML = `<ul>${errores
-      .map((e) => `<li>${e}</li>`)
-      .join("")}</ul>`; */
+
     return;
   }
-
+  //Si no ha habido errores, añadimos los datos al array.
   libros = [...libros, { titulo, autor, genero, fecha }];
+  //Guardamos en localStorage.
   guardarLibrosEnLocalStorage(libros);
+  //Limpiamos el formulario.
   formulario.reset();
+  //Mostramos los libros en el panel.
   renderTabla(libros);
+  //Actualiza la estadistica recalculando los valores.
   actualizarEstadisticas(libros);
 });
 
@@ -98,13 +105,13 @@ const eliminarLibro = (index) => {
   guardarLibrosEnLocalStorage(libros);
   renderTabla(libros);
   actualizarEstadisticas(libros);
-  console.log(localStorage.getItem(1));
+ 
 };
 
 // 📋 Renderizar tabla 8
 const renderTabla = (lista) => {
   tabla.innerHTML = "";
-  lista.map((libro, index) => {
+  lista.forEach((libro, index) => {
     const fila = document.createElement("tr");
     fila.innerHTML = `
       <td>${libro.titulo}</td>
@@ -133,27 +140,8 @@ filtroGenero.addEventListener("change", () => {
   renderTabla(filtrados);
 });
 
-// 📊 Estadísticas
-/* const actualizarEstadisticas = (lista) => {
-  if (!Array.isArray(lista)) {
-    lista = [];
-  }
+//Estadísticas:
 
-  totalLibros.textContent = `Número de libros: ${lista.length}`;
-
-  const conteo = lista.reduce((acc, libro) => {
-    acc[libro.genero] = (acc[libro.genero] || 0) + 1;
-    return acc;
-  }, {});
-
-  const distribucion = Object.entries(conteo)
-    .map(([genero, cantidad]) => `${genero}: ${cantidad}`)
-    .join(", ");
-
-  generosLibros.textContent = `Distribución de géneros: ${
-    distribucion || "N/A"
-  }`;
-}; */
 // 📊 Mostrar número total de libros
 const mostrarTotalLibros = (lista) => {
   totalLibros.textContent = `Número de libros: ${lista.length}`;
