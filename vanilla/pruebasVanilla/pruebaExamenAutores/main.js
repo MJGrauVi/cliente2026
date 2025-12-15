@@ -1,4 +1,6 @@
 "use strict";
+
+import {validarFormulario, guardarDiscosEnLocalStorage, cargarDiscosDesdeLocalStorage, mostrarErrores, renderTablaDiscos} from "./funciones/funciones.js";
 //Constantes globales.
 const formulario = document.getElementById("formulario");
 const tabla = document.querySelector("#tabla-discos tbody");
@@ -7,10 +9,10 @@ const erroresSeccion = document.getElementById("errores-seccion");
 //Estado de la aplicacion.
 let discos = [];
 
-const validarFormulario = ({ autor, email, genero, anio, pregunta }) => {
+/* const validarFormulario = ({ autor, email, genero, anio, pregunta }) => {
   let errores = [];
   const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
- /*  const fechaRegExp = /^\d{4}-\d{2}-\d{2}$/; */
+ // const fechaRegExp = /^\d{4}-\d{2}-\d{2}$/; 
   const anioRegExp = /^(19|20)\d{2}$/;
 
   if (!autor || autor.length < 5) {
@@ -24,9 +26,9 @@ const validarFormulario = ({ autor, email, genero, anio, pregunta }) => {
   if (!genero) {
     errores.push("El género es obligatorio");
   }
- /*  if (!fecha || !fechaRegExp.test(fecha)) {
+ // if (!fecha || !fechaRegExp.test(fecha)) {
     errores.push("No has introducido la fecha o el formato no es válido.");
-  } */
+  } 
   if (!anio || !anioRegExp.test(anio)) {
     errores.push(" el formato no es válido.");
   }
@@ -34,11 +36,14 @@ const validarFormulario = ({ autor, email, genero, anio, pregunta }) => {
     errores.push("El radio debe estar marcado");
   }
   return errores;
-};
+}; */
 
 // Radio (única selección).
 // El atributo name permite agrupar elementos.
+
+
 const radioButton = document.getElementById("radioBoton");
+
 radioButton.addEventListener(
   "change",
   (evento) => {
@@ -52,7 +57,9 @@ radioButton.addEventListener(
   },
   false
 );
-const guardarDiscosEnLocalStorage = (lista) => {
+
+
+/* const guardarDiscosEnLocalStorage = (lista) => {
   localStorage.setItem("discos", JSON.stringify(lista));
 };
 
@@ -61,9 +68,9 @@ const cargarDiscosDesdeLocalStorage = () => {
   if (datos) {
     discos = JSON.parse(datos);
     renderTablaDiscos(discos);
-    //actualizarEstadistica();
+    
   }
-};
+}; */
 
 /* const renderTablaDiscos = (lista) => {
   //Uso const global tabla.
@@ -82,12 +89,12 @@ const cargarDiscosDesdeLocalStorage = () => {
   });
 }; */
 
-const mostrarErrores = (errores) => {
+/* const mostrarErrores = (errores) => {
   //uso constante global .
   erroresSeccion.innerHTML = errores.length
     ? `<ul>${errores.map((error) => `<li>${error}</li>`).join("")}</ul>`
     : "";
-};
+}; */
 
 formulario.addEventListener("submit", (evento) => {
   //Evitamos que el formulario se envie(button dentro form).
@@ -116,7 +123,7 @@ formulario.addEventListener("submit", (evento) => {
   renderTablaDiscos(discos);
 });
 
-const renderTablaDiscos = (lista) => {
+/* const renderTablaDiscos = (lista) => {
   //Uso const global tabla.
   tabla.innerHTML = "";
   lista.map(({ autor, email, genero, anio, pregunta }, index) => {
@@ -132,16 +139,17 @@ const renderTablaDiscos = (lista) => {
     `;
     tabla.appendChild(fila);
   });
-};
+};*/
 
-const eliminarLibro = (index) => {
+const eliminarDisco = (index) => {
   //eliminamos del listado de discos el que coincide con el index.
   //Obtenemos un nuevo array.
   discos = discos.filter((_, i) => i !== index);
   //Guardamos el array actualizado.
   guardarDiscosEnLocalStorage(discos);
   renderTablaDiscos(discos);
-};
+}; 
+
 //Ponemos listener para tomar in index sobre el libro que se clica.
 tabla.addEventListener("click", (evento) => {
   if (evento.target.classList.contains("btn-eliminar")) {
