@@ -1,78 +1,73 @@
 "use strict";
 
+// estado.js
+let discos = [];
+
+const setDiscos = (nuevosDiscos) => {
+  discos = nuevosDiscos;
+};
+
+// validaciones.js. Esta función no depende del DOM, por eso es ideal separarla.
 const validarFormulario = ({ autor, email, genero, anio, pregunta }) => {
   let errores = [];
+
   const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
- /*  const fechaRegExp = /^\d{4}-\d{2}-\d{2}$/; */
   const anioRegExp = /^(19|20)\d{2}$/;
 
   if (!autor || autor.length < 5) {
-    errores.push("El autor es obligatorio y al menos debe tener 5 caracteres.");
+    errores.push("El autor es obligatorio y debe tener al menos 5 caracteres.");
   }
+
   if (!email || !emailRegExp.test(email)) {
-    errores.push(
-      "El campo email es obligatorio o no cumple el patro indicado."
-    );
+    errores.push("El email es obligatorio o no cumple el formato.");
   }
+
   if (!genero) {
-    errores.push("El género es obligatorio");
+    errores.push("El género es obligatorio.");
   }
- /*  if (!fecha || !fechaRegExp.test(fecha)) {
-    errores.push("No has introducido la fecha o el formato no es válido.");
-  } */
+
   if (!anio || !anioRegExp.test(anio)) {
-    errores.push(" el formato no es válido.");
+    errores.push("El año no tiene un formato válido.");
   }
+
   if (!pregunta) {
-    errores.push("El radio debe estar marcado");
+    errores.push("Debes marcar una opción del radio.");
   }
+
   return errores;
 };
-
+// storage.js. Observa que no toca variables globales, devuelve datos.
 const guardarDiscosEnLocalStorage = (lista) => {
   localStorage.setItem("discos", JSON.stringify(lista));
 };
 
-//parametro discos.
-const cargarDiscosDesdeLocalStorage = (discos) => {
+const cargarDiscosDesdeLocalStorage = () => {
   const datos = localStorage.getItem("discos");
-  if (datos) {
-    discos = JSON.parse(datos);
-    renderTablaDiscos(discos);
-    
-  }
+  return datos ? JSON.parse(datos) : [];
 };
-const mostrarErrores = (errores) => {
-  //uso constante global .
-  erroresSeccion.innerHTML = errores.length
-    ? `<ul>${errores.map((error) => `<li>${error}</li>`).join("")}</ul>`
-    : "";
-};
-const renderTablaDiscos = (lista) => {
-  //Uso const global tabla.
-  //tabla.innerHTML = "";
-  lista.map(({ autor, email, genero, anio, pregunta }, index) => {
-    //Creo la fila.
+
+
+// render.js. Buen patrón: el DOM se pasa como parámetro, no se busca dentro del módulo.
+const renderTablaDiscos = (tabla, lista) => {
+  tabla.innerHTML = "";
+
+  lista.forEach(({ autor, email, genero, anio, pregunta }, index) => {
     const fila = document.createElement("tr");
     fila.innerHTML = `
-                      <td>${autor}</td>
-                      <td>${email}</td>
-                      <td>${genero}</td>
-                      <td>${anio}</td>
-                      <td>${pregunta}</td>
-                      <td><button data-index="${index}" class="btn-eliminar">Eliminar</button></td>
+      <td>${autor}</td>
+      <td>${email}</td>
+      <td>${genero}</td>
+      <td>${anio}</td>
+      <td>${pregunta}</td>
+      <td><button data-index="${index}" class="btn-eliminar">Eliminar</button></td>
     `;
     tabla.appendChild(fila);
   });
 };
 
-/* const eliminarDisco = (index) => {
-  //eliminamos del listado de discos el que coincide con el index.
-  //Obtenemos un nuevo array.
-  discos = discos.filter((_, i) => i !== index);
-  //Guardamos el array actualizado.
-  guardarDiscosEnLocalStorage(discos);
-  renderTablaDiscos(discos);
-}; */
-
-export {validarFormulario, guardarDiscosEnLocalStorage, cargarDiscosDesdeLocalStorage, mostrarErrores, renderTablaDiscos};
+const mostrarErrores = (contenedor, errores) => {
+  contenedor.innerHTML = errores.length
+    ? `<ul>${errores.map(e => `<li>${e}</li>`).join("")}</ul>`
+    : "";
+};
+export {discos, setDiscos, validarFormulario, guardarDiscosEnLocalStorage, cargarDiscosDesdeLocalStorage, renderTablaDiscos, mostrarErrores };
