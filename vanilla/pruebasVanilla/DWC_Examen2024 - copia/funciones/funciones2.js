@@ -16,14 +16,8 @@ const setLibros = (nuevosLibros) => {
 /* =====================
    VALIDACIONES
 ===================== */
-/**
- * Valida los datos del formulario
- * @param {Object} datos
- * @returns {Array<string>}
- */
 const validarFormulario = ({ titulo, autor, genero, fecha }) => {
   const errores = [];
-
   const textoRegExp = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{3,}$/;
   const fechaRegExp = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -34,7 +28,8 @@ const validarFormulario = ({ titulo, autor, genero, fecha }) => {
   if (autor && !textoRegExp.test(autor)) {
     errores.push("El autor solo puede contener letras y espacios.");
   }
-  if(!genero){
+
+  if (!genero) {
     errores.push("Selecciona un género.");
   }
 
@@ -48,18 +43,11 @@ const validarFormulario = ({ titulo, autor, genero, fecha }) => {
 /* =====================
    LOCAL STORAGE
 ===================== */
-/**
- * Guarda el listado en LocalStorage
- * @param {Array} lista
- */
 const guardarLibrosEnLocalStorage = (lista) => {
+  if (!Array.isArray(lista)) return;
   localStorage.setItem("libros", JSON.stringify(lista));
 };
 
-/**
- * Carga el listado desde LocalStorage
- * @returns {Array}
- */
 const cargarLibrosDesdeLocalStorage = () => {
   const datos = localStorage.getItem("libros");
   try {
@@ -74,17 +62,12 @@ const cargarLibrosDesdeLocalStorage = () => {
 /* =====================
    RENDERIZADO
 ===================== */
-/**
- * Renderiza la tabla de libros
- * @param {HTMLElement} tablaBody
- * @param {Array} lista
- */
 const renderTabla = (tablaBody, lista) => {
-  tablaBody.innerHTML = "";
+  if (!tablaBody) return;
 
+  tablaBody.innerHTML = "";
   lista.forEach((libro) => {
     const fila = document.createElement("tr");
-
     fila.innerHTML = `
       <td>${libro.titulo}</td>
       <td>${libro.autor || "—"}</td>
@@ -94,7 +77,6 @@ const renderTabla = (tablaBody, lista) => {
         <button data-id="${libro.id}" class="btn-eliminar">Eliminar</button>
       </td>
     `;
-
     tablaBody.appendChild(fila);
   });
 };
@@ -102,11 +84,6 @@ const renderTabla = (tablaBody, lista) => {
 /* =====================
    ERRORES
 ===================== */
-/**
- * Muestra u oculta los errores de validación
- * @param {HTMLElement} erroresSeccion
- * @param {Array<string>} errores
- */
 const mostrarErrores = (erroresSeccion, errores) => {
   if (!errores.length) {
     erroresSeccion.classList.add("ocultado");
@@ -117,7 +94,7 @@ const mostrarErrores = (erroresSeccion, errores) => {
   erroresSeccion.classList.remove("ocultado");
   erroresSeccion.innerHTML = `
     <ul>
-      ${errores.map(error => `<li>${error}</li>`).join("")}
+      ${errores.map((e) => `<li>${e}</li>`).join("")}
     </ul>
   `;
 };
@@ -125,13 +102,7 @@ const mostrarErrores = (erroresSeccion, errores) => {
 /* =====================
    ESTADÍSTICAS
 ===================== */
-/**
- * Actualiza las estadísticas
- * @param {HTMLElement} totalEl
- * @param {HTMLElement} generosEl
- * @param {Array} lista
- */
-const actualizarEstadisticas = (totalEl, generosEl, lista) => {
+const actualizarEstadisticas = (totalEl, generosEl, lista = []) => {
   totalEl.textContent = `Número de libros: ${lista.length}`;
 
   if (!lista.length) {
@@ -142,11 +113,11 @@ const actualizarEstadisticas = (totalEl, generosEl, lista) => {
   const conteo = lista.reduce((acc, { genero }) => {
     acc[genero] = (acc[genero] || 0) + 1;
     return acc;
-  }, {});//{} valor inicial del acumulador.
+  }, {});
 
   generosEl.textContent = `Distribución de géneros: ${Object.entries(conteo)
-      .map(([genero, cantidad]) => `${genero}: ${cantidad}`)
-      .join(" | ")}`;
+    .map(([g, c]) => `${g}: ${c}`)
+    .join(" | ")}`;
 };
 
 /* =====================
@@ -160,5 +131,5 @@ export {
   cargarLibrosDesdeLocalStorage,
   renderTabla,
   mostrarErrores,
-  actualizarEstadisticas
+  actualizarEstadisticas,
 };
