@@ -136,13 +136,11 @@ const actualizarEstadisticas = (totalEl, generosEl, lista) => {
   const conteo = lista.reduce((acc, { genero }) => {
     acc[genero] = (acc[genero] || 0) + 1;
     return acc;
-  }, {});
+  }, {});//{} valor inicial del acumulador.
 
-  generosEl.textContent =
-    "Distribución de géneros: " +
-    Object.entries(conteo)
+  generosEl.textContent = `Distribución de géneros: ${Object.entries(conteo)
       .map(([genero, cantidad]) => `${genero}: ${cantidad}`)
-      .join(" | ");
+      .join(" | ")}`;
 };
 
 /* =====================
