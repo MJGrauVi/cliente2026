@@ -21,19 +21,19 @@ const validarFormulario = ({ titulo, autor, genero, fecha }) => {
   const textoRegExp = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{3,}$/;
   const fechaRegExp = /^\d{4}-\d{2}-\d{2}$/;
 
-  if (!textoRegExp.test(titulo)) {
+  if (! titulo || !textoRegExp.test(titulo)) {
     errores.push("El título debe tener al menos 3 letras.");
   }
 
-  if (autor && !textoRegExp.test(autor)) {
-    errores.push("El autor solo puede contener letras y espacios.");
+  if (!autor && !textoRegExp.test(autor)) {
+    errores.push("El autor es obligatorio y debe contener almenos 3 letras.");
   }
 
   if (!genero) {
     errores.push("Selecciona un género.");
   }
 
-  if (!fechaRegExp.test(fecha)) {
+  if (!fecha || !fechaRegExp.test(fecha)) {
     errores.push("La fecha no tiene un formato válido.");
   }
 

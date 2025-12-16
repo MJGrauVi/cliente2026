@@ -9,7 +9,7 @@ import {
   renderTabla,
   mostrarErrores,
   actualizarEstadisticas,
-} from "./funciones/funciones2.js";
+} from "./funciones/funciones3.js";
 
 window.onload = () => {
   // SELECTORES DOM
@@ -88,4 +88,4 @@ window.onload = () => {
   });
 
  //localStorage.removeItem("libros");
-};
+};//fin window.onload.
