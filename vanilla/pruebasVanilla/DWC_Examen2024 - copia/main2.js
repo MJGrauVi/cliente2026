@@ -21,7 +21,7 @@ window.onload = () => {
   const totalGeneroP = document.getElementById("generos-libros");
 
   // CARGA INICIAL 
-   const librosCargados = cargarLibrosDesdeLocalStorage();
+  const librosCargados = cargarLibrosDesdeLocalStorage();
 
   setLibros(librosCargados);
 
@@ -87,5 +87,5 @@ window.onload = () => {
     actualizarEstadisticas(totalLibrosP, totalGeneroP, listaFiltrada);
   });
 
- //localStorage.removeItem("libros");
+  //localStorage.removeItem("libros");
 };

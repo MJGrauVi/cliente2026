@@ -12,22 +12,23 @@ const setLibros = (nuevoListado) => {
 
 //validaciones
 
-const validarFormulario = ({ libro }) => {
+const validarFormulario = (libro) => {
     //variable para almacenar los errores de validación.
     let errores = [];
+    const {titulo, autor, genero, fecha} = libro;
     const tituloRegExp = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{3,}$/;
     const fechaRegExp = /^\d{4}-\d{2}-\d{2}$/;
     if (!titulo || !tituloRegExp.test(titulo)) {
-        errores.push("dato obligatorio");
+        errores.push("dato obligatorio en título");
     }
     if (!autor) {
-        errores.push("dato obligatorio");
+        errores.push("dato obligatorio en autor");
     }
     if (!genero) {
-        errores.push("dato obligatorio");
+        errores.push("dato obligatorio en genero");
     }
-    if (!fecha || !fechaRegExp.test(titulo)) {
-        errores.push("dato obligatorio");
+    if (!fecha || !fechaRegExp.test(fecha)) {
+        errores.push("dato obligatorio en fecha");
     }
     return errores;
 };
@@ -69,14 +70,14 @@ const renderTabla = (tablaBody, lista) => {
 };
 //Errores.
 
-const mostrarErrores = (seccion, errores) => {
+const mostrarErrores = (erroresSeccion, errores) => {
     if (!errores.length) {
         erroresSeccion.classList.add("ocultado");
     } else {
         erroresSeccion.classList.remove("ocultado");
     }
 
-    seccion.innerHTML = errores.length
+    erroresSeccion.innerHTML = errores.length
         ? `<ul>${errores.map(e => `<li>${e}</li>`).join("")}</ul>`
         : "";
 
