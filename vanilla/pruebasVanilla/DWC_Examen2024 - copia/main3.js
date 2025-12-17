@@ -63,18 +63,16 @@ window.onload = () => {
   });
 
   // ELIMINAR LIBRO
-  tablaLibrosBody.addEventListener("click", (evento) => {
-    const boton = evento.target.closest(".btn-eliminar");
-    if (!boton) return;
-
-    const id = boton.dataset.id;
-    const nuevosLibros = libros.filter((libro) => libro.id !== id);
-
-    setLibros(nuevosLibros);
-    guardarLibrosEnLocalStorage(nuevosLibros);
-    renderTabla(tablaLibrosBody, nuevosLibros);
-    actualizarEstadisticas(totalLibrosP, totalGeneroP, nuevosLibros);
-  });
+ tablaLibrosBody.addEventListener("click", (evento)=>{
+      if(evento.target.classList.contains("btn-eliminar")){
+        const id = evento.target.dataset.id;
+        const nuevaLista = libros.filter(libro => libro.id !== id);
+        setLibros(nuevaLista);
+        guardarLibrosEnLocalStorage(nuevaLista);
+        renderTabla(tablaLibrosBody, nuevaLista);
+        actualizarEstadisticas(totalLibrosP, totalGeneroP, nuevaLista);
+      }
+    }, false);
 
   // FILTRO POR GÉNERO
   filtroGenero.addEventListener("change", () => {

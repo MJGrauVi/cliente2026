@@ -24,8 +24,6 @@ window.onload = () => {
   const librosCargados = cargarLibrosDesdeLocalStorage();
 
   setLibros(librosCargados);
-
-  guardarLibrosEnLocalStorage(librosCargados);
   renderTabla(tablaLibrosBody, librosCargados);
   actualizarEstadisticas(totalLibrosP, totalGeneroP, librosCargados);
 

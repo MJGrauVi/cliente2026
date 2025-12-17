@@ -35,9 +35,9 @@ const validarFormulario = (libro) => {
 
 //localstorage.
 
-const guardarLibrosEnLocalStorage = (lista) => {
+const guardarLibrosEnLocalStorage = (libros) => {
 
-    localStorage.setItem("libros", JSON.stringify(lista));
+    localStorage.setItem("libros", JSON.stringify(libros));
 };
 
 const cargarLibrosDesdeLocalStorage = () => {
