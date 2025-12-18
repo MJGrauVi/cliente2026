@@ -1,100 +1,106 @@
 "use strict";
 
-//Estado aplicación.
+//ESTADO APP.
 let libros = [];
 
-//Actualizar estado.
-
-const setLibros = (nuevaLista) =>{
-    libros = nuevaLista;
+//Actualizacion del estado.
+const setLibros = (nuevosLibros)=>{
+    libros = nuevosLibros;
 }
 
-//Validaciones.
+//VALIDACIONES
 
 const validarFormulario = ({titulo, autor, genero, fecha})=>{
 
     let errores = [];
 
-    const tituloRegExp = /^[A-Za-zÁÉÍÓÚaéíóúñÑ\s]{5,}$/;
+    const tituloRegExp = /^[A-Za-zÁÉÍÓÚáéíóúnñÑ\s]{5,}$/;
     const fechaRegExp = /^\d{4}-\d{2}-\d{2}$/;
 
     if(!titulo || !tituloRegExp.test(titulo)){
-        errores.push("Tútulo obligatorio");
+        errores.push("El título es obligatorio o no cumple con el patrón esperado.");
     }
-     if(!autor){
-        errores.push("Autor obligatorio");
+    if(!autor){
+        errores.push("El autor es obligatorio.");
     }
-     if(!genero){
-        errores.push("Genero obligatorio");
+
+    if(!genero){
+        errores.push("El genero es obligatorio, por favor seleccione uno.");
     }
-     if(!fecha || !fechaRegExp.test(fecha)){
-        errores.push("Fecha obligatorio");
+    if(!fecha || !fechaRegExp.test(fecha)){
+        errores.push("La fecha es obligatoria o no cumple el patron esperado.")
+
     }
     return errores;
+};
 
+//LOCAL STORAGE.
+
+const guardarLibrosEnLocalStorage = (libros) =>{
+    localStorage.setItem("libros", JSON.stringify(libros));
 }
 
-//Local storage.
-
-const guardarLibrosEnLocalStorage = (lista) =>{
-    localStorage.setItem("libros", JSON.stringify(lista));
-};
 const cargarLibrosDesdeLocalStorage = ()=>{
+const datos = localStorage.getItem("libros");
     try{
-        const datos = localStorage.getItem("libros");
-        return datos ? JSON.parse(datos) : [];
+       return datos ? JSON.parse(datos) : [];
+       
     }catch(e){
-        console.warn("Local storage corrupto.");
+        console.warn("LocalStorage corrupto, se reinicia array libros.");
+        localStorage.removeItem("libros");
         return [];
+
     }
 }
 
-//render libros.
+//RENDER TABLA.
 
-const renderTabla = (tablaLibrosBody, lista) => {
-    tablaLibrosBody.innerHTML = "";
-    lista.forEach((libro)=>{
+const renderTabla = (tablaLibrosBody, libros)=>{
+    tablaLibrosBody.innerHTML="";
+    libros.forEach((libro)=>{
         const fila = document.createElement("tr");
-        fila.innerHTML= `<td>${libro.titulo}</td>
+        fila.innerHTML = `
+        <td>${libro.titulo}</td>
         <td>${libro.autor}</td>
         <td>${libro.genero}</td>
         <td>${libro.fecha}</td>
-        <td><button class="btn-eliminar" data.id="${libro.id}">Eliminar</button></td>`;
-    tablaLibrosBody.appendChild(fila)
+        <td><button class="btn-eliminar" data-id="${libro.id}">Eliminar</button></td>`;
+    tablaLibrosBody.appendChild(fila);
     });
+
+}
+
+//MOSTRAR ERRORES.
+
+const mostrarErrores = (erroresSeccion, errores)=>{
+erroresSeccion.innerHTML="";
+if(!errores.length){
+    erroresSeccion.classList.add("ocultado");
+    
+}else{
+    erroresSeccion.classList.remove("ocultado");
+}
+erroresSeccion.innerHTML= `<ul>${errores.map(error=>`<li>${error}</li>`)
+    .join("")}</ul>`
 };
-// Errores.
 
-const mostrarErrores = (erroresSeccion, errores) => {
-    if (!errores.length) {
-        erroresSeccion.classList.add("ocultado");
-    } else {
-        erroresSeccion.classList.remove("ocultado");
-    }
-
-    erroresSeccion.innerHTML = `<ul>${errores.map(e => `<li>${e}</li>`).join("")}</ul>`;
-
-    //seccion.classList.toggle("ocultado", !errores.length);
-};
-
-// Estadisticas.
-
-const actualizarEstadisticas = (totalLibros, generosDist, lista) =>{
-    totalLibros.textContent = `Número de libros: ${lista.length}`;
+//ESTADISTICAS.
+const actualizarEstadisticas = (totalLibros, generoSeccion, lista)=>{
+    totalLibros.textContent = `Total libros: ${libros.length}`;
 
     if(!lista.length){
-        generosDist.textContent="Distribución de generos: N/A";
-        return;
+        generoSeccion.textContent= "Distribución de libros: N/A";
     }
     const conteo = lista.reduce((acc, {genero})=>{
-        acc[genero] = (acc[genero] || 0) + 1;
-        return acc;
-    },{});//Inicio acumulador con objeto vacio.
+        acc[genero] = (acc[genero] || 0)+1;
+        return acc
+    },{});
 
-    generosDist.textContent= `Distribución de géneros: ${Object.entries(conteo)
+    generoSeccion.textContent= `${Object.entries(conteo)
         .map(([genero, cantidad])=> `${genero} : ${cantidad}`)
         .join(" | ")
     }`;
-
 }
-export {libros, setLibros, validarFormulario, guardarLibrosEnLocalStorage, cargarLibrosDesdeLocalStorage, renderTabla, mostrarErrores, actualizarEstadisticas};
+
+//EXPORTS
+export{libros, setLibros, validarFormulario, cargarLibrosDesdeLocalStorage, guardarLibrosEnLocalStorage, renderTabla, mostrarErrores, actualizarEstadisticas};
