@@ -1,6 +1,6 @@
 "use strict";
 
-//estado de la aplicacion;
+//Estado de la aplicacion;
 
 let libros = [];
 
@@ -16,8 +16,10 @@ const validarFormulario = (libro) => {
     //variable para almacenar los errores de validación.
     let errores = [];
     const {titulo, autor, genero, fecha} = libro;
+
     const tituloRegExp = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{3,}$/;
     const fechaRegExp = /^\d{4}-\d{2}-\d{2}$/;
+
     if (!titulo || !tituloRegExp.test(titulo)) {
         errores.push("dato obligatorio en título");
     }
@@ -97,6 +99,7 @@ const actualizarEstadisticas = (totLiSeccion,generoSec, lista)=>{
         return acc;
     },{});//Inicializa acumulador con un objeto vacio.
     
+    //Convierte en array de pares.
     generoSec.textContent= `Distribucion de géneros: ${Object.entries(conteo)
         .map(([genero, cantidad]) => `${genero} : ${cantidad}`)
         .join(" | ")}`;

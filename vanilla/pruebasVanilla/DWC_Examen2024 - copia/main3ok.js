@@ -9,7 +9,7 @@ import {
   renderTabla,
   mostrarErrores,
   actualizarEstadisticas,
-} from "./funciones/funciones3.js";
+} from "./funciones/funciones3ok.js";
 
 window.onload = () => {
   // SELECTORES DOM
@@ -25,7 +25,7 @@ window.onload = () => {
 
   setLibros(librosCargados);
 
-  guardarLibrosEnLocalStorage(librosCargados);
+
   renderTabla(tablaLibrosBody, librosCargados);
   actualizarEstadisticas(totalLibrosP, totalGeneroP, librosCargados);
 
@@ -44,7 +44,7 @@ window.onload = () => {
       return;
     }
     mostrarErrores(erroresSeccion, []);
-
+    //Creacion de un nevo libro con id. para eliminar sobre id no index.
     const nuevoLibro = {
       id: crypto.randomUUID(),
       titulo,
@@ -52,8 +52,9 @@ window.onload = () => {
       genero,
       fecha,
     };
-    //Guardamos los datos.
+    //Creamos nueva lista de libros, copiamos los existentes.
     const nuevosLibros = [...libros, nuevoLibro];
+    //Actualizacion del estado de la app.
     setLibros(nuevosLibros);
     guardarLibrosEnLocalStorage(nuevosLibros);
     renderTabla(tablaLibrosBody, nuevosLibros);
@@ -61,7 +62,6 @@ window.onload = () => {
 
     formulario.reset();
   });
-
   // ELIMINAR LIBRO
  tablaLibrosBody.addEventListener("click", (evento)=>{
       if(evento.target.classList.contains("btn-eliminar")){
@@ -71,9 +71,7 @@ window.onload = () => {
         guardarLibrosEnLocalStorage(nuevaLista);
         renderTabla(tablaLibrosBody, nuevaLista);
         actualizarEstadisticas(totalLibrosP, totalGeneroP, nuevaLista);
-      }
-    }, false);
-
+      } }, false);
   // FILTRO POR GÉNERO
   filtroGenero.addEventListener("change", () => {
     const generoSeleccionado = filtroGenero.value;
