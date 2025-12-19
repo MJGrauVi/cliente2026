@@ -7,7 +7,7 @@ import {
 } from "./funciones/funciones.js";
 
 window.onload = () => {
-  const urlApi = "https://swapi.dev/api/films";
+  const urlApi = "https://swapi.dev/api/";
   //traerDatos devuelve una promesa para retornar un array cuando se resuelva.
   traerDatos(urlApi).then((listaPeliculas) => {
     //consumin¡mos la promesa con .then().

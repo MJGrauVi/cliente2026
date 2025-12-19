@@ -80,8 +80,7 @@ if(!errores.length){
 }else{
     erroresSeccion.classList.remove("ocultado");
 }
-erroresSeccion.innerHTML= `<ul>${errores.map(error=>`<li>${error}</li>`)
-    .join("")}</ul>`
+erroresSeccion.innerHTML= `<ul>${errores.map(error=>`<li>${error}</li>`).join("")}</ul>`
 };
 
 //ESTADISTICAS.

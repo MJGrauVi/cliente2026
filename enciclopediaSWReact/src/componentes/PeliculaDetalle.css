@@ -1,0 +1,40 @@
+/* PeliculaDetalle.css */
+.pelicula-detalle-general {
+  display: flex;              /* activa flexbox */
+  align-items: flex-start;    /* alinea arriba */
+  gap: 2rem;                  /* espacio entre columnas */
+}
+.pelicula-detalle {
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+  max-width: 1000px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex:1;
+}
+
+.pelicula-detalle h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.pelicula-detalle ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pelicula-detalle li {
+  margin: 6px 0;
+}
+.actor-detalles-fisicos {
+  flex: 1;                    /* ocupa la parte derecha */
+  border-left: 1px solid #ccc; /* opcional: separador visual */
+  padding-left: 1rem;
+}
+
+img{
+    width: 200px;
+    border-radius: 8px;
+}

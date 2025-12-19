@@ -1,0 +1,18 @@
+.listaPeliculas-starwars {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+  max-width: 1000px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.listaPeliculas-starwars ul {
+  list-style: none;
+  padding: 0;
+}

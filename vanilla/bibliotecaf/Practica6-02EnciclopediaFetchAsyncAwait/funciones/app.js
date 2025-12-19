@@ -4,7 +4,8 @@ import { traerDatos } from "./datos.js";
 import { renderPeliculas, mostrarDetalles, mostrarError } from "./ui.js";
 
 export const iniciarApp = async () => {
-  const urlApi = "https://swapi.dev/api/films";
+  const urlApi = "//http://localhost:3000/videojuegos";
+  //http://localhost:3000/videojuegos/https://swapi.dev/api/films
 
   try {
     const listaPeliculas = await traerDatos(urlApi);
