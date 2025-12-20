@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import "./ListaPeliculas.css";
 
-const ListaPeliculas = ({ onSelectFilm }) => {
+const ListaPeliculas2 = ({ onSelectFilm }) => {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
+  
+//https://swapi.py4e.com/api/films/ //http://swapi.dev/api/films/ //http://swapi.py4e.com/api/films/
   useEffect(() => {
     async function loadFilms() {
       try {
-        const res = await fetch("https://swapi.dev/api/films/");
+        const res = await fetch("https://swapi.py4e.com/api/films/");
         if (!res.ok) throw new Error("Error al cargar películas");
         const data = await res.json();
         setFilms(data.results || []);
       } catch (err) {
-        setError(err.message);
+        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -24,8 +24,6 @@ const ListaPeliculas = ({ onSelectFilm }) => {
   }, []);
 
   if (loading) return <p>Cargando películas...</p>;
-  if (error) return <p>{error}</p>;
-  if (films.length === 0) return <p>No hay películas disponibles.</p>;
 
   return (
     <div className="listaPeliculas-starwars">
@@ -33,7 +31,7 @@ const ListaPeliculas = ({ onSelectFilm }) => {
       <ul>
         {films.map(film => (
           <li key={film.episode_id}>
-            <button onClick={() => onSelectFilm?.(film)}>
+            <button onClick={() => onSelectFilm(film)}>
               {film.title}
             </button>
           </li>
@@ -41,6 +39,5 @@ const ListaPeliculas = ({ onSelectFilm }) => {
       </ul>
     </div>
   );
-};
-
-export default ListaPeliculas;
+}
+export default ListaPeliculas2;

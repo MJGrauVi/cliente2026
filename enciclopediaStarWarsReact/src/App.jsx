@@ -3,17 +3,20 @@ import ListaPeliculas from "./componentes/ListaPeliculas.jsx";
 import PeliculaDetalle from "./componentes/PeliculaDetalle.jsx";
 import Contenedor from "./componentes/Contenedor.jsx";
 
+
 function App() {
   const [selectedFilm, setSelectedFilm] = useState(null);
 
   return (
-    <Contenedor >
-      <h1>Enciclopedia de Star Wars versión en React</h1>
-      <div className="contenedor">
-      <ListaPeliculas onSelectFilm={setSelectedFilm} />
-      <PeliculaDetalle film={selectedFilm} />
-      </div>
-    </Contenedor>
+    
+      <Contenedor >
+        <h1>Enciclopedia de Star Wars versión en React</h1>
+        <div className="contenedor">
+          <ListaPeliculas onSelectFilm={setSelectedFilm} />
+          <PeliculaDetalle film={selectedFilm} />
+        </div>
+      </Contenedor>
+    
   );
 }
 

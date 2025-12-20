@@ -30,7 +30,7 @@
 }
 .actor-detalles-fisicos {
   flex: 1;                    /* ocupa la parte derecha */
-  border-left: 1px solid #ccc; /* opcional: separador visual */
+  border-left: 5px dotted #ccc; /* opcional: separador visual */
   padding-left: 1rem;
 }
 

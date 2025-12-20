@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ActorDetalle from "./ActorDetalle";
+import ActorDetalle from "./ActorDetalle.jsx";
 import "./PeliculaDetalle.css";
 
 const PeliculaDetalle = ({ film }) => {
@@ -7,10 +7,10 @@ const PeliculaDetalle = ({ film }) => {
   const [loading, setLoading] = useState(false);
   const [selectedActor, setSelectedActor] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { //se ejecuta cada vez que cambia la pelicula selleccionada[film].
     if (!film) return;
 
-    let active = true;
+    let active = true;//ponemos a false para evitar actualizar el estado cuando el componente ya no está montado.
     async function loadActors() {
       setLoading(true);
       try {
@@ -35,7 +35,7 @@ const PeliculaDetalle = ({ film }) => {
     return () => { active = false };
   }, [film]);
 
-  if (!film) return <p>Selecciona una película.</p>;
+  if (!film) return <h3>Selecciona una película del listado.</h3>;
 
   return (
     <div className="pelicula-detalle-general">
