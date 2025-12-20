@@ -10,7 +10,7 @@ function App() {
   return (
     
       <Contenedor >
-        <h1>Enciclopedia de Star Wars versión en React</h1>
+        <h1>Enciclopedia Star Wars - React</h1>
         <div className="contenedor">
           <ListaPeliculas onSelectFilm={setSelectedFilm} />
           <PeliculaDetalle film={selectedFilm} />

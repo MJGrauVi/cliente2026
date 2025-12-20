@@ -1,44 +1,27 @@
-import { useEffect, useState } from "react";
-import "./ListaPeliculas.css";
+import { useEffect, useContext, useState } from "react";
+import { FilmContext } from "../context/FilmContext";
 
-const ListaPeliculas = ({ onSelectFilm }) => {
+const ListaPeliculas = () => {
+  const { setSelectedFilm } = useContext(FilmContext);
   const [films, setFilms] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function loadFilms() {
-      try {
-        const res = await fetch("https://swapi.py4e.com/api/films/");
-        if (!res.ok) throw new Error("Error al cargar películas");
-        const data = await res.json();
-        setFilms(data.results || data || []);
-      } catch (err) {
-      /*  console.error(err);*/ 
-        setError(err.message); 
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadFilms();
+    fetch("https://swapi.py4e.com/api/films/")
+      .then(res => res.json())
+      .then(data => setFilms(data.results));
   }, []);
 
-  if (loading) return <p>Cargando películas...</p>;
-  if (error) return <p>{error}</p>;
-  if (films.length === 0) return <p>No hay películas disponibles.</p>;
-
   return (
-    <div className="listaPeliculas-starwars">
+    <div>
       <h2>Películas</h2>
       <ul>
         {films.map(film => (
           <li key={film.episode_id}>
-            <button onClick={() => onSelectFilm?.(film)}>
+            <button onClick={() => setSelectedFilm(film)}>
               {film.title}
             </button>
           </li>
         ))}
-
       </ul>
     </div>
   );
