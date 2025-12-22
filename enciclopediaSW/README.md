@@ -1,16 +1,55 @@
-# React + Vite
+# Enciclopedia Star Wars - Aplicación React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para explorar películas y personajes de Star Wars usando la [SWAPI](https://swapi.dev/). Permite seleccionar películas, ver el elenco, consultar detalles de cada actor y, si corresponde, los vehículos y naves que pilota.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📂 Estructura del proyecto
 
-## React Compiler
+src/
+├─ components/
+│ ├─ ListaPeliculas.jsx
+│ ├─ ListaActores.jsx
+│ ├─ ActorDetalle.jsx
+│ ├─ DatosPelicula.jsx
+│ ├─ Elenco.jsx
+│ ├─ PeliculaInfo.jsx
+│ └─ Resumen.jsx
+├─ context/
+│ ├─ ProveedorPelicula.jsx
+│ └─ ProveedorActor.jsx
+├─ funciones/
+│ └─ funciones.js
+├─ App.jsx
+└─ main.jsx
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `context/`: Maneja estados globales de película y actor mediante Context API.  
+- `components/`: Componentes funcionales de la aplicación.  
+- `funciones/funciones.js`: Funciones reutilizables para fetch y manejo de datos.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Requisitos del entorno
+
+- Node.js ≥ 18  
+- npm ≥ 9 o yarn ≥ 1.22  
+- Navegador moderno (Chrome, Edge, Firefox)  
+
+---
+
+## Instalación
+
+1. Clonar el repositorio:
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_PROYECTO>
+npm install
+# o con yarn
+# yarn
+
+npm run dev
+
+```bash
+## Build para producción
+npm run build
