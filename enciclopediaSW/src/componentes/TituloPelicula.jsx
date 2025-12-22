@@ -6,9 +6,11 @@ const TituloPelicula = () => {
   const { selectedFilm } = useContext(ContextoPelicula);
   if (!selectedFilm) return null;
 
-  return <div className="titulo-pelicula">
+  return (
+    <div className="titulo-pelicula">
       <h2>{selectedFilm.title}</h2>
     </div>
+  );
 };
 
 export default TituloPelicula;
