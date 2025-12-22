@@ -1,9 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { ContextoPelicula } from "../context/ProveedorPelicula.jsx";
 import { ContextoActor } from "../context/ProveedorActor.jsx";
-import { traerDatos } from "../funciones/funciones.js";
 
-const ListaActores = () => {
+const ListaActoresOK2 = () => {
   const { selectedFilm } = useContext(ContextoPelicula);
   const { seleccionarActor } = useContext(ContextoActor);
 
@@ -26,8 +25,18 @@ const ListaActores = () => {
       try {
         const urls = selectedFilm.characters.slice(0, 10);
 
-        // Usando traerDatos en lugar de fetch directo
-        const data = await Promise.all(urls.map((url) => traerDatos(url)));
+        const responses = await Promise.all(
+          urls.map((url) => fetch(url))
+        );
+
+        const data = await Promise.all(
+          responses.map((res) => {
+            if (!res.ok) {
+              throw new Error("Error cargando actores");
+            }
+            return res.json();
+          })
+        );
 
         if (active) setActors(data);
       } catch (err) {
@@ -44,7 +53,9 @@ const ListaActores = () => {
     };
   }, [selectedFilm]);
 
-  if (!selectedFilm) return null;
+  if (!selectedFilm) {
+    return null;
+  }
 
   return (
     <div>
@@ -66,4 +77,4 @@ const ListaActores = () => {
   );
 };
 
-export default ListaActores;
+export default ListaActoresOK2;

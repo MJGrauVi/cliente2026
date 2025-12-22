@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ContextoPelicula } from "../context/ProveedorPelicula";
-import Portada from "./Portada";
+import Portada from "./PortadaNo";
 import Resumen from "./Resumen";
 import Elenco from "./Elenco";
 

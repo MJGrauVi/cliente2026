@@ -5,6 +5,7 @@ import { ContextoActor } from "../context/ProveedorActor.jsx";
 const ListaActoresCambiado = () => {
   const { selectedFilm } = useContext(ContextoPelicula);
   const { setSelectedActor } = useContext(ContextoActor);
+  
   const [actors, setActors] = useState([]);
 
   useEffect(() => {
