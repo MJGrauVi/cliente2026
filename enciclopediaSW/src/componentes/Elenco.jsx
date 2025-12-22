@@ -1,7 +1,13 @@
-import ListaActores from "./ListaActores";
-import ActorDetalle from "./ActorDetalle";
+import { useContext } from "react";
+import { ContextoPelicula } from "../context/ProveedorPelicula.jsx";
+import ListaActores from "./ListaActores.jsx";
+import ActorDetalle from "./ActorDetalle.jsx";
 
 const Elenco = () => {
+  const { selectedFilm } = useContext(ContextoPelicula);
+
+  if (!selectedFilm) return null;
+
   return (
     <div className="elenco">
       <ListaActores />
