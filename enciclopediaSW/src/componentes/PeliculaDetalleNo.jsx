@@ -1,13 +1,14 @@
 import { useEffect, useState, useContext } from "react";
 import ActorDetalle from "./ActorDetalle.jsx";
-import { ActorContext } from "../context/ActorContext.jsx";
+import { ContextoActor } from "../context/ProveedorActor.jsx";
 import "./PeliculaDetalle.css";
 
-const PeliculaDetalle = ({ film }) => {
+const PeliculaDetalleNo = ({ film }) => {
   const [actores, setActores] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const { setSelectedActor } = useContext(ActorContext);
+  const { seleccionarActor } = useContext(ContextoActor);
+  //setSelectedActor
 
   useEffect(() => {
     if (!film) return;
@@ -72,7 +73,7 @@ const PeliculaDetalle = ({ film }) => {
         <ul>
           {actores.map(actor => (
             <li key={actor.url}>
-              <button onClick={() => setSelectedActor(actor)}>
+              <button onClick={() => seleccionarActor(actor)}>
                 {actor.name}
               </button>
             </li>
@@ -87,4 +88,4 @@ const PeliculaDetalle = ({ film }) => {
   );
 };
 
-export default PeliculaDetalle;
+export default PeliculaDetalleNO;
