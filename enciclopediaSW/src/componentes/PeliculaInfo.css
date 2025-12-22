@@ -1,0 +1,8 @@
+/* Contenedor general de la info */
+.pelicula-info {
+  flex: 1;
+  padding: 20px;
+  background-color: #111;
+  border-radius: 10px;
+  border: 1px solid #333;
+}

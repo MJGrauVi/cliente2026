@@ -1,0 +1,35 @@
+.actorDetalle-contenedor {
+  background-color: #f9f9f9;   /* Fondo suave */
+  border: 1px solid #ddd;      /* Borde gris claro */
+  border-radius: 8px;          /* Esquinas redondeadas */
+  padding: 16px;               /* Espaciado interno */
+  margin-top: 20px;            /* Separación respecto a otros elementos */
+  max-width: 400px;            /* Ancho máximo para que no se desborde */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Sombra ligera */
+}
+
+.actorDetalle-contenedor h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.actorDetalle-contenedor p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.actorDetalle-contenedor strong {
+  color: #222;
+}
+
+.actorDetalle-contenedor img {
+  display: block;
+  margin-top: 12px;
+  width: 100%;                 /* Que ocupe todo el ancho disponible */
+  max-width: 250px;            /* Pero no más de 250px */
+  border-radius: 6px;          /* Esquinas redondeadas en la imagen */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra ligera */
+}
+
