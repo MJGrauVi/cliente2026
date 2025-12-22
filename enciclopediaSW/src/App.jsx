@@ -8,7 +8,7 @@ function App() {
     <Contenedor>
       <h1>SW Enciclopedia</h1>
 
-      <div className="contenedor">
+      <div className="contenedor-app">
         {/* Columna izquierda */}
         <ListaPeliculas />
 

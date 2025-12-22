@@ -5,11 +5,11 @@ const ContextoPelicula = createContext();
 const ProveedorPelicula = ({ children }) => {
   const [selectedFilm, setSelectedFilm] = useState(null);
 
-  return (
-    <ProveedorPelicula value={{ selectedFilm, setSelectedFilm }}>
-      {children}
-    </ProveedorPelicula>
-  );
+return (
+  <ContextoPelicula.Provider value={{ selectedFilm, setSelectedFilm }}>
+    {children}
+  </ContextoPelicula.Provider>
+);
 };
 export {ContextoPelicula};
 export {ProveedorPelicula};
