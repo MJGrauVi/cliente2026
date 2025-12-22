@@ -11,9 +11,9 @@ const ProveedorPelicula = ({ children }) => {
   };
 
   return (
-    <ContextoPelicula.Provider value={{ selectedFilm, seleccionarPelicula }}>
+    <ContextoPelicula value={{ selectedFilm, seleccionarPelicula }}>
       {children}
-    </ContextoPelicula.Provider>
+    </ContextoPelicula>
   );
 };
 

@@ -50,7 +50,7 @@ const ProveedorActor = ({ children }) => {
   };
 
   return (
-    <ContextoActor.Provider
+    <ContextoActor
       value={{
         selectedActor,
         seleccionarActor,
@@ -61,7 +61,7 @@ const ProveedorActor = ({ children }) => {
       }}
     >
       {children}
-    </ContextoActor.Provider>
+    </ContextoActor>
   );
 };
 
