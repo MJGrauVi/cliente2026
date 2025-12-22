@@ -4,10 +4,13 @@ import { traerDatos } from "../../funciones/funciones.js";
 import "./ListaPeliculas.css";
 
 const ListaPeliculas = () => {
-  //
+  //Obtenemos la función para seleccionar la película desde el contexto.
   const { seleccionarPelicula } = useContext(ContextoPelicula);
+
+  //Estado para almacenar las peliculas .
   const [films, setFilms] = useState([]);
 
+  //Ejecuta el código y carga las peliculas.
   useEffect(() => {
     const cargarPeliculas = async () => {
       try {
@@ -18,7 +21,7 @@ const ListaPeliculas = () => {
       }
     };
     cargarPeliculas();
-  }, []);
+  }, []);//Dependencia [] vacia indica que se monta solo 1 vez, al cargar la aplicación.
 
   return (
     <div>

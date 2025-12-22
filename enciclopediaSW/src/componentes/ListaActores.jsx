@@ -4,6 +4,7 @@ import { ContextoActor } from "../context/ProveedorActor.jsx";
 import { traerDatos } from "../../funciones/funciones.js";
 
 const ListaActores = () => {
+  // Funciones que se utilizan en el contexto.
   const { selectedFilm } = useContext(ContextoPelicula);
   const { seleccionarActor } = useContext(ContextoActor);
 
