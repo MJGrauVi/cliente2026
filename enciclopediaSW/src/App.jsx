@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   return (
     <Contenedor>
-      <h1>SW Enciclopedia</h1>
+      <h1>Enciclopedia Star Wars</h1>
 
       <div className="contenedor-app">
         {/* Columna izquierda */}

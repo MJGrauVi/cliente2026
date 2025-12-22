@@ -1,15 +1,20 @@
 import { useEffect, useContext, useState } from "react";
 import { ContextoPelicula } from "../context/ProveedorPelicula.jsx";
+import { traerDatos} from "../../funciones/funciones.js";
 import "./ListaPeliculas.css";
 
 const ListaPeliculas = () => {
   const { setSelectedFilm } = useContext(ContextoPelicula);
   const [films, setFilms] = useState([]);
 
-  useEffect(() => {
-    fetch("https://swapi.py4e.com/api/films/")
-      .then((res) => res.json())
-      .then((data) => setFilms(data.results));
+useEffect(() => { 
+  const cargarPeliculas = async () => { 
+    try { 
+      const data = await traerDatos("https://swapi.py4e.com/api/films/"); 
+      setFilms(data); } catch (error) { 
+        console.error("Error cargando películas:", error); 
+      } 
+    }; cargarPeliculas(); 
   }, []);
 
   return (
