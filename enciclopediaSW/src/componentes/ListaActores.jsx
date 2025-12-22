@@ -54,7 +54,7 @@ const ListaActores = () => {
   }, [selectedFilm]);
 
   if (!selectedFilm) {
-    return <p>Selecciona una película para ver el elenco.</p>;
+    return null;
   }
 
   return (
