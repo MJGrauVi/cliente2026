@@ -4,7 +4,7 @@ Aplicación web para explorar películas y personajes de Star Wars usando la [SW
 
 ---
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 
 src/
 ├─ components/
@@ -29,7 +29,7 @@ src/
 
 ---
 
-## ⚙️ Requisitos del entorno
+## Requisitos del entorno
 
 - Node.js ≥ 18  
 - npm ≥ 9 o yarn ≥ 1.22  
@@ -44,12 +44,16 @@ src/
 ```bash
 git clone <URL_DEL_REPOSITORIO>
 cd <NOMBRE_DEL_PROYECTO>
+````
+
+```bash
 npm install
 # o con yarn
 # yarn
 
 npm run dev
 
+````
 ```bash
 ## Build para producción
 npm run build

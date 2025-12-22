@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { ContextoPelicula } from "../context/ProveedorPelicula";
-import Portada from "./PortadaNo";
 import Resumen from "./Resumen";
 import Elenco from "./Elenco";
 
@@ -17,7 +16,6 @@ const DatosPelicula = () => {
 
   return (
     <div className="datos-pelicula">
-      <Portada />
       <Resumen />
       <Elenco />
     </div>

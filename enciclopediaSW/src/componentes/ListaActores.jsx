@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ContextoPelicula } from "../context/ProveedorPelicula.jsx";
 import { ContextoActor } from "../context/ProveedorActor.jsx";
-import { traerDatos } from "../funciones/funciones.js";
+import { traerDatos } from "../../funciones/funciones.js";
 
 const ListaActores = () => {
   const { selectedFilm } = useContext(ContextoPelicula);
