@@ -12,4 +12,4 @@ const FilmProvider = ({ children }) => {
   );
 };
 export {FilmContext};
-export default FilmProvider;
+export {FilmProvider};

@@ -72,6 +72,7 @@ window.onload = () => {
         renderTabla(tablaLibrosBody, nuevaLista);
         actualizarEstadisticas(totalLibrosP, totalGeneroP, nuevaLista);
       } }, false);
+      
   // FILTRO POR GÉNERO
   filtroGenero.addEventListener("change", () => {
     const generoSeleccionado = filtroGenero.value;

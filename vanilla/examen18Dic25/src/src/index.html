@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Videojuegos</title>
+    <link rel="stylesheet" href="./estilo.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gestor de Videojuegos</h1>
+    </header>
+    <main>
+      <section id="formularioSeccion">
+        <h2>Agregar un videojuego</h2>
+        <form id="videojuegosFormulario">
+          <label for="titulo">Título:</label>
+          <input type="text" id="titulo" name="titulo" />
+          <label for="desarrollador">Desarrollador:</label>
+          <input type="text" id="desarrollador" name="desarrollador" />
+          <label for="genero">Género:</label>
+          <select id="genero" name="genero">
+            <option value="">Selecciona un género</option>
+            <option value="RPG">RPG</option>
+            <option value="Mundo Abierto">Mundo Abierto</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Survival Horror">Survival Horror</option>
+            <option value="Hack and Slash">Hack and Slash</option>
+            <option value="Simulación">Simulación</option>
+            <option value="FPS">FPS</option>
+            <option value="Cooperativo">Cooperativo</option>
+            <option value="Carreras">Carreras</option>
+            <option value="Roguelike">Roguelike</option>
+            <option value="Metroidvania">Metroidvania</option>
+          </select>
+          <button id="botonGuardar">Agregar Videojuego</button>
+        </form>
+      </section>
+      <section id="erroresSeccion" class="oculto">
+        <!-- Aquí aparecen los errores. -->
+      </section>
+      <section id="filtrosSeccion">
+        <h2>Filtrar</h2>
+        <select id="filtrosGenero">
+          <option value="">Sin filtro</option>
+          <option value="RPG">RPG</option>
+          <option value="Mundo Abierto">Mundo Abierto</option>
+          <option value="Fantasía">Fantasía</option>
+          <option value="Aventura">Aventura</option>
+          <option value="Survival Horror">Survival Horror</option>
+          <option value="Hack and Slash">Hack and Slash</option>
+          <option value="Simulación">Simulación</option>
+          <option value="FPS">FPS</option>
+          <option value="Cooperativo">Cooperativo</option>
+          <option value="Carreras">Carreras</option>
+          <option value="Roguelike">Roguelike</option>
+          <option value="Metroidvania">Metroidvania</option>
+        </select>
+      </section>
+      <section id="tablaSeccion">
+        <h2>Lista de videojuegos</h2>
+        <table id="tablaVideojuegos">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Desarrollador</th>
+              <th>Género</th>
+              <th colspan="2">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí va el listado de videojuegos. -->
+            <!-- Propuesta de plantilla para cada fila (se puede modificar).
+             <tr>
+              <td>Título del juego feo</td>
+              <td>Desarrollador feo del juego</td>
+              <td>Género feo</td>
+              <td>Botón Eliminar</td>
+              <td>Botón Ver</td>
+            </tr>
+             -->
+          </tbody>
+        </table>
+      </section>
+      <h2>Detalle del videojuego</h2>
+      <section id="detallesSeccion">
+        <!-- Aquí va el detalle del videojuego seleccionado. -->
+        Detalle del videojuego seleccionado.
+      </section>
+      <section>
+        <h2>Copia de seguridad (persistencia de datos)</h2>
+        <p id="seguridadBotones">
+          <button>Guardar copia de seguridad</button>
+          <button>Cargar copia de seguridad</button>
+        </p>
+      </section>
+    </main>
+  </body>
+  <script type="module" src="./principal.js"></script>
+</html>

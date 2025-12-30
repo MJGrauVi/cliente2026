@@ -1,0 +1,326 @@
+{
+  "videojuegos": [
+    {
+      "id": "786a34d2-7c1a-4f5b-9d8e-12a34b56c7d8",
+      "titulo": "The Last of Us Part II",
+      "desarrollador": "Naughty Dog",
+      "lanzamiento": 2020,
+      "genero": "Aventura",
+      "plataforma_principal": "PS4, PS5",
+      "url_caratula": "https://ejemplo.com/imagenes/tlou2_cover.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/e11d9f8c-4567-4321-b123-abcdef000001",
+        "http://localhost:3000/personajes/e11d9f8c-4567-4321-b123-abcdef000002",
+        "http://localhost:3000/personajes/e11d9f8c-4567-4321-b123-abcdef000003"
+      ]
+    },
+    {
+      "id": "bc45d6e7-f8g9-4h0i-j1k2-l3m4n5o6p7q8",
+      "titulo": "Final Fantasy VII Rebirth",
+      "desarrollador": "Square Enix",
+      "lanzamiento": 2024,
+      "genero": "RPG",
+      "plataforma_principal": "PS5",
+      "url_caratula": "https://ejemplo.com/imagenes/ffvii_rebirth.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/f22e0a9d-5678-5432-c234-bcdefa000004",
+        "http://localhost:3000/personajes/f22e0a9d-5678-5432-c234-bcdefa000005",
+        "http://localhost:3000/personajes/f22e0a9d-5678-5432-c234-bcdefa000006"
+      ]
+    },
+    {
+      "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+      "titulo": "Alan Wake 2",
+      "desarrollador": "Remedy Entertainment",
+      "lanzamiento": 2023,
+      "genero": "Survival Horror",
+      "plataforma_principal": "PC, PS5, Xbox Series X/S",
+      "url_caratula": "https://ejemplo.com/imagenes/alan_wake_2.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/a33f1b0e-6789-6543-d345-cdefab000007",
+        "http://localhost:3000/personajes/a33f1b0e-6789-6543-d345-cdefab000008",
+        "http://localhost:3000/personajes/a33f1b0e-6789-6543-d345-cdefab000009"
+      ]
+    },
+    {
+      "id": "9d8e7f6a-5b4c-4d3e-2f1a-0b9c8d7e6f5a",
+      "titulo": "Sekiro: Shadows Die Twice",
+      "desarrollador": "FromSoftware",
+      "lanzamiento": 2019,
+      "genero": "Acción",
+      "plataforma_principal": "PC, PS4, Xbox One",
+      "url_caratula": "https://ejemplo.com/imagenes/sekiro_cover.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/b44g2c1f-7890-7654-e456-defabc000010",
+        "http://localhost:3000/personajes/b44g2c1f-7890-7654-e456-defabc000011",
+        "http://localhost:3000/personajes/b44g2c1f-7890-7654-e456-defabc000012"
+      ]
+    },
+    {
+      "id": "c1d2e3f4-a5b6-4c7d-8e9f-0g1h2i3j4k5l",
+      "titulo": "Death Stranding",
+      "desarrollador": "Kojima Productions",
+      "lanzamiento": 2019,
+      "genero": "Exploración",
+      "plataforma_principal": "PC, PS4, PS5",
+      "url_caratula": "https://ejemplo.com/imagenes/death_stranding.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/c55h3d2g-8901-8765-f567-efabcd000013",
+        "http://localhost:3000/personajes/c55h3d2g-8901-8765-f567-efabcd000014",
+        "http://localhost:3000/personajes/c55h3d2g-8901-8765-f567-efabcd000015"
+      ]
+    },
+    {
+      "id": "f8e7d6c5-b4a3-4210-9876-543210fedcba",
+      "titulo": "Persona 5 Royal",
+      "desarrollador": "Atlus",
+      "lanzamiento": 2019,
+      "genero": "RPG",
+      "plataforma_principal": "PS4, PC, Switch",
+      "url_caratula": "https://ejemplo.com/imagenes/p5r_cover.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/d66i4e3h-9012-9876-a678-fabcde000016",
+        "http://localhost:3000/personajes/d66i4e3h-9012-9876-a678-fabcde000017",
+        "http://localhost:3000/personajes/d66i4e3h-9012-9876-a678-fabcde000018"
+      ]
+    },
+    {
+      "id": "01234567-89ab-4cde-afed-cba987654321",
+      "titulo": "Hollow Knight",
+      "desarrollador": "Team Cherry",
+      "lanzamiento": 2017,
+      "genero": "Metroidvania",
+      "plataforma_principal": "PC, Switch, PS4, Xbox One",
+      "url_caratula": "https://ejemplo.com/imagenes/hollow_knight.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/e77j5f4i-0123-0987-b789-abcdef000019",
+        "http://localhost:3000/personajes/e77j5f4i-0123-0987-b789-abcdef000020",
+        "http://localhost:3000/personajes/e77j5f4i-0123-0987-b789-abcdef000021"
+      ]
+    },
+    {
+      "id": "abcdef12-3456-4789-abcd-ef1234567890",
+      "titulo": "Nier: Automata",
+      "desarrollador": "PlatinumGames",
+      "lanzamiento": 2017,
+      "genero": "Hack and Slash",
+      "plataforma_principal": "PC, PS4, Xbox One",
+      "url_caratula": "https://ejemplo.com/imagenes/nier_cover.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/f88k6g5j-1234-1098-c890-bcdefa000022",
+        "http://localhost:3000/personajes/f88k6g5j-1234-1098-c890-bcdefa000023",
+        "http://localhost:3000/personajes/f88k6g5j-1234-1098-c890-bcdefa000024"
+      ]
+    },
+    {
+      "id": "22222222-3333-4444-5555-666666666666",
+      "titulo": "Sea of Stars",
+      "desarrollador": "Sabotage Studio",
+      "lanzamiento": 2023,
+      "genero": "RPG",
+      "plataforma_principal": "PC, Switch, PS5, Xbox Series",
+      "url_caratula": "https://ejemplo.com/imagenes/sea_of_stars.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/a99l7h6k-2345-2109-d901-cdefab000025",
+        "http://localhost:3000/personajes/a99l7h6k-2345-2109-d901-cdefab000026",
+        "http://localhost:3000/personajes/a99l7h6k-2345-2109-d901-cdefab000027"
+      ]
+    },
+    {
+      "id": "1a2b3c4d-5e6f-47a8-b9c0-d1e2f3a4b5c6",
+      "titulo": "Black Myth: Wukong",
+      "desarrollador": "Game Science",
+      "lanzamiento": 2024,
+      "genero": "Acción",
+      "plataforma_principal": "PC, PS5",
+      "url_caratula": "https://ejemplo.com/imagenes/wukong_cover.jpg",
+      "listado_personajes": [
+        "http://localhost:3000/personajes/b00m8i7l-3456-3210-e012-defabc000028",
+        "http://localhost:3000/personajes/b00m8i7l-3456-3210-e012-defabc000029",
+        "http://localhost:3000/personajes/b00m8i7l-3456-3210-e012-defabc000030"
+      ]
+    }
+  ],
+  "personajes": [
+    {
+      "id": "e11d9f8c-4567-4321-b123-abcdef000001",
+      "nombre": "Ellie Williams",
+      "rol": "Protagonista",
+      "descripcion": "Una joven inmune que busca venganza a través de un viaje emocional destructivo."
+    },
+    {
+      "id": "e11d9f8c-4567-4321-b123-abcdef000002",
+      "nombre": "Abby Anderson",
+      "rol": "Coprotagonista",
+      "descripcion": "Una soldado de la WLF cuyo pasado está ligado irremediablemente a Joel y Ellie."
+    },
+    {
+      "id": "e11d9f8c-4567-4321-b123-abcdef000003",
+      "nombre": "Joel Miller",
+      "rol": "Mentor / Personaje clave",
+      "descripcion": "El protector de Ellie en el primer juego, cuya decisión marca toda la secuela."
+    },
+    {
+      "id": "f22e0a9d-5678-5432-c234-bcdefa000004",
+      "nombre": "Cloud Strife",
+      "rol": "Protagonista",
+      "descripcion": "Un ex-SOLDADO mercenario con un pasado fragmentado y una espada mortal."
+    },
+    {
+      "id": "f22e0a9d-5678-5432-c234-bcdefa000005",
+      "nombre": "Aerith Gainsborough",
+      "rol": "Protagonista / Cetra",
+      "descripcion": "La última de los Ancianos, con una conexión profunda con el Planeta."
+    },
+    {
+      "id": "f22e0a9d-5678-5432-c234-bcdefa000006",
+      "nombre": "Sephiroth",
+      "rol": "Antagonista",
+      "descripcion": "El legendario guerrero que busca convertirse en un dios mediante la Corriente Vital."
+    },
+    {
+      "id": "a33f1b0e-6789-6543-d345-cdefab000007",
+      "nombre": "Saga Anderson",
+      "rol": "Protagonista (FBI)",
+      "descripcion": "Una perfiladora del FBI experta en resolver casos imposibles mediante su 'Lugar Mental'."
+    },
+    {
+      "id": "a33f1b0e-6789-6543-d345-cdefab000008",
+      "nombre": "Alan Wake",
+      "rol": "Protagonista (Escritor)",
+      "descripcion": "Un escritor atrapado en el Lugar Oscuro intentando escribir su vía de escape."
+    },
+    {
+      "id": "a33f1b0e-6789-6543-d345-cdefab000009",
+      "nombre": "Mr. Scratch",
+      "rol": "Antagonista",
+      "descripcion": "La versión oscura y malévola de Alan Wake nacida de los rumores y el Lugar Oscuro."
+    },
+    {
+      "id": "b44g2c1f-7890-7654-e456-defabc000010",
+      "nombre": "Lobo (Sekiro)",
+      "rol": "Protagonista",
+      "descripcion": "Un shinobi de un solo brazo jurado a proteger al Descendiente Celestial."
+    },
+    {
+      "id": "b44g2c1f-7890-7654-e456-defabc000011",
+      "nombre": "Kuro",
+      "rol": "Personaje secundario clave",
+      "descripcion": "El Descendiente Celestial que posee el linaje del Acervo del Dragón."
+    },
+    {
+      "id": "b44g2c1f-7890-7654-e456-defabc000012",
+      "nombre": "Genichiro Ashina",
+      "rol": "Antagonista",
+      "descripcion": "Un guerrero desesperado por salvar su tierra natal a cualquier coste espiritual."
+    },
+    {
+      "id": "c55h3d2g-8901-8765-f567-efabcd000013",
+      "nombre": "Sam Porter Bridges",
+      "rol": "Protagonista",
+      "descripcion": "Un transportista encargado de reconectar a una sociedad fragmentada."
+    },
+    {
+      "id": "c55h3d2g-8901-8765-f567-efabcd000014",
+      "nombre": "Fragile",
+      "rol": "Aliada",
+      "descripcion": "Directora de una empresa de mensajería con habilidades especiales de desplazamiento."
+    },
+    {
+      "id": "c55h3d2g-8901-8765-f567-efabcd000015",
+      "nombre": "Higgs Monaghan",
+      "rol": "Antagonista",
+      "descripcion": "Un terrorista con poderes de DOOMS que busca acelerar la extinción final."
+    },
+    {
+      "id": "d66i4e3h-9012-9876-a678-fabcde000016",
+      "nombre": "Joker",
+      "rol": "Protagonista",
+      "descripcion": "Líder de los Phantom Thieves con la habilidad de cambiar los corazones de los corruptos."
+    },
+    {
+      "id": "d66i4e3h-9012-9876-a678-fabcde000017",
+      "nombre": "Morgana",
+      "rol": "Guía",
+      "descripcion": "Un ser misterioso con forma de gato que introduce al equipo al Metaverso."
+    },
+    {
+      "id": "d66i4e3h-9012-9876-a678-fabcde000018",
+      "nombre": "Kasumi Yoshizawa",
+      "rol": "Aliada clave (Royal)",
+      "descripcion": "Una gimnasta talentosa que se une al grupo con un conflicto de identidad profundo."
+    },
+    {
+      "id": "e77j5f4i-0123-0987-b789-abcdef000019",
+      "nombre": "El Caballero (The Knight)",
+      "rol": "Protagonista",
+      "descripcion": "Un receptáculo sin voz que explora el reino en ruinas de Hallownest."
+    },
+    {
+      "id": "e77j5f4i-0123-0987-b789-abcdef000020",
+      "nombre": "Hornet",
+      "rol": "Aliada / Rival",
+      "descripcion": "La guardiana de las ruinas que pone a prueba al caballero en su viaje."
+    },
+    {
+      "id": "e77j5f4i-0123-0987-b789-abcdef000021",
+      "nombre": "El Rey Pálido",
+      "rol": "Personaje histórico clave",
+      "descripcion": "El antiguo gobernante que intentó salvar Hallownest de la infección."
+    },
+    {
+      "id": "f88k6g5j-1234-1098-c890-bcdefa000022",
+      "nombre": "2B (YoRHa No.2 Type B)",
+      "rol": "Protagonista",
+      "descripcion": "Androide de combate diseñada para luchar contra máquinas invasoras en la Tierra."
+    },
+    {
+      "id": "f88k6g5j-1234-1098-c890-bcdefa000023",
+      "nombre": "9S (YoRHa No.9 Type S)",
+      "rol": "Coprotagonista",
+      "descripcion": "Androide de escaneo especializado en la recopilación de datos y hackeo."
+    },
+    {
+      "id": "f88k6g5j-1234-1098-c890-bcdefa000024",
+      "nombre": "A2 (YoRHa Type A No.2)",
+      "rol": "Protagonista / Fugitiva",
+      "descripcion": "Un prototipo de androide desertora que opera de forma independiente."
+    },
+    {
+      "id": "a99l7h6k-2345-2109-d901-cdefab000025",
+      "nombre": "Zale",
+      "rol": "Protagonista (Bailarín Solar)",
+      "descripcion": "Un Guerrero del Solsticio capaz de usar magia solar para purificar el mal."
+    },
+    {
+      "id": "a99l7h6k-2345-2109-d901-cdefab000026",
+      "nombre": "Valere",
+      "rol": "Protagonista (Monje Lunar)",
+      "descripcion": "Una Guerrera del Solsticio que canaliza los poderes de la luna en combate."
+    },
+    {
+      "id": "a99l7h6k-2345-2109-d901-cdefab000027",
+      "nombre": "Garl",
+      "rol": "Mejor amigo / Cocinero guerrero",
+      "descripcion": "Un humano común con un corazón de oro que acompaña a los protagonistas."
+    },
+    {
+      "id": "b00m8i7l-3456-3210-e012-defabc000028",
+      "nombre": "El Predestinado (Sun Wukong)",
+      "rol": "Protagonista",
+      "descripcion": "Un mono guerrero que sigue los pasos de la leyenda del Rey Mono."
+    },
+    {
+      "id": "b00m8i7l-3456-3210-e012-defabc000029",
+      "nombre": "Zhu Bajie",
+      "rol": "Compañero",
+      "descripcion": "Un antiguo dios convertido en cerdo que ayuda al protagonista con humor y fuerza."
+    },
+    {
+      "id": "b00m8i7l-3456-3210-e012-defabc000030",
+      "nombre": "Erlang Shen",
+      "rol": "Rival / Antagonista",
+      "descripcion": "Un dios poderoso de tres ojos que se opone al destino del protagonista."
+    }
+  ]
+}

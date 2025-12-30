@@ -53,8 +53,6 @@ const cargarLibrosDesdeLocalStorage = () => {
   }
 };
 
-
-
 //renderizado.
 
 const renderTabla = (tablaBody, lista) => {

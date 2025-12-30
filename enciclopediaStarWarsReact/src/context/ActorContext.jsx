@@ -18,4 +18,4 @@ const ActorProvider = ({ children }) => {
   );
 };
 export {ActorContext};
-export default ActorProvider;
+export {ActorProvider};
