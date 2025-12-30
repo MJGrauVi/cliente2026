@@ -14,10 +14,10 @@ const traerDatos = async (url) => {
 };
 // Actualizar estado.
 
-/* const setDatos = (nuevoListado)=>{
-  array = nuevoListado;
-}
- */
+/*  const setVideojuegos = (nuevoListado)=>{
+  videojuegos = nuevoListado;
+} */
+ 
 // ---------- VALIDACIÓN ----------
 const validarFormulario = ({ titulo, desarrollador, genero }) => {
   const errores = [];
@@ -37,16 +37,11 @@ const validarFormulario = ({ titulo, desarrollador, genero }) => {
   return errores;
 };
 
-// ---------- FILTRO ----------
-
-const filtrarPorGenero = (videojuegos, genero) => {
-  return !genero ? videojuegos : videojuegos.filter((v) => v.genero === genero);
-};
 
 // ---------- TABLA ----------
 
-const renderTabla = (form, videojuegos) => {
-  form.innerHTML = "";
+const renderTabla = (tbody, videojuegos) => {
+  tbody.innerHTML = "";
   videojuegos.forEach((juego) => {
     const fila = document.createElement("tr");
     fila.innerHTML = `<td>${juego.titulo}</td>
@@ -55,11 +50,11 @@ const renderTabla = (form, videojuegos) => {
     <td><button class="eliminar" data-id="${juego.id}">Eliminar</button></td>
     <td><button class="ver" data-id="${juego.id}">Ver</button></td>
     `;
-    form.appendChild(fila);
+    tbody.appendChild(fila);
   });
 };
 //Mostrar mensaje 3 segundos con setTimeout.
-const mostrarMensaje = (erroresSeccion, texto, tiempo = 3000) => {
+const mostrarMensaje = (erroresSeccion, texto, tiempo =5000) => {
   erroresSeccion.textContent = texto;
   erroresSeccion.classList.remove("oculto");
 
@@ -68,21 +63,13 @@ const mostrarMensaje = (erroresSeccion, texto, tiempo = 3000) => {
     erroresSeccion.textContent = "";
   }, tiempo);
 };
+// ---------- FILTRO ----------
 
+const filtrarPorGenero = (videojuegos, genero) => {
+  return !genero ? videojuegos : videojuegos.filter((v) => v.genero === genero);
+};
 // ---------- DETALLES ----------
 
-/* const crearDetalleVideojuego = (videojuego) => {
-  return `
-    <h3>${videojuego.titulo}</h3>
-    <p><strong>Plataforma:</strong> ${videojuego.plataforma ?? "No especificada"}</p>
-    <h4>Personajes</h4>
-    <ul>
-      ${(videojuego.personajes || [])
-        .map(p => `<li>${p.nombre}</li>`)
-        .join("")}
-    </ul>
-  `;
-}; */
 const pintarDetalle = (contenedor, videojuego) => {
   contenedor.innerHTML = `
     <h3>${videojuego.titulo}</h3>
