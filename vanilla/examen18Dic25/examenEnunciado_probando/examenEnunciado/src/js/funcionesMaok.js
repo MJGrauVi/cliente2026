@@ -6,7 +6,6 @@ const traerDatos = async (url) => {
   const respuesta = await fetch(url);
 
   if (!respuesta.ok) {
-    console.log(typeof respuesta);
     throw new Error(`Error ${respuesta.status} - ${respuesta.statusText}`);
   }
   const datos = await respuesta.json();
@@ -17,7 +16,7 @@ const traerDatos = async (url) => {
 /*  const setVideojuegos = (nuevoListado)=>{
   videojuegos = nuevoListado;
 } */
- 
+
 // ---------- VALIDACIÓN ----------
 const validarFormulario = ({ titulo, desarrollador, genero }) => {
   const errores = [];
@@ -37,7 +36,6 @@ const validarFormulario = ({ titulo, desarrollador, genero }) => {
   return errores;
 };
 
-
 // ---------- TABLA ----------
 
 const renderTabla = (tbody, videojuegos) => {
@@ -54,7 +52,7 @@ const renderTabla = (tbody, videojuegos) => {
   });
 };
 //Mostrar mensaje 3 segundos con setTimeout.
-const mostrarMensaje = (erroresSeccion, texto, tiempo =5000) => {
+const mostrarMensaje = (erroresSeccion, texto, tiempo = 5000) => {
   erroresSeccion.textContent = texto;
   erroresSeccion.classList.remove("oculto");
 
@@ -74,11 +72,14 @@ const pintarDetalle = (contenedor, videojuego) => {
   contenedor.innerHTML = `
     <h3>${videojuego.titulo}</h3>
     <p><strong>Plataforma:</strong> ${
-      videojuego.plataforma ?? "No especificada"
+      videojuego.plataforma_principal ?? "No especificada"
     }</p>
-    <h4>Personajes</h4>
+      <p><strong>Lanzamiento:</strong> ${
+        videojuego.lanzamiento ?? "No especificado"
+      }</p>
+    <h4><strong>Personajes: </strong></h4>
     <ul>
-      ${(videojuego.personajes || [])
+      ${(videojuego.listado_personajes || [])
         .map((p) => `<li>${p.nombre}</li>`)
         .join("")}
     </ul>

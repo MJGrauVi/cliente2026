@@ -1,0 +1,225 @@
+{
+  "productos": [
+    {
+      "id": "786a34d2-7c1a-4f5b-9d8e-12a34b56c7d8",
+      "titulo": "Litera tronco abeto",
+      "realizado": 2020,
+      "genero": "Abeto",
+      "plataforma_principal": "PS4, PS5",
+      "url_caratula": "https://ejemplo.com/imagenes/letera_abeto.jpg",
+      "listado_imagenes": [
+        "http://localhost:3000/imagenes/e11d9f8c-4567-4321-b123-abcdef000001",
+        "http://localhost:3000/imagenes/e11d9f8c-4567-4321-b123-abcdef000002",
+        "http://localhost:3000/imagenes/e11d9f8c-4567-4321-b123-abcdef000003"
+      ]
+    },
+       {
+      "id": "786a34d2-7c1a-4f5b-9d8e",
+      "titulo": "Mesa flores",
+      "realizado": 2022,
+      "genero": "Abeto",
+      "plataforma_principal": "PS4",
+      "url_caratula": "https://ejemplo.com/imagenes/mesa_flores.jpg",
+      "listado_imagenes": [
+        "http://localhost:3000/imagenes/e11d9f8c-4567-4321-b123-abcdef000001",
+        "http://localhost:3000/imagenes/e11d9f8c-4567-4321-b123-abcdef000002",
+        "http://localhost:3000/imagenes/e11d9f8c-4567-4321-b123-abcdef000003"
+      ]
+    },
+       {
+      "id": "786a34d2-7c1a-4f5b-9d8e-12a34b56c7d8",
+      "titulo": "banco",
+      "realizado": 2020,
+      "genero": "Abeto",
+      "plataforma_principal": "PS4, PS5",
+      "url_caratula": "https://ejemplo.com/imagenes/banco.jpg",
+      "listado_imagenes": [
+        "http://localhost:3000/imagenes/e11d9f8c-4567-4321-b123-abcdef000001",
+        "http://localhost:3000/imagenes/e11d9f8c-4567-4321-b123-abcdef000002",
+        "http://localhost:3000/imagenes/e11d9f8c-4567-4321-b123-abcdef000003"
+      ]
+    }
+  ],
+  "personajes": [
+    {
+      "id": "e11d9f8c-4567-4321-b123-abcdef000001",
+      "nombre": "Ellie Williams",
+      "rol": "Protagonista",
+      "descripcion": "Una joven inmune que busca venganza a través de un viaje emocional destructivo."
+    },
+    {
+      "id": "e11d9f8c-4567-4321-b123-abcdef000002",
+      "nombre": "Abby Anderson",
+      "rol": "Coprotagonista",
+      "descripcion": "Una soldado de la WLF cuyo pasado está ligado irremediablemente a Joel y Ellie."
+    },
+    {
+      "id": "e11d9f8c-4567-4321-b123-abcdef000003",
+      "nombre": "Joel Miller",
+      "rol": "Mentor / Personaje clave",
+      "descripcion": "El protector de Ellie en el primer juego, cuya decisión marca toda la secuela."
+    },
+    {
+      "id": "f22e0a9d-5678-5432-c234-bcdefa000004",
+      "nombre": "Cloud Strife",
+      "rol": "Protagonista",
+      "descripcion": "Un ex-SOLDADO mercenario con un pasado fragmentado y una espada mortal."
+    },
+    {
+      "id": "f22e0a9d-5678-5432-c234-bcdefa000005",
+      "nombre": "Aerith Gainsborough",
+      "rol": "Protagonista / Cetra",
+      "descripcion": "La última de los Ancianos, con una conexión profunda con el Planeta."
+    },
+    {
+      "id": "f22e0a9d-5678-5432-c234-bcdefa000006",
+      "nombre": "Sephiroth",
+      "rol": "Antagonista",
+      "descripcion": "El legendario guerrero que busca convertirse en un dios mediante la Corriente Vital."
+    },
+    {
+      "id": "a33f1b0e-6789-6543-d345-cdefab000007",
+      "nombre": "Saga Anderson",
+      "rol": "Protagonista (FBI)",
+      "descripcion": "Una perfiladora del FBI experta en resolver casos imposibles mediante su 'Lugar Mental'."
+    },
+    {
+      "id": "a33f1b0e-6789-6543-d345-cdefab000008",
+      "nombre": "Alan Wake",
+      "rol": "Protagonista (Escritor)",
+      "descripcion": "Un escritor atrapado en el Lugar Oscuro intentando escribir su vía de escape."
+    },
+    {
+      "id": "a33f1b0e-6789-6543-d345-cdefab000009",
+      "nombre": "Mr. Scratch",
+      "rol": "Antagonista",
+      "descripcion": "La versión oscura y malévola de Alan Wake nacida de los rumores y el Lugar Oscuro."
+    },
+    {
+      "id": "b44g2c1f-7890-7654-e456-defabc000010",
+      "nombre": "Lobo (Sekiro)",
+      "rol": "Protagonista",
+      "descripcion": "Un shinobi de un solo brazo jurado a proteger al Descendiente Celestial."
+    },
+    {
+      "id": "b44g2c1f-7890-7654-e456-defabc000011",
+      "nombre": "Kuro",
+      "rol": "Personaje secundario clave",
+      "descripcion": "El Descendiente Celestial que posee el linaje del Acervo del Dragón."
+    },
+    {
+      "id": "b44g2c1f-7890-7654-e456-defabc000012",
+      "nombre": "Genichiro Ashina",
+      "rol": "Antagonista",
+      "descripcion": "Un guerrero desesperado por salvar su tierra natal a cualquier coste espiritual."
+    },
+    {
+      "id": "c55h3d2g-8901-8765-f567-efabcd000013",
+      "nombre": "Sam Porter Bridges",
+      "rol": "Protagonista",
+      "descripcion": "Un transportista encargado de reconectar a una sociedad fragmentada."
+    },
+    {
+      "id": "c55h3d2g-8901-8765-f567-efabcd000014",
+      "nombre": "Fragile",
+      "rol": "Aliada",
+      "descripcion": "Directora de una empresa de mensajería con habilidades especiales de desplazamiento."
+    },
+    {
+      "id": "c55h3d2g-8901-8765-f567-efabcd000015",
+      "nombre": "Higgs Monaghan",
+      "rol": "Antagonista",
+      "descripcion": "Un terrorista con poderes de DOOMS que busca acelerar la extinción final."
+    },
+    {
+      "id": "d66i4e3h-9012-9876-a678-fabcde000016",
+      "nombre": "Joker",
+      "rol": "Protagonista",
+      "descripcion": "Líder de los Phantom Thieves con la habilidad de cambiar los corazones de los corruptos."
+    },
+    {
+      "id": "d66i4e3h-9012-9876-a678-fabcde000017",
+      "nombre": "Morgana",
+      "rol": "Guía",
+      "descripcion": "Un ser misterioso con forma de gato que introduce al equipo al Metaverso."
+    },
+    {
+      "id": "d66i4e3h-9012-9876-a678-fabcde000018",
+      "nombre": "Kasumi Yoshizawa",
+      "rol": "Aliada clave (Royal)",
+      "descripcion": "Una gimnasta talentosa que se une al grupo con un conflicto de identidad profundo."
+    },
+    {
+      "id": "e77j5f4i-0123-0987-b789-abcdef000019",
+      "nombre": "El Caballero (The Knight)",
+      "rol": "Protagonista",
+      "descripcion": "Un receptáculo sin voz que explora el reino en ruinas de Hallownest."
+    },
+    {
+      "id": "e77j5f4i-0123-0987-b789-abcdef000020",
+      "nombre": "Hornet",
+      "rol": "Aliada / Rival",
+      "descripcion": "La guardiana de las ruinas que pone a prueba al caballero en su viaje."
+    },
+    {
+      "id": "e77j5f4i-0123-0987-b789-abcdef000021",
+      "nombre": "El Rey Pálido",
+      "rol": "Personaje histórico clave",
+      "descripcion": "El antiguo gobernante que intentó salvar Hallownest de la infección."
+    },
+    {
+      "id": "f88k6g5j-1234-1098-c890-bcdefa000022",
+      "nombre": "2B (YoRHa No.2 Type B)",
+      "rol": "Protagonista",
+      "descripcion": "Androide de combate diseñada para luchar contra máquinas invasoras en la Tierra."
+    },
+    {
+      "id": "f88k6g5j-1234-1098-c890-bcdefa000023",
+      "nombre": "9S (YoRHa No.9 Type S)",
+      "rol": "Coprotagonista",
+      "descripcion": "Androide de escaneo especializado en la recopilación de datos y hackeo."
+    },
+    {
+      "id": "f88k6g5j-1234-1098-c890-bcdefa000024",
+      "nombre": "A2 (YoRHa Type A No.2)",
+      "rol": "Protagonista / Fugitiva",
+      "descripcion": "Un prototipo de androide desertora que opera de forma independiente."
+    },
+    {
+      "id": "a99l7h6k-2345-2109-d901-cdefab000025",
+      "nombre": "Zale",
+      "rol": "Protagonista (Bailarín Solar)",
+      "descripcion": "Un Guerrero del Solsticio capaz de usar magia solar para purificar el mal."
+    },
+    {
+      "id": "a99l7h6k-2345-2109-d901-cdefab000026",
+      "nombre": "Valere",
+      "rol": "Protagonista (Monje Lunar)",
+      "descripcion": "Una Guerrera del Solsticio que canaliza los poderes de la luna en combate."
+    },
+    {
+      "id": "a99l7h6k-2345-2109-d901-cdefab000027",
+      "nombre": "Garl",
+      "rol": "Mejor amigo / Cocinero guerrero",
+      "descripcion": "Un humano común con un corazón de oro que acompaña a los protagonistas."
+    },
+    {
+      "id": "b00m8i7l-3456-3210-e012-defabc000028",
+      "nombre": "El Predestinado (Sun Wukong)",
+      "rol": "Protagonista",
+      "descripcion": "Un mono guerrero que sigue los pasos de la leyenda del Rey Mono."
+    },
+    {
+      "id": "b00m8i7l-3456-3210-e012-defabc000029",
+      "nombre": "Zhu Bajie",
+      "rol": "Compañero",
+      "descripcion": "Un antiguo dios convertido en cerdo que ayuda al protagonista con humor y fuerza."
+    },
+    {
+      "id": "b00m8i7l-3456-3210-e012-defabc000030",
+      "nombre": "Erlang Shen",
+      "rol": "Rival / Antagonista",
+      "descripcion": "Un dios poderoso de tres ojos que se opone al destino del protagonista."
+    }
+  ]
+}

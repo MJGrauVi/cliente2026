@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const tbody = document.querySelector("#tablaVideojuegos tbody");
   const form = document.getElementById("videojuegosFormulario");
   const erroresSeccion = document.getElementById("erroresSeccion");
-  document.getElementById("filtrosGenero").value = "";
+  
   const filtrosGenero = document.getElementById("filtrosGenero");
   const detallesSeccion = document.getElementById("detallesSeccion");
   const botonesSeguridad = document.querySelectorAll(
@@ -29,11 +29,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     videojuegos = await traerDatos(URL_VIDEOJUEGOS);
-    console.log(videojuegos);
+    console.log("Consola: ", videojuegos);
+    console.table("Table: ", videojuegos);
+
   } catch (error) {
     mostrarMensaje(erroresSeccion, "No se pudo cargar la API.");
   }
-  //renderTabla(tbody, videojuegos);
+  renderTabla(tbody, videojuegos);
   mostrarMensaje(
     erroresSeccion,
     "Datos cargados desde API:host:3000/videojuegos",
@@ -58,8 +60,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       mostrarMensaje(erroresSeccion, errores.join(" - "));
       return;
     }
-    //videojuegos = [...videojuegos, nuevo];
-   videojuegos.push(nuevo);
+    videojuegos = [...videojuegos, nuevo];
+   //videojuegos.push(nuevo);
 
     //Muestra los videojuegos añadidos con el formulario y los cargados desde la API.
     renderTabla(tbody, videojuegos);
@@ -116,6 +118,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   botonesSeguridad[1].addEventListener("click", () => {
+    //creamos referencia nueva para poder mostrar los datos que hay en localstorage.
+    //los que hay en la API más los que hemos incluido con el formulario.
     videojuegos = cargarDesdeLocalStorage(CLAVE_STORAGE);
     mostrarMensaje(
       erroresSeccion,
