@@ -4,13 +4,9 @@ import { traerDatos } from "../../funciones/funciones.js";
 import "./ListaPeliculas.css";
 
 const ListaPeliculas = () => {
-  //Obtenemos la función para seleccionar la película desde el contexto.
   const { seleccionarPelicula } = useContext(ContextoPelicula);
-
-  //Estado para almacenar las peliculas .
   const [films, setFilms] = useState([]);
 
-  //Ejecuta el código y carga las peliculas.
   useEffect(() => {
     const cargarPeliculas = async () => {
       try {
@@ -21,15 +17,29 @@ const ListaPeliculas = () => {
       }
     };
     cargarPeliculas();
-  }, []);//Dependencia [] vacia indica que se monta solo 1 vez, al cargar la aplicación.
+  }, []);
+
+  // Manejo de clic con delegación de eventos.
+  const manejarClic = (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+
+    const id = Number(e.target.dataset.id); // <- CORRECCIÓN
+    const filmSeleccionada = films.find(
+      (film) => film.episode_id === id
+    );
+
+    if (filmSeleccionada) {
+      seleccionarPelicula(filmSeleccionada);
+    }
+  };
 
   return (
     <div>
       <h2>Películas</h2>
-      <ul>
+      <ul onClick={manejarClic}>
         {films.map((film) => (
           <li key={film.episode_id}>
-            <button onClick={() => seleccionarPelicula(film)}>{film.title}</button>
+            <button data-id={film.episode_id}>{film.title}</button>
           </li>
         ))}
       </ul>

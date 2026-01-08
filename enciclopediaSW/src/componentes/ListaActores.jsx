@@ -12,15 +12,15 @@ const ListaActores = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { //se ejecuta cada vez que camdia selectedFilm, dependencia[selectedFilm].
     if (!selectedFilm) {
       setActors([]);
       return;
     }
 
-    let active = true;
+    let active = true;//Evita que se actualice el estado del componente cuando ya no existe.
 
-    async function loadActors() {
+     const loadActors = async () => {
       setLoading(true);
       setError(null);
 
@@ -30,7 +30,7 @@ const ListaActores = () => {
         // Usando traerDatos en lugar de fetch directo
         const data = await Promise.all(urls.map((url) => traerDatos(url)));
 
-        if (active) setActors(data);
+        if (active) setActors(data);//Actualiza el estado si el componente está montado.
       } catch (err) {
         if (active) setError(err.message);
       } finally {
@@ -41,9 +41,20 @@ const ListaActores = () => {
     loadActors();
 
     return () => {
-      active = false;
+      active = false;//Cambia a false cuando se desmonta el componente(cambia SelectedFilm).
     };
   }, [selectedFilm]);
+
+  const manejarClic = (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+
+    const url = e.target.dataset.url;
+    const actor = actors.find((a) => a.url === url);
+
+    if (actor) {
+      seleccionarActor(actor);
+    }
+  };
 
   if (!selectedFilm) return null;
 
@@ -54,10 +65,10 @@ const ListaActores = () => {
       {loading && <p>Cargando actores...</p>}
       {error && <p>{error}</p>}
 
-      <ul>
+      <ul onClick={manejarClic}>
         {actors.map((actor) => (
           <li key={actor.url}>
-            <button onClick={() => seleccionarActor(actor)}>
+            <button data-url={actor.url}>
               {actor.name}
             </button>
           </li>
