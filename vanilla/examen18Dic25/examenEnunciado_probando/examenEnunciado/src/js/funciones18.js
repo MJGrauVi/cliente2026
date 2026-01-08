@@ -19,7 +19,9 @@ const traerDatosConPromiseAll = async (urls = []) => {
 
 const validarFormulario = ({ titulo, desarrollador, genero }) => {
     let errores = [];
-    if (!titulo || titulo.length < 4) {
+    const regExp = /^[A-Za-z\s]{4,}$/;
+    
+    if (!titulo || !regExp.test(titulo)) {
         errores.push("El título es obligatorio y debe tener al menos 4 caracteres.");
     }
     if (!desarrollador || desarrollador.length < 4) {

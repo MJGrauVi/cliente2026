@@ -43,7 +43,7 @@ async function main() {
       mostrarDatos(tbody, videojuegos);
       mostrarMensaje(seccionErrores, "Datos API CARGADOS");
     } catch (error) {
-      console.error(`Error en la carga de desde la API`);
+      console.error(`Error en la carga de datos desde la API`);
       mostrarMensaje(seccionErrores, "No se han cargado LOS DATOS");
     }
   }
@@ -121,6 +121,7 @@ async function main() {
 
     if (e.target.textContent.includes("Guardar copia de seguridad")) {
       console.log("Guardando copia de seguridad");
+      mostrarMensaje(seccionErrores, "Copia de seguridad guardada.");
       guardarEnLocalStorage("videojuegos", videojuegos);
 
     }
@@ -132,7 +133,7 @@ async function main() {
     }
 
   });
-  localStorage.removeItem("videojuegos");
+  //localStorage.removeItem("videojuegos");
 };//fin
 
 
