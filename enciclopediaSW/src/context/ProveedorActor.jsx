@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { traerDatos } from "../../funciones/funciones.js";
+import { traerDatos } from "../funciones/funciones.js";
 
 //Creamos el contexto para compartir los estados y funciones, (value).
 const ContextoActor = createContext();

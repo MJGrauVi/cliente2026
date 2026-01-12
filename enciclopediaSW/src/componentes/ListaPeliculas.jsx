@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import { ContextoPelicula } from "../context/ProveedorPelicula.jsx";
-import { traerDatos } from "../../funciones/funciones.js";
+import { traerDatos } from "../funciones/funciones.js";
 import "./ListaPeliculas.css";
 
 const ListaPeliculas = () => {
