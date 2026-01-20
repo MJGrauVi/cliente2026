@@ -10,6 +10,10 @@ const CD_LOCAL_STORAGE = "coleccionDiscos";
 const cargarDiscosDesdeLocalStorage = () => {
   try {
     const discosGuardados = localStorage.getItem(CD_LOCAL_STORAGE); //Guarda un string.
+<<<<<<< HEAD
+=======
+    console.log(typeof discosGuardados);
+>>>>>>> 4bc89b6f46177c07f7ebe45f6db299b8601eb128
     if (discosGuardados) {
       const guardadoJson = JSON.parse(discosGuardados); //Convierto en objeto
       return guardadoJson;
@@ -114,6 +118,14 @@ const generarIdDisco = () => {
 export {
   cargarDiscosDesdeLocalStorage,
   guardarDiscosEnLocalStorage,
+<<<<<<< HEAD
+=======
+  /*  validarNombreDisco,
+  validarGrupo,
+  validarAnio,
+  validarGenero,
+  validarLocalizacion, */
+>>>>>>> 4bc89b6f46177c07f7ebe45f6db299b8601eb128
   validarDiscoCompleto,
   generarIdDisco,
 };

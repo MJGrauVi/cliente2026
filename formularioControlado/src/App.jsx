@@ -10,6 +10,10 @@ const App = () => {
   return (
     <div className="contenedor-app">
       <Header>
+<<<<<<< HEAD
+=======
+        <h2>Mi Colección de Discos</h2>
+>>>>>>> 4bc89b6f46177c07f7ebe45f6db299b8601eb128
         <Menu />
       </Header>
 
