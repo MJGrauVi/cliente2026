@@ -1,6 +1,6 @@
 "use strict";
 
-export function renderPeliculas(listaPeliculas) {
+function renderPeliculas(listaPeliculas) {
   const ul = document.getElementById("listaPeliculas");
   if (!ul) return;
 
@@ -9,7 +9,7 @@ export function renderPeliculas(listaPeliculas) {
     .join("");
 }
 
-export function mostrarDetalles(pelicula) {
+function mostrarDetalles(pelicula) {
   const detalles = document.getElementById("detalles");
   if (!detalles) return;
 
@@ -20,7 +20,7 @@ export function mostrarDetalles(pelicula) {
   `;
 }
 
-export function mostrarError(mensaje) {
+function mostrarError(mensaje) {
   const ul = document.getElementById("listaPeliculas");
   if (ul) {
     ul.innerHTML = `<li>${mensaje}</li>`;
@@ -28,3 +28,4 @@ export function mostrarError(mensaje) {
     console.error(mensaje);
   }
 }
+export { renderPeliculas, mostrarDetalles, mostrarError }

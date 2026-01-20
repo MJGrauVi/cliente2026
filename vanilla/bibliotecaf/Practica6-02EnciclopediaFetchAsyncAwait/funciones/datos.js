@@ -10,3 +10,4 @@ export async function traerDatos(urlApi) {
     return [];
   }
 }
+export {traerDatos};

@@ -1,16 +1,24 @@
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Menu from "./routes/Menu.jsx";
+import Rutas from "./routes/Rutas.jsx";
+import Contenedor from "./estructura/Contenedor.jsx";
+import Header from "./estructura/Header.jsx";
+import Footer from "./estructura/Footer.jsx";
 
-
-import './App.css'
-
-function App() {
- 
-
+const App = () => {
   return (
-    <>
-      <div>Mi colección de discos</div>
-    
-    </>
-  )
-}
+    <div className="contenedor-app">
+      <Header>
+        <Menu />
+      </Header>
 
-export default App
+      <Contenedor>
+        <Rutas />
+      </Contenedor>
+      <Footer />
+    </div>
+  );
+};
+
+export default App;

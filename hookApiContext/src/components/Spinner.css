@@ -1,0 +1,25 @@
+/* Centrado del spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 50px;
+}
+
+/* Estilo del spinner */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ccc;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: girar 0.99s linear infinite;
+}
+
+/* Animación */
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}

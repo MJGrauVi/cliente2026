@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>CV DAW PDF</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+<button id="generarCV">Generar CV</button>
+<script>
+const { jsPDF } = window.jspdf;
+
+document.getElementById("generarCV").addEventListener("click", () => {
+  const doc = new jsPDF();
+
+  let y = 20;
+
+  // Foto (opcional)
+  // Reemplaza 'tu_foto.jpg' por tu URL o archivo Base64
+  const fotoWidth = 30;
+  const fotoHeight = 40;
+  doc.addImage('assets/mjgv.jpg', 'JPEG', 160, 20, fotoWidth, fotoHeight);
+
+  // Título
+  doc.setFontSize(16);
+  doc.text("CURRÍCULUM VITAE", 20, y);
+  y += 10;
+
+  // Datos personales
+  doc.setFontSize(12);
+  addParagraph("María José Grau Vidal", 12, 2);
+  addParagraph("Petrer · mariajosegrauvidal@gmail.com · github.com/MJGrauVi", 12, 8);
+
+  // Perfil profesional
+  doc.setFontSize(14);
+  doc.text("PERFIL PROFESIONAL", 20, y); y += 6;
+  doc.setFontSize(11);
+  doc.text("Estudiante de 2º del Ciclo Formativo de Grado Superior en DAW, en fase de FCT. "
+            + "Perfil responsable y organizado, con amplia experiencia laboral previa y formación actual en desarrollo web backend con PHP y Laravel. "
+            + "Con conocimientos en desarrollo frontend con JavaScript y React. "
+            + "Acostumbrado a trabajar con proyectos, control de versiones y entornos de desarrollo.", 20, y, {maxWidth: 170});
+  y += 30;
+
+  // Formación
+  doc.setFontSize(14);
+  doc.text("FORMACIÓN", 20, y); y += 6;
+  doc.setFontSize(11);
+  doc.text("Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Web (DAW) — En curso", 20, y); y += 6;
+  doc.text("Backend con Java y PHP · JavaScript · HTML · CSS · Arquitectura MVC · Laravel · React · Git y GitHub", 20, y, {maxWidth: 170}); y += 8;
+  doc.text("Acceso a la Universidad para mayores de 25 años — Universidad de Relaciones Laborales de Alicante", 20, y); y += 12;
+
+  // Competencias técnicas
+  doc.setFontSize(14);
+  doc.text("COMPETENCIAS TÉCNICAS", 20, y); y += 6;
+  doc.setFontSize(11);
+  doc.text("Java · PHP · JavaScript · HTML5 · CSS3 · Laravel · React · Bootstrap · Tailwind CSS · Git/GitHub · VS Code · PhpStorm", 20, y, {maxWidth: 170}); y += 12;
+
+  // Experiencia profesional
+  doc.setFontSize(14);
+  doc.text("EXPERIENCIA PROFESIONAL", 20, y); y += 6;
+  doc.setFontSize(11);
+  doc.text("Responsable de Administración de Ventas – Concesionario FORD (1989–1998)", 20, y); y += 6;
+  doc.text("Gestor Inmobiliario – Promoción y Construción de Viviendas (1998–2015)", 20, y); y += 6;
+  doc.text("Responsable de Gestión Ganadera (2015–2021)", 20, y); y += 6;
+  doc.text("Amplia experiencia en gestión administrativa, documentación, coordinación y cumplimiento de plazos.", 20, y, {maxWidth: 170}); y += 12;
+
+  // Idiomas
+  doc.setFontSize(14);
+  doc.text("IDIOMAS", 20, y); y += 6;
+  doc.setFontSize(11);
+  doc.text("Inglés: B1 (lectura técnica básica)", 20, y); y += 6;
+
+  // Guardar PDF
+  doc.save("CV_DAW_JS.pdf");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+   "name": "mi-proyecto",
+  "version": "1.0.0",
+  "scripts": {
+    "servidor": "json-server --watch ./src/assets/productos.json --port 3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}

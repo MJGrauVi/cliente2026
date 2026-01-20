@@ -1,17 +1,23 @@
 "use strict";
 
-import { traerDatos, validarFormulario, mostrarDatos, mostrarMensaje, filtrarPorGenero, pintarDetalle, guardarEnLocalStorage, cargarDesdeLocalStorage } from "./js/funciones18.js";
+import {
+  traerDatos,
+  validarFormulario,
+  mostrarDatos,
+  mostrarMensaje,
+  filtrarPorGenero,
+  pintarDetalle,
+  guardarEnLocalStorage,
+  cargarDesdeLocalStorage,
+} from "./js/funciones18.js";
 
 //Arranca la aplicacion.
 document.addEventListener("DOMContentLoaded", () => {
-
   main();
-
-});//fin.
+}); //fin.
 
 //Toda la lógica de la aplicación
 async function main() {
-
   /************************** */
   //Constantes y variables.
   /************************** */
@@ -37,7 +43,6 @@ async function main() {
     mostrarDatos(tbody, videojuegos);
     mostrarMensaje(seccionErrores, "Datos cargados desde LocalStorage");
   } else {
-
     try {
       videojuegos = await traerDatos(url);
       mostrarDatos(tbody, videojuegos);
@@ -48,13 +53,11 @@ async function main() {
     }
   }
 
-
   /****************************************** */
   //Control del formulario, submit.
   /****************************************** */
 
   formulario.addEventListener("submit", (evento) => {
-
     evento.preventDefault();
 
     const nuevo = {
@@ -63,8 +66,7 @@ async function main() {
       desarrollador: formulario.desarrollador.value.trim(),
       genero: formulario.genero.value,
       plataforma_principal: "Desconocida",
-      listado_personajes: []
-
+      listado_personajes: [],
     };
     const errores = validarFormulario(nuevo);
     if (errores.length) {
@@ -73,19 +75,22 @@ async function main() {
       return;
     }
     videojuegos = [...videojuegos, nuevo];
-    mostrarMensaje(seccionErrores, "Videojuego añadido correctamente.")
+    mostrarMensaje(seccionErrores, "Videojuego añadido correctamente.");
     mostrarDatos(tbody, videojuegos);
     formulario.reset();
   });
 
   //MOSTRAR FILTRADOS.
   seccionFiltrado.value = "";
-  seccionFiltrado.addEventListener("change", () => {
+  seccionFiltrado.addEventListener(
+    "change",
+    () => {
+      const filtrados = filtrarPorGenero(videojuegos, seccionFiltrado.value);
 
-    const filtrados = filtrarPorGenero(videojuegos, seccionFiltrado.value);
-
-    mostrarDatos(tbody, filtrados);
-  }, false);
+      mostrarDatos(tbody, filtrados);
+    },
+    false
+  );
 
   //MOSTRAR DETALLE VIDEOJUEGO.
   tbody.addEventListener("click", async (evento) => {
@@ -108,9 +113,10 @@ async function main() {
   tbody.addEventListener("click", (evento) => {
     if (evento.target.classList.contains("eliminar")) {
       const idAEliminar = evento.target.dataset.id;
-      const nuevaLista = videojuegos.filter(v => v.id !== idAEliminar);
+      const nuevaLista = videojuegos.filter((v) => v.id !== idAEliminar);
       mostrarDatos(tbody, nuevaLista);
-      //videojuegos = [...nuevaLista];
+      //Actualizo la lista de vidiojuegos.
+      videojuegos = [...nuevaLista];
     }
   });
 
@@ -123,17 +129,14 @@ async function main() {
       console.log("Guardando copia de seguridad");
       mostrarMensaje(seccionErrores, "Copia de seguridad guardada.");
       guardarEnLocalStorage("videojuegos", videojuegos);
-
     }
     if (e.target.textContent.includes("Cargar copia de seguridad")) {
       console.log("Cargargando copia de seguridad");
       videojuegos = cargarDesdeLocalStorage("videojuegos");
       mostrarDatos(tbody, videojuegos);
-
     }
-
   });
   //localStorage.removeItem("videojuegos");
-};//fin
+} //fin
 
 
